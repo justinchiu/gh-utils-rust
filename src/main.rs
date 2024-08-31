@@ -1,8 +1,8 @@
-use std::path::Path;
-use std::time::Instant;use csv::Reader;
+use csv::Reader;
 use csv::StringRecord;
 use octocrab::Octocrab;
-
+use std::path::Path;
+use std::time::Instant;
 
 fn get_owner_repo(record: &StringRecord) -> (&str, &str) {
     let parts: Vec<&str> = record.get(0).unwrap().split('/').collect();
@@ -11,8 +11,6 @@ fn get_owner_repo(record: &StringRecord) -> (&str, &str) {
     }
     (parts[0], parts[1])
 }
-
-
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -34,12 +32,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let (owner, repo) = get_owner_repo(&record);
         println!("{owner} {repo}");
 
-
-        let content = octocrab
-            .repos(owner, repo)
-            .get_content()
-            .send()
-            .await?;
+        let content = octocrab.repos(owner, repo).get_content().send().await?;
         let num_files = content.items.len();
         println!("{num_files} files/dirs in the repo {owner}/{repo}");
 
