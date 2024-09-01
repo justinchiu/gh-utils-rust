@@ -77,7 +77,10 @@ fn get_stats(record: &StringRecord) -> () {
             // Read the file content as a string
             let content = match read_file_to_string(path) {
                 Ok(content) => content,
-                Err(e) => "",
+                Err(e) => {
+                    eprintln!("Error reading file {:?}: {}", path, e);
+                    String::new()
+                },
             };
         }
     }
