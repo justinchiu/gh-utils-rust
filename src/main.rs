@@ -50,12 +50,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     for path in objects.iter() {
         progress_bar.inc(1);
         let result: GetResult = store.get(path).await.unwrap();
+        println!("Got result");
         let data = result.bytes().await?;
+        println!("Got bytes");
         let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
         match process_parquet(data) {
             Ok(mut results) => all_results.append(&mut results),
             Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
-        }
+        };
+        println!("yay!");
     }
     progress_bar.finish();
 
@@ -74,7 +77,7 @@ fn process_parquet(data: Bytes) -> Result<Vec<Info>, Box<dyn std::error::Error>>
 
     let mut results = Vec::new();
 
-    println!("Number of rows: {}", reader.num_rows());
+    println!("Number of row groups: {}", reader.num_row_groups());
 
     Ok(results)
 }
