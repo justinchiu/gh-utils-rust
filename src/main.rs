@@ -10,6 +10,16 @@ use arrow::record_batch::RecordBatchReader;
 use indicatif::{ProgressBar, ProgressStyle, ParallelProgressIterator};
 use rayon::prelude::*;
 
+#[derive(Default,Debug)]
+struct Info {
+    repo: String,
+    num_lines: usize,
+    num_files: usize,
+    has_tests: bool,
+    has_docs: bool,
+}
+
+
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let bucket_name = "cohere-data";
@@ -81,7 +91,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-fn process_parquet(data: &[u8]) -> Result<Vec<String>, Box<dyn std::error::Error>> {
+fn process_parquet(data: &[u8]) -> Result<Vec<Info>, Box<dyn std::error::Error>> {
     let bytes = Bytes::from(data.to_vec());
     let builder = ParquetRecordBatchReaderBuilder::try_new(bytes)?;
     let reader = builder.build()?;
