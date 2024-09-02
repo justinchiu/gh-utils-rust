@@ -23,7 +23,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     if let Some(items) = objects.items {
         for object in items {
-            if let Some(object_name) = object.name {
+            if let Some(object_name) = object.name.clone() {
                 if !object_name.ends_with(".parquet") {
                     continue;
                 }
