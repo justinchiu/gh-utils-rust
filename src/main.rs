@@ -8,6 +8,7 @@ use walkdir::{DirEntry, WalkDir};
 use octocrab::Octocrab;
 use futures::future::try_join_all;
 use std::sync::Arc;
+use regex::Regex;
 
 #[derive(Default,Debug)]
 struct Stats {
@@ -96,7 +97,7 @@ async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn std::error::Erro
             // println!("{}", content);
             stats.num_files += 1;
             stats.num_lines += content.lines().count();
-            if path.to_str().unwrap_or("").contains("test") {
+            if is_test_file(path, &content) {
                 stats.has_tests = true;
             }
             if path.to_str().unwrap_or("").contains("doc") || content.contains("/**") {
@@ -143,4 +144,16 @@ fn is_hidden(entry: &DirEntry) -> bool {
          .to_str()
          .map(|s| s.starts_with("."))
          .unwrap_or(false)
+}
+
+fn is_test_file(path: &Path, content: &str) -> bool {
+    let file_name = path.file_name().and_then(|s| s.to_str()).unwrap_or("");
+    let test_file_regex = Regex::new(r"test.*\.(?:py|rs|js|ts|java|cpp|cs)$").unwrap();
+    
+    if test_file_regex.is_match(file_name) {
+        return true;
+    }
+
+    let test_content_regex = Regex::new(r"(?i)(unittest|pytest)").unwrap();
+    test_content_regex.is_match(content)
 }
