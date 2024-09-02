@@ -93,7 +93,7 @@ async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn std::error::Erro
                     String::new()
                 },
             };
-            println!("{}", content);
+            // println!("{}", content);
             stats.num_files += 1;
             stats.num_lines += content.lines().count();
             if path.to_str().unwrap_or("").contains("test") {
