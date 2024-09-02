@@ -2,6 +2,7 @@ use std::time::Instant;
 use google_cloud_storage::client::{Client, ClientConfig};
 use google_cloud_storage::http::objects::get::GetObjectRequest;
 use google_cloud_storage::http::objects::list::ListObjectsRequest;
+use std::default::Default;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -20,7 +21,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let objects = client.list_objects(&request).await?;
 
-    for object in objects.items.into_iter() {
+    for object in objects.items {
         let object_name = object.name;
         if !object_name.ends_with(".parquet") {
             continue;
@@ -34,7 +35,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             ..Default::default()
         };
 
-        let content = client.download_object(&get_request).await?;
+        let content = client.download_object(&get_request, &Default::default()).await?;
 
         // Process the Parquet file content here
         // For example, you can use the `parquet` crate to read the file
