@@ -9,5 +9,6 @@ futures = "0.3.30"
 git2 = "0.19.0"
 octocrab = "0.39.0"
 parquet = "52.2.0"
+regex = "1.5.4"
 tokio = { version = "1.39.3", features = ["macros", "rt-multi-thread"] }
 walkdir = "2.5.0"
