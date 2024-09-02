@@ -5,9 +5,9 @@ use object_store::{ObjectStore, path::Path};
 use parquet::arrow::arrow_reader::ParquetRecordBatchReaderBuilder;
 use object_store::GetResult;
 use arrow::array::StringArray;
-use arrow::record_batch::RecordBatchReader;
 use indicatif::{ProgressBar, ProgressStyle};
 use futures::StreamExt;
+use bytes::Bytes;
 
 #[derive(Default,Debug)]
 struct Info {
@@ -51,10 +51,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     for path in objects.iter() {
         progress_bar.inc(1);
         let result: GetResult = store.get(path).await.unwrap();
-        let object: Bytes = result.bytes().await.unwrap();
-        let data = object.bytes().await.unwrap();
+        let data = result.bytes().await?;
         let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-        match process_parquet(data.as_ref()) {
+        match process_parquet(&data) {
             Ok(mut results) => all_results.append(&mut results),
             Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
         }
@@ -71,8 +70,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn process_parquet(data: &[u8]) -> Result<Vec<Info>, Box<dyn std::error::Error>> {
-    let bytes = Bytes::from(data.to_vec());
-    let builder = ParquetRecordBatchReaderBuilder::try_new(bytes)?;
+    let builder = ParquetRecordBatchReaderBuilder::try_new(data)?;
     let reader = builder.build()?;
 
     let schema = reader.schema();
