@@ -74,7 +74,7 @@ fn process_parquet(data: Bytes) -> Result<Vec<Info>, Box<dyn std::error::Error>>
 
     let mut results = Vec::new();
 
-    println!("Number of rows: {}", iter.len);
+    println!("Number of rows: {}", reader.num_rows());
 
     Ok(results)
 }
