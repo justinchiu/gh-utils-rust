@@ -50,16 +50,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut all_results: Vec<Info> = Vec::new();
     for path in objects.iter() {
         progress_bar.inc(1);
-        match store.get(path).await {
-            Ok(object) => {
-                let data = object.bytes().await?;
-                let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-                match process_parquet(&data) {
-                    Ok(mut results) => all_results.append(&mut results),
-                    Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
-                }
-            },
-            Err(e) => eprintln!("Error fetching object {:?}: {:?}", path, e),
+        let object: Bytes = store.get(path).await.unwrap();
+        let data = object.bytes();
+        let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
+        match process_parquet(&data) {
+            Ok(mut results) => all_results.append(&mut results),
+            Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
         }
     }
     progress_bar.finish();
