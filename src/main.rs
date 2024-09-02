@@ -2,7 +2,7 @@ use std::time::Instant;
 use std::sync::Arc;
 use object_store::gcp::GoogleCloudStorageBuilder;
 use object_store::{ObjectStore, path::Path};
-use parquet::file::reader::SerializedFileReader;
+use parquet::file::reader::{FileReader, SerializedFileReader};
 use object_store::GetResult;
 use indicatif::{ProgressBar, ProgressStyle};
 use futures::StreamExt;
@@ -74,16 +74,7 @@ fn process_parquet(data: Bytes) -> Result<Vec<Info>, Box<dyn std::error::Error>>
 
     let mut results = Vec::new();
 
-    while let Some(row) = iter.next() {
-        let info = Info {
-            repo: row.get_string(0)?.to_string(),
-            num_lines: row.get_long(1)? as usize,
-            num_files: row.get_long(2)? as usize,
-            has_tests: row.get_bool(3)?,
-            has_docs: row.get_bool(4)?,
-        };
-        results.push(info);
-    }
+    println!("Number of rows: {}", iter.len);
 
     Ok(results)
 }
