@@ -6,7 +6,7 @@ use std::default::Default;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = run().await;
+    let client = run().await?;
 
     let bucket_name = "cohere-data";
     let prefix = "dataacq/github-repos/permissive_and_unlicensed/repo-level-rows/";
@@ -55,7 +55,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-async fn run() -> Client {
-    let config = ClientConfig::default().with_auth().await.unwrap();
-    Client::new(config)
+async fn run() -> Result<Client, Box<dyn std::error::Error>> {
+    let config = ClientConfig::default().with_auth().await?;
+    Ok(Client::new(config))
 }
