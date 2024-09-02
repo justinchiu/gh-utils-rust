@@ -13,39 +13,23 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let start = Instant::now();
 
-    let mut request = ListObjectsRequest {
+    let request = ListObjectsRequest {
         bucket: bucket_name.to_string(),
         prefix: Some(prefix.to_string()),
         ..Default::default()
     };
 
     let objects = client.list_objects(&request).await?;
+    let items = match objects.items {
+        Some(xs) => xs,
+        None => panic!("Unable to fulfill GCS request"),
+    };
 
-    if let Some(items) = objects.items {
-        for object in items {
-            if let Some(object_name) = object.name.clone() {
-                if !object_name.ends_with(".parquet") {
-                    continue;
-                }
+    let parquet_files = items.map(
+    );
 
-                println!("Processing file: {}", object_name);
-
-                let get_request = GetObjectRequest {
-                    bucket: bucket_name.to_string(),
-                    object: object_name.clone(),
-                    ..Default::default()
-                };
-
-                let content = client.download_object(&get_request, &Default::default()).await?;
-
-                // Process the Parquet file content here
-                // For example, you can use the `parquet` crate to read the file
-                // let reader = parquet::file::serialized_reader::SerializedFileReader::new(content.as_slice())?;
-                // ... process the Parquet data ...
-            }
-        }
-    } else {
-        println!("No objects found in the bucket with the given prefix.");
+    for item in items {
+        println!("{:?}", item);
     }
 
     let end = Instant::now();
