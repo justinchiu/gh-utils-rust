@@ -4,7 +4,7 @@ use std::path::Path;
 use std::time::Instant;
 use std::io::{self, BufReader, Read};
 use git2::Repository;
-use walkdir::WalkDir;
+use walkdir::{DirEntry, WalkDir};
 use octocrab::Octocrab;
 
 #[derive(Default,Debug)]
@@ -44,8 +44,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     let end = Instant::now();
-    let duration = (end - start).as_secs_f64();
-    println!("Duration: {duration}");
+    let duration = (end - start).as_secs_f32();
+    println!("Duration: {duration} secs");
 
     Ok(())
 }
@@ -57,11 +57,15 @@ fn get_stats(record: &StringRecord) -> () {
     let url = format!("https://github.com/{fullrepo}");
     let (owner, reponame) = get_owner_repo(&record);
     let repo_path = format!("./repos/{reponame}");
-    println!("cloning {owner}/{reponame} to {repo_path}");
-    let repo = match Repository::clone(&url, &repo_path) {
-        Ok(repo) => repo,
-        Err(e) => panic!("Failed to clone {}: {}", url, e),
-    };
+    if std::path::Path::new(&repo_path).exists() {
+        println!("repo already exists at {repo_path}");
+    } else {
+        println!("cloning {owner}/{reponame} to {repo_path}");
+        match Repository::clone(&url, &repo_path) {
+            Ok(repo) => repo,
+            Err(e) => panic!("Failed to clone {}: {}", url, e),
+        };
+    }
 
     // process files
     let mut num_files = 0;
@@ -69,7 +73,7 @@ fn get_stats(record: &StringRecord) -> () {
     let mut has_tests = false;
     let mut has_docs = false;
 
-    for entry in WalkDir::new(repo_path).into_iter().filter_map(|e| e.ok()) {
+    for entry in WalkDir::new(repo_path.clone()).into_iter().filter_entry(|e| !is_hidden(e)).filter_map(|e| e.ok()) {
         let path = entry.path();
 
         // Only process files (not directories)
@@ -82,10 +86,12 @@ fn get_stats(record: &StringRecord) -> () {
                     String::new()
                 },
             };
+            println!("{}", content);
         }
     }
     
     //  cleanup repo
+    let _ = std::fs::remove_dir_all(repo_path);
 }
 
 async fn get_metadata(record: &StringRecord, octocrab: &Octocrab) -> Result<(), Box<dyn std::error::Error>> {
@@ -114,3 +120,9 @@ fn read_file_to_string<P: AsRef<Path>>(path: P) -> std::io::Result<String> {
     Ok(contents)
 }
 
+fn is_hidden(entry: &DirEntry) -> bool {
+    entry.file_name()
+         .to_str()
+         .map(|s| s.starts_with("."))
+         .unwrap_or(false)
+}
