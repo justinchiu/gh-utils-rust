@@ -53,7 +53,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let result: GetResult = store.get(path).await.unwrap();
         let data = result.bytes().await?;
         let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-        match process_parquet(&data) {
+        match process_parquet(data) {
             Ok(mut results) => all_results.append(&mut results),
             Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
         }
@@ -69,7 +69,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-fn process_parquet(data: &[u8]) -> Result<Vec<Info>, Box<dyn std::error::Error>> {
+fn process_parquet(data: Bytes) -> Result<Vec<Info>, Box<dyn std::error::Error>> {
     let builder = ParquetRecordBatchReaderBuilder::try_new(data)?;
     let reader = builder.build()?;
 
