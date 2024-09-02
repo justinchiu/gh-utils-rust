@@ -2,9 +2,7 @@ use std::time::Instant;
 use std::sync::Arc;
 use object_store::gcp::GoogleCloudStorageBuilder;
 use object_store::{ObjectStore, path::Path};
-use std::io::Cursor;
-use parquet::file::reader::{FileReader, SerializedFileReader};
-use parquet::record::reader::RowIter;
+use parquet::file::reader::SerializedFileReader;
 use object_store::GetResult;
 use indicatif::{ProgressBar, ProgressStyle};
 use futures::StreamExt;
@@ -71,9 +69,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn process_parquet(data: Bytes) -> Result<Vec<Info>, Box<dyn std::error::Error>> {
-    let cursor = Cursor::new(data);
-    let reader = SerializedFileReader::new(cursor)?;
-    let mut iter: RowIter = reader.get_row_iter(None)?;
+    let reader = SerializedFileReader::new(data)?;
+    let mut iter = reader.get_row_iter(None)?;
 
     let mut results = Vec::new();
 
