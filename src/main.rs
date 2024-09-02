@@ -4,6 +4,9 @@ use google_cloud_storage::http::objects::get::GetObjectRequest;
 use google_cloud_storage::http::objects::list::ListObjectsRequest;
 use std::default::Default;
 use futures::stream::{self, StreamExt};
+use arrow::record_batch::RecordBatch;
+use parquet::arrow::arrow_reader::ParquetRecordBatchReaderBuilder;
+use std::io::Cursor;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -45,7 +48,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let client = client.clone();
             async move {
                 match client.get_object(&request).await {
-                    Ok(object) => Some(object),
+                    Ok(object) => Some((request.object, object)),
                     Err(e) => {
                         eprintln!("Error fetching object {}: {:?}", request.object, e);
                         None
@@ -61,10 +64,22 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     println!("Successfully fetched {} objects", successful_objects.len());
 
-    for object in &successful_objects {
+    let mut all_results = Vec::new();
+
+    for (name, object) in &successful_objects {
         let size_gb = object.size as f64 / 1_073_741_824.0; // Convert bytes to GB
-        println!("Object: {} (size: {:.2} GB)", object.name, size_gb);
+        println!("Processing object: {} (size: {:.2} GB)", name, size_gb);
+
+        match process_parquet(object.content.clone()) {
+            Ok(results) => {
+                println!("Found {} matching rows in {}", results.len(), name);
+                all_results.extend(results);
+            },
+            Err(e) => eprintln!("Error processing {}: {:?}", name, e),
+        }
     }
+
+    println!("Total matching rows across all Parquet files: {}", all_results.len());
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
@@ -76,4 +91,28 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 async fn run() -> Result<Client, Box<dyn std::error::Error>> {
     let config = ClientConfig::default().with_auth().await?;
     Ok(Client::new(config))
+}
+
+fn process_parquet(data: Vec<u8>) -> Result<Vec<String>, Box<dyn std::error::Error>> {
+    let cursor = Cursor::new(data);
+    let builder = ParquetRecordBatchReaderBuilder::try_new(cursor)?;
+    let mut reader = builder.build()?;
+
+    let mut results = Vec::new();
+
+    while let Some(batch) = reader.next() {
+        let batch = batch?;
+        for row in 0..batch.num_rows() {
+            // Assuming the first column is the one we want to filter on
+            if let Some(value) = batch.column(0).as_any().downcast_ref::<arrow::array::StringArray>() {
+                let str_value = value.value(row);
+                // Add your filtering logic here
+                if str_value.contains("your_filter_condition") {
+                    results.push(str_value.to_string());
+                }
+            }
+        }
+    }
+
+    Ok(results)
 }
