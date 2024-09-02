@@ -1,13 +1,13 @@
 use std::time::Instant;
+use std::sync::Arc;
 use object_store::gcp::GoogleCloudStorageBuilder;
 use object_store::{ObjectStore, path::Path};
 use futures::stream::{self, StreamExt};
 use parquet::arrow::arrow_reader::ParquetRecordBatchReaderBuilder;
 use bytes::Bytes;
-use arrow::array::{StringArray, AsArray};
+use arrow::array::StringArray;
 use arrow::datatypes::SchemaRef;
-use arrow::record_batch::RecordBatch;
-use arrow::table::Table;
+use arrow::record_batch::{RecordBatch, RecordBatchReader};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -16,9 +16,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let start = Instant::now();
 
-    let store = GoogleCloudStorageBuilder::new()
+    let store = Arc::new(GoogleCloudStorageBuilder::new()
         .with_bucket_name(bucket_name)
-        .build()?;
+        .build()?);
 
     let list_stream = store.list(Some(&Path::from(prefix)));
     
@@ -36,7 +36,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let objects = stream::iter(objects)
         .map(|path| {
-            let store = store.clone();
+            let store = Arc::clone(&store);
             async move {
                 match store.get(&path).await {
                     Ok(object) => {
@@ -87,18 +87,17 @@ fn process_parquet(data: &[u8]) -> Result<Vec<String>, Box<dyn std::error::Error
     let builder = ParquetRecordBatchReaderBuilder::try_new(bytes)?;
     let reader = builder.build()?;
 
-    let schema: SchemaRef = reader.schema();
-    let batches: Vec<RecordBatch> = reader.collect::<Result<Vec<_>, _>>()?;
-    let table = Table::from_record_batches(schema, batches)?;
-
+    let schema: SchemaRef = reader.schema().clone();
     let mut results = Vec::new();
 
-    // Assuming the first column is the one we want to filter on
-    if let Some(column) = table.column(0).as_any().downcast_ref::<StringArray>() {
-        for str_value in column.iter().flatten() {
-            // Add your filtering logic here
-            if str_value.contains("your_filter_condition") {
-                results.push(str_value.to_string());
+    for batch in reader {
+        let batch = batch?;
+        if let Some(column) = batch.column(0).as_any().downcast_ref::<StringArray>() {
+            for str_value in column.iter().flatten() {
+                // Add your filtering logic here
+                if str_value.contains("your_filter_condition") {
+                    results.push(str_value.to_string());
+                }
             }
         }
     }
