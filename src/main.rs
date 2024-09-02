@@ -51,7 +51,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .unwrap()
         .progress_chars("##-"));
 
-    let all_results: Vec<String> = objects.par_iter()
+    let all_results: Vec<Info> = objects.par_iter()
         .progress_with(progress_bar)
         .flat_map(|path| {
             let store = Arc::clone(&store);
@@ -62,27 +62,26 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         Ok(object) => {
                             let data = object.bytes().await.ok()?;
                             let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-                            
                             match process_parquet(&data) {
-                                Ok(results) => Some(results),
+                                Ok(results) => results,
                                 Err(e) => {
                                     eprintln!("Error processing {:?}: {:?}", path, e);
-                                    None
+                                    Vec::new()
                                 }
                             }
                         },
                         Err(e) => {
                             eprintln!("Error fetching object {:?}: {:?}", path, e);
-                            None
+                            Vec::new()
                         }
                     }
-                });
-            result.unwrap_or_else(Vec::new)
+                })
+                .unwrap_or_else(Vec::new);
+            result
         })
-        .flatten()
         .collect();
 
-    println!("Total matching rows across all Parquet files: {}", all_results.len());
+    println!("Total processed repos: {}", all_results.len());
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
@@ -96,18 +95,26 @@ fn process_parquet(data: &[u8]) -> Result<Vec<Info>, Box<dyn std::error::Error>>
     let builder = ParquetRecordBatchReaderBuilder::try_new(bytes)?;
     let reader = builder.build()?;
 
-    let _schema = reader.schema().clone();
+    let schema = reader.schema();
     let mut results = Vec::new();
 
     for batch in reader {
         let batch = batch?;
-        if let Some(column) = batch.column(0).as_any().downcast_ref::<StringArray>() {
-            for str_value in column.iter().flatten() {
-                // Add your filtering logic here
-                if str_value.contains("your_filter_condition") {
-                    results.push(str_value.to_string());
-                }
-            }
+        let repo_column = batch.column(schema.index_of("repo")?).as_any().downcast_ref::<StringArray>().unwrap();
+        let num_lines_column = batch.column(schema.index_of("num_lines")?).as_any().downcast_ref::<arrow::array::Int64Array>().unwrap();
+        let num_files_column = batch.column(schema.index_of("num_files")?).as_any().downcast_ref::<arrow::array::Int64Array>().unwrap();
+        let has_tests_column = batch.column(schema.index_of("has_tests")?).as_any().downcast_ref::<arrow::array::BooleanArray>().unwrap();
+        let has_docs_column = batch.column(schema.index_of("has_docs")?).as_any().downcast_ref::<arrow::array::BooleanArray>().unwrap();
+
+        for i in 0..batch.num_rows() {
+            let info = Info {
+                repo: repo_column.value(i).to_string(),
+                num_lines: num_lines_column.value(i) as usize,
+                num_files: num_files_column.value(i) as usize,
+                has_tests: has_tests_column.value(i),
+                has_docs: has_docs_column.value(i),
+            };
+            results.push(info);
         }
     }
 
