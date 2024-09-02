@@ -25,7 +25,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         None => panic!("Unable to fulfill GCS request"),
     };
 
-    let parquet_files: Vec<_> = items
+    let object_requests: Vec<_> = items
         .into_iter()
         .filter(|item| item.name.ends_with(".parquet"))
         .map(|item| {
