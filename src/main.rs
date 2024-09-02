@@ -6,7 +6,8 @@ use parquet::file::reader::{FileReader, SerializedFileReader};
 use object_store::GetResult;
 use indicatif::{ProgressBar, ProgressStyle};
 use futures::StreamExt;
-use bytes::Bytes;
+use bytes::{Bytes, BytesMut};
+use tokio::io::AsyncReadExt;
 
 #[derive(Default,Debug)]
 struct Info {
@@ -49,9 +50,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut all_results: Vec<Info> = Vec::new();
     for path in objects.iter() {
         progress_bar.inc(1);
-        let result: GetResult = store.get(path).await.unwrap();
+        let result: GetResult = store.get(path).await?;
         println!("Got result");
-        let data = result.bytes().await?;
+        let mut stream = result.into_stream();
+        let mut buffer = BytesMut::new();
+
+        while let Some(chunk) = stream.next().await {
+            let chunk = chunk?;
+            buffer.extend_from_slice(&chunk);
+        }
+
+        let data = buffer.freeze();
         println!("Got bytes");
         let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
         match process_parquet(data) {
@@ -78,6 +87,9 @@ fn process_parquet(data: Bytes) -> Result<Vec<Info>, Box<dyn std::error::Error>>
     let mut results = Vec::new();
 
     println!("Number of row groups: {}", reader.num_row_groups());
+
+    // TODO: Implement the actual processing logic here
+    // This might involve iterating over the rows and populating the Info struct
 
     Ok(results)
 }
