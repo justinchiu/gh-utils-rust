@@ -2,11 +2,11 @@ use csv::Reader;
 use csv::StringRecord;
 use std::path::Path;
 use std::time::Instant;
-use std::io::{self, BufReader, Read};
+use std::io::Read;
 use git2::Repository;
 use walkdir::{DirEntry, WalkDir};
 use octocrab::Octocrab;
-use futures::future;
+use futures::future::join_all;
 
 #[derive(Default,Debug)]
 struct Stats {
@@ -44,7 +44,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         get_metadata(record, &octocrab).await
     });
 
-    futures::future::join_all(futures).await?;
+    join_all(futures).await?;
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
