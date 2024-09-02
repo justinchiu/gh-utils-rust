@@ -2,11 +2,10 @@ use std::time::Instant;
 use std::sync::Arc;
 use object_store::gcp::GoogleCloudStorageBuilder;
 use object_store::{ObjectStore, path::Path};
-use futures::stream::{self, StreamExt};
+use futures::stream::StreamExt;
 use parquet::arrow::arrow_reader::ParquetRecordBatchReaderBuilder;
 use bytes::Bytes;
 use arrow::array::StringArray;
-use arrow::datatypes::SchemaRef;
 use arrow::record_batch::RecordBatchReader;
 use indicatif::{ProgressBar, ProgressStyle, ParallelProgressIterator};
 use rayon::prelude::*;
@@ -87,7 +86,7 @@ fn process_parquet(data: &[u8]) -> Result<Vec<String>, Box<dyn std::error::Error
     let builder = ParquetRecordBatchReaderBuilder::try_new(bytes)?;
     let reader = builder.build()?;
 
-    let schema: SchemaRef = reader.schema().clone();
+    let _schema = reader.schema().clone();
     let mut results = Vec::new();
 
     for batch in reader {
