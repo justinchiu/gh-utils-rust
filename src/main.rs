@@ -62,7 +62,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Successfully fetched {} objects", successful_objects.len());
 
     for object in &successful_objects {
-        println!("Object: {} (size: {} bytes)", object.name, object.size);
+        let size_gb = object.size as f64 / 1_073_741_824.0; // Convert bytes to GB
+        println!("Object: {} (size: {:.2} GB)", object.name, size_gb);
     }
 
     let end = Instant::now();
