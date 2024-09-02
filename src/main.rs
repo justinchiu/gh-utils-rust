@@ -9,6 +9,12 @@ use octocrab::Octocrab;
 use futures::future::try_join_all;
 use std::sync::Arc;
 use regex::Regex;
+use parquet::file::reader::{FileReader, SerializedFileReader};
+use parquet::record::reader::RowIter;
+use google_cloud_storage::client::Client as GcsClient;
+use google_cloud_storage::http::objects::download::Range;
+use google_cloud_default::WithAuthExt;
+use std::collections::HashSet;
 
 #[derive(Default,Debug)]
 struct Stats {
@@ -23,36 +29,58 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let token = std::env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN env variable is required");
     let octocrab = Arc::new(Octocrab::builder().personal_token(token).build()?);
 
+    // Read CSV file and create a HashSet of fullrepo values
     let file_path = Path::new("mydata/data.csv");
     let file = std::fs::File::open(file_path)?;
     let mut reader = Reader::from_reader(file);
-
+    let fullrepos: HashSet<String> = reader
+        .records()
+        .filter_map(Result::ok)
+        .filter_map(|record| record.get(0).map(String::from))
+        .collect();
 
     if !std::path::Path::new("./repos").exists() {
         std::fs::create_dir("./repos")?;
     }
-    let headers = reader.headers()?.clone();
-    println!("Header: {:?}", headers);
-    
-    let records: Vec<StringRecord> = reader.records().take(5).filter_map(Result::ok).collect();
-    
-    let start = Instant::now();
-    let futures = records.iter().map(|record| {
-        let record = record.clone();
-        let octocrab = Arc::clone(&octocrab);
-        async move {
-            println!("Record: {:?}", record);
-            let stats_record = record.clone();
-            tokio::spawn(async move {
-                if let Err(e) = get_stats(&stats_record).await {
-                    eprintln!("Error in get_stats: {:?}", e);
-                }
-            });
-            get_metadata(&record, &octocrab).await
-        }
-    });
 
-    try_join_all(futures).await?;
+    let gcs_client = GcsClient::default().with_auth().await?;
+    let bucket_name = "cohere-data";
+    let prefix = "dataacq/github-repos/permissive_and_unlicensed/repo-level-rows/";
+
+    let objects = gcs_client.object().list(bucket_name, prefix).await?;
+
+    let start = Instant::now();
+
+    for object in objects {
+        let object_name = object.name;
+        if !object_name.ends_with(".parquet") {
+            continue;
+        }
+
+        let content = gcs_client
+            .object()
+            .download(bucket_name, &object_name)
+            .await?;
+
+        let reader = SerializedFileReader::new(content.as_slice())?;
+        let mut iter = reader.get_row_iter(None)?;
+
+        while let Some(record) = iter.next() {
+            let fullrepo = record.get_string("fullrepo").unwrap_or_default();
+            if fullrepos.contains(fullrepo) {
+                println!("Processing record: {}", fullrepo);
+                let octocrab = Arc::clone(&octocrab);
+                tokio::spawn(async move {
+                    if let Err(e) = get_stats(&StringRecord::from(vec![fullrepo])).await {
+                        eprintln!("Error in get_stats: {:?}", e);
+                    }
+                    if let Err(e) = get_metadata(&StringRecord::from(vec![fullrepo]), &octocrab).await {
+                        eprintln!("Error in get_metadata: {:?}", e);
+                    }
+                });
+            }
+        }
+    }
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
