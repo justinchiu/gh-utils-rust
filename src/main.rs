@@ -100,7 +100,7 @@ async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn std::error::Erro
             if is_test_file(path, &content) {
                 stats.has_tests = true;
             }
-            if path.to_str().unwrap_or("").contains("doc") || content.contains("/**") {
+            if has_documentation(path, &content) {
                 stats.has_docs = true;
             }
         }
@@ -156,4 +156,16 @@ fn is_test_file(path: &Path, content: &str) -> bool {
 
     let test_content_regex = Regex::new(r"(?i)(unittest|pytest)").unwrap();
     test_content_regex.is_match(content)
+}
+
+fn has_documentation(path: &Path, content: &str) -> bool {
+    let file_name = path.file_name().and_then(|s| s.to_str()).unwrap_or("");
+    let doc_file_regex = Regex::new(r"(?i)(sphinx|pandoc|mkdocs)").unwrap();
+    
+    if doc_file_regex.is_match(file_name) {
+        return true;
+    }
+
+    let doc_content_regex = Regex::new(r"(?i)(sphinx|pandoc|mkdocs)").unwrap();
+    doc_content_regex.is_match(content) || content.contains("/**") || path.to_str().unwrap_or("").contains("doc")
 }
