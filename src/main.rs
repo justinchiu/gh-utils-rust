@@ -5,9 +5,11 @@ use google_cloud_storage::http::objects::list::ListObjectsRequest;
 use std::default::Default;
 use futures::stream::{self, StreamExt};
 use parquet::arrow::arrow_reader::ParquetRecordBatchReaderBuilder;
-use parquet::file::reader::ChunkReader;
-use std::io::Cursor;
 use bytes::Bytes;
+use arrow::array::{StringArray, AsArray};
+use arrow::datatypes::SchemaRef;
+use arrow::record_batch::RecordBatch;
+use arrow::table::Table;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -71,7 +73,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let size_gb = object.size as f64 / 1_073_741_824.0; // Convert bytes to GB
         println!("Processing object: {} (size: {:.2} GB)", name, size_gb);
 
-        match process_parquet(&object.content) {
+        match process_parquet(&object.data) {
             Ok(results) => {
                 println!("Found {} matching rows in {}", results.len(), name);
                 all_results.extend(results);
@@ -97,20 +99,20 @@ async fn run() -> Result<Client, Box<dyn std::error::Error>> {
 fn process_parquet(data: &[u8]) -> Result<Vec<String>, Box<dyn std::error::Error>> {
     let bytes = Bytes::from(data.to_vec());
     let builder = ParquetRecordBatchReaderBuilder::try_new(bytes)?;
-    let mut reader = builder.build()?;
+    let reader = builder.build()?;
+
+    let schema: SchemaRef = reader.schema();
+    let batches: Vec<RecordBatch> = reader.collect::<Result<Vec<_>, _>>()?;
+    let table = Table::from_record_batches(schema, batches)?;
 
     let mut results = Vec::new();
 
-    while let Some(batch) = reader.next() {
-        let batch = batch?;
-        for row in 0..batch.num_rows() {
-            // Assuming the first column is the one we want to filter on
-            if let Some(value) = batch.column(0).as_any().downcast_ref::<arrow::array::StringArray>() {
-                let str_value = value.value(row);
-                // Add your filtering logic here
-                if str_value.contains("your_filter_condition") {
-                    results.push(str_value.to_string());
-                }
+    // Assuming the first column is the one we want to filter on
+    if let Some(column) = table.column(0).as_any().downcast_ref::<StringArray>() {
+        for str_value in column.iter().flatten() {
+            // Add your filtering logic here
+            if str_value.contains("your_filter_condition") {
+                results.push(str_value.to_string());
             }
         }
     }

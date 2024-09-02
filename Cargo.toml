@@ -11,6 +11,6 @@ google-cloud-storage = "0.20.0"
 google-cloud-token = "0.1.2"
 regex = "1.5.4"
 tokio = { version = "1.39.3", features = ["full"] }
-arrow = "52.2.0"
+arrow = { version = "52.2.0", features = ["prettyprint"] }
 parquet = { version = "52.2.0", features = ["arrow"] }
 bytes = "1.4.0"
