@@ -41,58 +41,47 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .unwrap()
         .progress_chars("##-"));
 
+    let mut all_results = Vec::new();
+
     let objects = stream::iter(objects)
         .map(|path| {
             let store = Arc::clone(&store);
             let pb = progress_bar.clone();
             async move {
-                let result = match store.get(&path).await {
+                match store.get(&path).await {
                     Ok(object) => {
                         let data = object.bytes().await.ok()?;
-                        Some((path, data))
+                        let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
+                        pb.set_message(format!("Processing: {:?} (size: {:.2} GB)", path, size_gb));
+                        
+                        match process_parquet(&data) {
+                            Ok(results) => {
+                                pb.set_message(format!("Found {} matching rows in {:?}", results.len(), path));
+                                Some(results)
+                            },
+                            Err(e) => {
+                                eprintln!("Error processing {:?}: {:?}", path, e);
+                                None
+                            }
+                        }
                     },
                     Err(e) => {
                         eprintln!("Error fetching object {:?}: {:?}", path, e);
                         None
                     }
-                };
-                pb.inc(1);
-                result
+                }
             }
         })
         .buffer_unordered(16) // Process up to 16 requests concurrently
-        .collect::<Vec<_>>()
+        .filter_map(|result| async move { result })
+        .for_each(|results| {
+            all_results.extend(results);
+            progress_bar.inc(1);
+            futures::future::ready(())
+        })
         .await;
 
-    progress_bar.finish_with_message("Fetching complete");
-
-    let successful_objects: Vec<_> = objects.into_iter().filter_map(|obj| obj).collect();
-
-    println!("Successfully fetched {} objects", successful_objects.len());
-
-    let mut all_results = Vec::new();
-
-    let process_progress_bar = ProgressBar::new(successful_objects.len() as u64);
-    process_progress_bar.set_style(ProgressStyle::default_bar()
-        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} ({eta})")
-        .unwrap()
-        .progress_chars("##-"));
-
-    for (path, data) in &successful_objects {
-        let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-        process_progress_bar.set_message(format!("Processing: {:?} (size: {:.2} GB)", path, size_gb));
-
-        match process_parquet(data) {
-            Ok(results) => {
-                process_progress_bar.set_message(format!("Found {} matching rows in {:?}", results.len(), path));
-                all_results.extend(results);
-            },
-            Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
-        }
-        process_progress_bar.inc(1);
-    }
-
-    process_progress_bar.finish_with_message("Processing complete");
+    progress_bar.finish_with_message("Fetching and processing complete");
 
     println!("Total matching rows across all Parquet files: {}", all_results.len());
 
