@@ -7,6 +7,7 @@ use bytes::Bytes;
 use arrow::array::StringArray;
 use arrow::record_batch::RecordBatchReader;
 use indicatif::{ProgressBar, ProgressStyle};
+use futures::StreamExt;
 
 #[derive(Default,Debug)]
 struct Info {
@@ -17,7 +18,8 @@ struct Info {
     has_docs: bool,
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let bucket_name = "cohere-data";
     let prefix = "dataacq/github-repos/permissive_and_unlicensed/repo-level-rows/";
 
@@ -28,13 +30,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build()?);
 
     let objects: Vec<_> = store.list(Some(&Path::from(prefix)))
-        .filter_map(|meta| {
+        .filter_map(|meta| async move {
             match meta {
                 Ok(meta) if meta.location.as_ref().ends_with(".parquet") => Some(meta.location),
                 _ => None,
             }
         })
-        .collect();
+        .collect()
+        .await;
 
     println!("Number of parquet files: {}", objects.len());
 
@@ -47,9 +50,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut all_results: Vec<Info> = Vec::new();
     for path in objects.iter() {
         progress_bar.inc(1);
-        match store.get(path) {
+        match store.get(path).await {
             Ok(object) => {
-                let data = object.bytes();
+                let data = object.bytes().await?;
                 let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
                 match process_parquet(&data) {
                     Ok(mut results) => all_results.append(&mut results),
