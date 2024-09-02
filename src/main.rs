@@ -41,7 +41,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Number of parquet files: {}", object_requests.len());
 
     let objects = stream::iter(object_requests)
-        .map(|request| async {
+        .map(|request| async move {
             match client.get_object(&request).await {
                 Ok(object) => Some(object),
                 Err(e) => {
