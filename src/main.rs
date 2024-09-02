@@ -50,7 +50,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
             }
         })
-        .buffer_unordered(10) // Process up to 10 requests concurrently
+        .buffer_unordered(16) // Process up to 16 requests concurrently
         .collect::<Vec<_>>()
         .await;
 
