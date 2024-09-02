@@ -7,6 +7,7 @@ use git2::Repository;
 use walkdir::{DirEntry, WalkDir};
 use octocrab::Octocrab;
 use futures::future::try_join_all;
+use std::sync::Arc;
 
 #[derive(Default,Debug)]
 struct Stats {
@@ -21,7 +22,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let start = Instant::now();
 
     let token = std::env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN env variable is required");
-    let octocrab = Octocrab::builder().personal_token(token).build()?;
+    let octocrab = Arc::new(Octocrab::builder().personal_token(token).build()?);
 
     let file_path = Path::new("mydata/data.csv");
     let file = std::fs::File::open(file_path)?;
@@ -36,12 +37,19 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     
     let records: Vec<StringRecord> = reader.records().take(5).filter_map(Result::ok).collect();
     
-    let futures = records.iter().map(|record| async {
-        println!("Record: {:?}", record);
-        tokio::spawn(async move {
-            get_stats(record);
-        });
-        get_metadata(record, &octocrab).await
+    let futures = records.iter().map(|record| {
+        let record = record.clone();
+        let octocrab = Arc::clone(&octocrab);
+        async move {
+            println!("Record: {:?}", record);
+            let stats_record = record.clone();
+            tokio::spawn(async move {
+                if let Err(e) = get_stats(&stats_record).await {
+                    eprintln!("Error in get_stats: {:?}", e);
+                }
+            });
+            get_metadata(&record, &octocrab).await
+        }
     });
 
     try_join_all(futures).await?;
