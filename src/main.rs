@@ -8,7 +8,8 @@ use bytes::Bytes;
 use arrow::array::StringArray;
 use arrow::datatypes::SchemaRef;
 use arrow::record_batch::RecordBatchReader;
-use indicatif::{ProgressBar, ProgressStyle};
+use indicatif::{ProgressBar, ProgressStyle, ParallelProgressIterator};
+use rayon::prelude::*;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -41,47 +42,36 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .unwrap()
         .progress_chars("##-"));
 
-    let mut all_results = Vec::new();
-
-    let objects = stream::iter(objects)
-        .map(|path| {
+    let all_results: Vec<_> = objects.par_iter()
+        .progress_with(progress_bar)
+        .flat_map(|path| {
             let store = Arc::clone(&store);
-            let pb = progress_bar.clone();
-            async move {
-                match store.get(&path).await {
-                    Ok(object) => {
-                        let data = object.bytes().await.ok()?;
-                        let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-                        pb.set_message(format!("Processing: {:?} (size: {:.2} GB)", path, size_gb));
-                        
-                        match process_parquet(&data) {
-                            Ok(results) => {
-                                pb.set_message(format!("Found {} matching rows in {:?}", results.len(), path));
-                                Some(results)
-                            },
-                            Err(e) => {
-                                eprintln!("Error processing {:?}: {:?}", path, e);
-                                None
+            let result = tokio::runtime::Runtime::new()
+                .unwrap()
+                .block_on(async {
+                    match store.get(path).await {
+                        Ok(object) => {
+                            let data = object.bytes().await.ok()?;
+                            let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
+                            
+                            match process_parquet(&data) {
+                                Ok(results) => Some(results),
+                                Err(e) => {
+                                    eprintln!("Error processing {:?}: {:?}", path, e);
+                                    None
+                                }
                             }
+                        },
+                        Err(e) => {
+                            eprintln!("Error fetching object {:?}: {:?}", path, e);
+                            None
                         }
-                    },
-                    Err(e) => {
-                        eprintln!("Error fetching object {:?}: {:?}", path, e);
-                        None
                     }
-                }
-            }
+                });
+            result.unwrap_or_else(Vec::new)
         })
-        .buffer_unordered(16) // Process up to 16 requests concurrently
-        .filter_map(|result| async move { result })
-        .for_each(|results| {
-            all_results.extend(results);
-            progress_bar.inc(1);
-            futures::future::ready(())
-        })
-        .await;
-
-    progress_bar.finish_with_message("Fetching and processing complete");
+        .flatten()
+        .collect();
 
     println!("Total matching rows across all Parquet files: {}", all_results.len());
 
