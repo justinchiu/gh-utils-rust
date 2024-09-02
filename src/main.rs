@@ -1,8 +1,6 @@
 use std::time::Instant;
-use google_cloud_storage::client::{Client, ClientConfig};
-use google_cloud_storage::http::objects::get::GetObjectRequest;
-use google_cloud_storage::http::objects::list::ListObjectsRequest;
-use std::default::Default;
+use object_store::gcp::GoogleCloudStorageBuilder;
+use object_store::{ObjectStore, path::Path};
 use futures::stream::{self, StreamExt};
 use parquet::arrow::arrow_reader::ParquetRecordBatchReaderBuilder;
 use bytes::Bytes;
@@ -13,47 +11,40 @@ use arrow::table::Table;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = run().await?;
-
     let bucket_name = "cohere-data";
     let prefix = "dataacq/github-repos/permissive_and_unlicensed/repo-level-rows/";
 
     let start = Instant::now();
 
-    let request = ListObjectsRequest {
-        bucket: bucket_name.to_string(),
-        prefix: Some(prefix.to_string()),
-        ..Default::default()
-    };
+    let store = GoogleCloudStorageBuilder::new()
+        .with_bucket_name(bucket_name)
+        .build()?;
 
-    let objects = client.list_objects(&request).await?;
-    let items = match objects.items {
-        Some(xs) => xs,
-        None => panic!("Unable to fulfill GCS request"),
-    };
-
-    let object_requests: Vec<_> = items
-        .into_iter()
-        .filter(|item| item.name.ends_with(".parquet"))
-        .map(|item| {
-            GetObjectRequest {
-                bucket: bucket_name.to_string(),
-                object: item.name,
-                ..Default::default()
+    let list_stream = store.list(Some(&Path::from(prefix)));
+    
+    let objects: Vec<_> = list_stream
+        .filter_map(|meta| async {
+            match meta {
+                Ok(meta) if meta.location.as_ref().ends_with(".parquet") => Some(meta.location),
+                _ => None,
             }
         })
-        .collect();
+        .collect()
+        .await;
 
-    println!("Number of parquet files: {}", object_requests.len());
+    println!("Number of parquet files: {}", objects.len());
 
-    let objects = stream::iter(object_requests)
-        .map(|request| {
-            let client = client.clone();
+    let objects = stream::iter(objects)
+        .map(|path| {
+            let store = store.clone();
             async move {
-                match client.get_object(&request).await {
-                    Ok(object) => Some((request.object, object)),
+                match store.get(&path).await {
+                    Ok(object) => {
+                        let data = object.bytes().await.ok()?;
+                        Some((path, data))
+                    },
                     Err(e) => {
-                        eprintln!("Error fetching object {}: {:?}", request.object, e);
+                        eprintln!("Error fetching object {:?}: {:?}", path, e);
                         None
                     }
                 }
@@ -69,16 +60,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut all_results = Vec::new();
 
-    for (name, object) in &successful_objects {
-        let size_gb = object.size as f64 / 1_073_741_824.0; // Convert bytes to GB
-        println!("Processing object: {} (size: {:.2} GB)", name, size_gb);
+    for (path, data) in &successful_objects {
+        let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
+        println!("Processing object: {:?} (size: {:.2} GB)", path, size_gb);
 
-        match process_parquet(&object.data) {
+        match process_parquet(data) {
             Ok(results) => {
-                println!("Found {} matching rows in {}", results.len(), name);
+                println!("Found {} matching rows in {:?}", results.len(), path);
                 all_results.extend(results);
             },
-            Err(e) => eprintln!("Error processing {}: {:?}", name, e),
+            Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
         }
     }
 
@@ -89,11 +80,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Duration: {duration} secs");
 
     Ok(())
-}
-
-async fn run() -> Result<Client, Box<dyn std::error::Error>> {
-    let config = ClientConfig::default().with_auth().await?;
-    Ok(Client::new(config))
 }
 
 fn process_parquet(data: &[u8]) -> Result<Vec<String>, Box<dyn std::error::Error>> {
