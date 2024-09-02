@@ -2,13 +2,11 @@ use std::time::Instant;
 use std::sync::Arc;
 use object_store::gcp::GoogleCloudStorageBuilder;
 use object_store::{ObjectStore, path::Path};
-use futures::stream::StreamExt;
 use parquet::arrow::arrow_reader::ParquetRecordBatchReaderBuilder;
 use bytes::Bytes;
 use arrow::array::StringArray;
 use arrow::record_batch::RecordBatchReader;
-use indicatif::{ProgressBar, ProgressStyle, ParallelProgressIterator};
-use rayon::prelude::*;
+use indicatif::{ProgressBar, ProgressStyle};
 
 #[derive(Default,Debug)]
 struct Info {
@@ -19,9 +17,7 @@ struct Info {
     has_docs: bool,
 }
 
-
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
     let bucket_name = "cohere-data";
     let prefix = "dataacq/github-repos/permissive_and_unlicensed/repo-level-rows/";
 
@@ -31,17 +27,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .with_bucket_name(bucket_name)
         .build()?);
 
-    let list_stream = store.list(Some(&Path::from(prefix)));
-    
-    let objects: Vec<_> = list_stream
-        .filter_map(|meta| async {
+    let objects: Vec<_> = store.list(Some(&Path::from(prefix)))
+        .filter_map(|meta| {
             match meta {
                 Ok(meta) if meta.location.as_ref().ends_with(".parquet") => Some(meta.location),
                 _ => None,
             }
         })
-        .collect()
-        .await;
+        .collect();
 
     println!("Number of parquet files: {}", objects.len());
 
@@ -54,31 +47,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut all_results: Vec<Info> = Vec::new();
     for path in objects.iter() {
         progress_bar.inc(1);
-        let result = tokio::runtime::Runtime::new()
-            .unwrap()
-            .block_on(async {
-                match store.get(path).await {
-                    Ok(object) => {
-                        let data = object.bytes().await.ok()?;
-                        let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-                        match process_parquet(&data) {
-                            Ok(results) => Some(results),
-                            Err(e) => {
-                                eprintln!("Error processing {:?}: {:?}", path, e);
-                                None
-                            }
-                        }
-                    },
-                    Err(e) => {
-                        eprintln!("Error fetching object {:?}: {:?}", path, e);
-                        None
-                    }
+        match store.get(path) {
+            Ok(object) => {
+                let data = object.bytes();
+                let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
+                match process_parquet(&data) {
+                    Ok(mut results) => all_results.append(&mut results),
+                    Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
                 }
-            })
-            .unwrap_or(None);
-        
-        if let Some(mut results) = result {
-            all_results.append(&mut results);
+            },
+            Err(e) => eprintln!("Error fetching object {:?}: {:?}", path, e),
         }
     }
     progress_bar.finish();
