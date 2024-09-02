@@ -21,31 +21,31 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let objects = client.list_objects(&request).await?;
 
-    match objects.items {
-        Some(list) => {
-            for object in list {
-                let object_name = object.name;
+    if let Some(items) = objects.items {
+        for object in items {
+            if let Some(object_name) = object.name {
                 if !object_name.ends_with(".parquet") {
                     continue;
                 }
 
                 println!("Processing file: {}", object_name);
 
-        let get_request = GetObjectRequest {
-            bucket: bucket_name.to_string(),
-            object: object_name.clone(),
-            ..Default::default()
-        };
+                let get_request = GetObjectRequest {
+                    bucket: bucket_name.to_string(),
+                    object: object_name.clone(),
+                    ..Default::default()
+                };
 
-        let content = client.download_object(&get_request, &Default::default()).await?;
+                let content = client.download_object(&get_request, &Default::default()).await?;
 
-        // Process the Parquet file content here
-        // For example, you can use the `parquet` crate to read the file
-        // let reader = parquet::file::serialized_reader::SerializedFileReader::new(content.as_slice())?;
-        // ... process the Parquet data ...
+                // Process the Parquet file content here
+                // For example, you can use the `parquet` crate to read the file
+                // let reader = parquet::file::serialized_reader::SerializedFileReader::new(content.as_slice())?;
+                // ... process the Parquet data ...
             }
         }
-        None => println!("No objects found in the bucket with the given prefix."),
+    } else {
+        println!("No objects found in the bucket with the given prefix.");
     }
 
     let end = Instant::now();
