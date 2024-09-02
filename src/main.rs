@@ -70,30 +70,21 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn process_parquet(data: Bytes) -> Result<Vec<Info>, Box<dyn std::error::Error>> {
-    let builder = ParquetRecordBatchReaderBuilder::try_new(data)?;
-    let reader = builder.build()?;
+    let cursor = Cursor::new(data);
+    let reader = SerializedFileReader::new(cursor)?;
+    let mut iter: RowIter = reader.get_row_iter(None)?;
 
-    let schema = reader.schema();
     let mut results = Vec::new();
 
-    for batch in reader {
-        let batch = batch?;
-        let repo_column = batch.column(schema.index_of("repo")?).as_any().downcast_ref::<StringArray>().unwrap();
-        let num_lines_column = batch.column(schema.index_of("num_lines")?).as_any().downcast_ref::<arrow::array::Int64Array>().unwrap();
-        let num_files_column = batch.column(schema.index_of("num_files")?).as_any().downcast_ref::<arrow::array::Int64Array>().unwrap();
-        let has_tests_column = batch.column(schema.index_of("has_tests")?).as_any().downcast_ref::<arrow::array::BooleanArray>().unwrap();
-        let has_docs_column = batch.column(schema.index_of("has_docs")?).as_any().downcast_ref::<arrow::array::BooleanArray>().unwrap();
-
-        for i in 0..batch.num_rows() {
-            let info = Info {
-                repo: repo_column.value(i).to_string(),
-                num_lines: num_lines_column.value(i) as usize,
-                num_files: num_files_column.value(i) as usize,
-                has_tests: has_tests_column.value(i),
-                has_docs: has_docs_column.value(i),
-            };
-            results.push(info);
-        }
+    while let Some(row) = iter.next() {
+        let info = Info {
+            repo: row.get_string(0)?.to_string(),
+            num_lines: row.get_long(1)? as usize,
+            num_files: row.get_long(2)? as usize,
+            has_tests: row.get_bool(3)?,
+            has_docs: row.get_bool(4)?,
+        };
+        results.push(info);
     }
 
     Ok(results)
