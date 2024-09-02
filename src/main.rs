@@ -1,5 +1,8 @@
 use std::time::Instant;
-use google_cloud_storage::client::{ClientConfig, Client};
+use google_cloud_storage::client::{Client, ClientConfig};
+use google_cloud_storage::http::objects::list::ListRequest;
+use google_cloud_storage::http::objects::get::GetObjectRequest;
+use google_cloud_storage::http::objects::download::Range;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -10,7 +13,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let start = Instant::now();
 
-    let mut objects = client.object().list(bucket_name, prefix).await?;
+    let mut request = ListRequest::default();
+    request.prefix = Some(prefix.to_string());
+
+    let mut objects = client.list_objects(&bucket_name, &request).await?;
 
     while let Some(object) = objects.next().await {
         let object = object?;
@@ -21,10 +27,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         println!("Processing file: {}", object_name);
 
-        let content = client
-            .object()
-            .download(bucket_name, &object_name)
-            .await?;
+        let get_request = GetObjectRequest {
+            bucket: bucket_name.to_string(),
+            object: object_name.clone(),
+            ..Default::default()
+        };
+
+        let (_, content) = client.download_object(&get_request, &Range::default()).await?;
 
         // Process the Parquet file content here
         // For example, you can use the `parquet` crate to read the file
@@ -41,6 +50,5 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 async fn run() -> Client {
     let config = ClientConfig::default().with_auth().await.unwrap();
-    let client = Client::new(config);
-    client
+    Client::new(config)
 }
