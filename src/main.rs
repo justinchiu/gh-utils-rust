@@ -21,13 +21,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let objects = client.list_objects(&request).await?;
 
-    for object in objects.items {
-        let object_name = object.name;
-        if !object_name.ends_with(".parquet") {
-            continue;
-        }
+    match objects {
+        Some(list) => {
+            for object in list.items {
+                let object_name = object.name;
+                if !object_name.ends_with(".parquet") {
+                    continue;
+                }
 
-        println!("Processing file: {}", object_name);
+                println!("Processing file: {}", object_name);
 
         let get_request = GetObjectRequest {
             bucket: bucket_name.to_string(),
@@ -41,6 +43,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         // For example, you can use the `parquet` crate to read the file
         // let reader = parquet::file::serialized_reader::SerializedFileReader::new(content.as_slice())?;
         // ... process the Parquet data ...
+            }
+        }
+        None => println!("No objects found in the bucket with the given prefix."),
     }
 
     let end = Instant::now();
