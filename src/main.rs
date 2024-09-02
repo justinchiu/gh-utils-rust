@@ -28,28 +28,34 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .filter_map(|record| record.get(0).map(String::from))
         .collect();
 
-    let client = run();
+    let client = run().await;
 
     let bucket_name = "cohere-data";
     let prefix = "dataacq/github-repos/permissive_and_unlicensed/repo-level-rows/";
 
-    // let objects = client.object().list(bucket_name, prefix).await?;
-
     let start = Instant::now();
 
-    /*
-    for object in objects {
+    let mut objects = client.object().list(bucket_name, prefix).await?;
+
+    while let Some(object) = objects.next().await {
+        let object = object?;
         let object_name = object.name;
         if !object_name.ends_with(".parquet") {
             continue;
         }
 
-        let content = gcs_client
+        println!("Processing file: {}", object_name);
+
+        let content = client
             .object()
             .download(bucket_name, &object_name)
             .await?;
+
+        // Process the Parquet file content here
+        // For example, you can use the `parquet` crate to read the file
+        // let reader = SerializedFileReader::new(content.as_slice())?;
+        // ... process the Parquet data ...
     }
-    */
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
