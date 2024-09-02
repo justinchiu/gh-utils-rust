@@ -12,3 +12,4 @@ arrow = { version = "52.2.0", features = ["prettyprint"] }
 parquet = { version = "52.2.0", features = ["arrow"] }
 bytes = "1.4.0"
 object_store = { version = "0.11.0", features = ["gcp"] }
+indicatif = "0.17.8"

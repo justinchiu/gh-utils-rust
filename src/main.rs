@@ -7,7 +7,8 @@ use parquet::arrow::arrow_reader::ParquetRecordBatchReaderBuilder;
 use bytes::Bytes;
 use arrow::array::StringArray;
 use arrow::datatypes::SchemaRef;
-use arrow::record_batch::{RecordBatch, RecordBatchReader};
+use arrow::record_batch::RecordBatchReader;
+use indicatif::{ProgressBar, ProgressStyle};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -34,11 +35,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     println!("Number of parquet files: {}", objects.len());
 
+    let progress_bar = ProgressBar::new(objects.len() as u64);
+    progress_bar.set_style(ProgressStyle::default_bar()
+        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} ({eta})")
+        .unwrap()
+        .progress_chars("##-"));
+
     let objects = stream::iter(objects)
         .map(|path| {
             let store = Arc::clone(&store);
+            let pb = progress_bar.clone();
             async move {
-                match store.get(&path).await {
+                let result = match store.get(&path).await {
                     Ok(object) => {
                         let data = object.bytes().await.ok()?;
                         Some((path, data))
@@ -47,12 +55,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         eprintln!("Error fetching object {:?}: {:?}", path, e);
                         None
                     }
-                }
+                };
+                pb.inc(1);
+                result
             }
         })
         .buffer_unordered(16) // Process up to 16 requests concurrently
         .collect::<Vec<_>>()
         .await;
+
+    progress_bar.finish_with_message("Fetching complete");
 
     let successful_objects: Vec<_> = objects.into_iter().filter_map(|obj| obj).collect();
 
@@ -60,18 +72,27 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut all_results = Vec::new();
 
+    let process_progress_bar = ProgressBar::new(successful_objects.len() as u64);
+    process_progress_bar.set_style(ProgressStyle::default_bar()
+        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} ({eta})")
+        .unwrap()
+        .progress_chars("##-"));
+
     for (path, data) in &successful_objects {
         let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-        println!("Processing object: {:?} (size: {:.2} GB)", path, size_gb);
+        process_progress_bar.set_message(format!("Processing: {:?} (size: {:.2} GB)", path, size_gb));
 
         match process_parquet(data) {
             Ok(results) => {
-                println!("Found {} matching rows in {:?}", results.len(), path);
+                process_progress_bar.set_message(format!("Found {} matching rows in {:?}", results.len(), path));
                 all_results.extend(results);
             },
             Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
         }
+        process_progress_bar.inc(1);
     }
+
+    process_progress_bar.finish_with_message("Processing complete");
 
     println!("Total matching rows across all Parquet files: {}", all_results.len());
 
