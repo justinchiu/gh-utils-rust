@@ -6,6 +6,7 @@ use std::io::{self, BufReader, Read};
 use git2::Repository;
 use walkdir::{DirEntry, WalkDir};
 use octocrab::Octocrab;
+use futures::future;
 
 #[derive(Default,Debug)]
 struct Stats {
@@ -32,16 +33,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
     let headers = reader.headers()?.clone();
     println!("Header: {:?}", headers);
-    for (index, result) in reader.records().enumerate() {
-        let record = result?;
+    
+    let records: Vec<StringRecord> = reader.records().take(5).filter_map(Result::ok).collect();
+    
+    let futures = records.iter().map(|record| async {
         println!("Record: {:?}", record);
-        let stats = get_stats(&record);
-        let metadata = get_metadata(&record, &octocrab);
+        tokio::spawn(async move {
+            get_stats(record);
+        });
+        get_metadata(record, &octocrab).await
+    });
 
-        if index == 5 {
-            break;
-        }
-    }
+    futures::future::join_all(futures).await?;
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
@@ -50,8 +53,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-//fn get_stats(record: &StringRecord) -> Stats {
-fn get_stats(record: &StringRecord) -> () {
+async fn get_stats(record: &StringRecord) {
     // clone repo
     let fullrepo = record.get(0).unwrap();
     let url = format!("https://github.com/{fullrepo}");
