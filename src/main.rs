@@ -41,7 +41,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .unwrap()
         .progress_chars("##-"));
 
-    let all_results: Vec<_> = objects.par_iter()
+    let all_results: Vec<String> = objects.par_iter()
         .progress_with(progress_bar)
         .flat_map(|path| {
             let store = Arc::clone(&store);
