@@ -3,6 +3,7 @@ use google_cloud_storage::client::{Client, ClientConfig};
 use google_cloud_storage::http::objects::get::GetObjectRequest;
 use google_cloud_storage::http::objects::list::ListObjectsRequest;
 use std::default::Default;
+use futures::stream::{self, StreamExt};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -37,10 +38,28 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         })
         .collect();
 
-    println!("Number of parquet files: {}", parquet_files.len());
+    println!("Number of parquet files: {}", object_requests.len());
 
-    for request in &parquet_files {
-        println!("Object: {}", request.object);
+    let objects = stream::iter(object_requests)
+        .map(|request| async {
+            match client.get_object(&request).await {
+                Ok(object) => Some(object),
+                Err(e) => {
+                    eprintln!("Error fetching object {}: {:?}", request.object, e);
+                    None
+                }
+            }
+        })
+        .buffer_unordered(10) // Process up to 10 requests concurrently
+        .collect::<Vec<_>>()
+        .await;
+
+    let successful_objects: Vec<_> = objects.into_iter().filter_map(|obj| obj).collect();
+
+    println!("Successfully fetched {} objects", successful_objects.len());
+
+    for object in &successful_objects {
+        println!("Object: {} (size: {} bytes)", object.name, object.size);
     }
 
     let end = Instant::now();
