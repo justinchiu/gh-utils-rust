@@ -51,35 +51,37 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .unwrap()
         .progress_chars("##-"));
 
-    let all_results: Vec<Info> = objects.par_iter()
-        .progress_with(progress_bar)
-        .flat_map(|path| {
-            let store = Arc::clone(&store);
-            let result = tokio::runtime::Runtime::new()
-                .unwrap()
-                .block_on(async {
-                    match store.get(path).await {
-                        Ok(object) => {
-                            let data = object.bytes().await.ok()?;
-                            let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-                            match process_parquet(&data) {
-                                Ok(results) => results,
-                                Err(e) => {
-                                    eprintln!("Error processing {:?}: {:?}", path, e);
-                                    Vec::new()
-                                }
+    let mut all_results: Vec<Info> = Vec::new();
+    for path in objects.iter() {
+        progress_bar.inc(1);
+        let result = tokio::runtime::Runtime::new()
+            .unwrap()
+            .block_on(async {
+                match store.get(path).await {
+                    Ok(object) => {
+                        let data = object.bytes().await.ok()?;
+                        let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
+                        match process_parquet(&data) {
+                            Ok(results) => Some(results),
+                            Err(e) => {
+                                eprintln!("Error processing {:?}: {:?}", path, e);
+                                None
                             }
-                        },
-                        Err(e) => {
-                            eprintln!("Error fetching object {:?}: {:?}", path, e);
-                            Vec::new()
                         }
+                    },
+                    Err(e) => {
+                        eprintln!("Error fetching object {:?}: {:?}", path, e);
+                        None
                     }
-                })
-                .unwrap_or_else(Vec::new);
-            result
-        })
-        .collect();
+                }
+            })
+            .unwrap_or(None);
+        
+        if let Some(mut results) = result {
+            all_results.append(&mut results);
+        }
+    }
+    progress_bar.finish();
 
     println!("Total processed repos: {}", all_results.len());
 
