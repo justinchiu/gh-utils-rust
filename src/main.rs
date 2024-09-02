@@ -20,8 +20,6 @@ struct Stats {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let start = Instant::now();
-
     let token = std::env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN env variable is required");
     let octocrab = Arc::new(Octocrab::builder().personal_token(token).build()?);
 
@@ -38,6 +36,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     
     let records: Vec<StringRecord> = reader.records().take(5).filter_map(Result::ok).collect();
     
+    let start = Instant::now();
     let futures = records.iter().map(|record| {
         let record = record.clone();
         let octocrab = Arc::clone(&octocrab);
