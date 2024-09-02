@@ -21,9 +21,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let objects = client.list_objects(&request).await?;
 
-    match objects {
+    match objects.items {
         Some(list) => {
-            for object in list.items {
+            for object in list {
                 let object_name = object.name;
                 if !object_name.ends_with(".parquet") {
                     continue;
