@@ -6,7 +6,7 @@ use std::io::Read;
 use git2::Repository;
 use walkdir::{DirEntry, WalkDir};
 use octocrab::Octocrab;
-use futures::future::join_all;
+use futures::future::try_join_all;
 
 #[derive(Default,Debug)]
 struct Stats {
@@ -44,7 +44,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         get_metadata(record, &octocrab).await
     });
 
-    join_all(futures).await?;
+    try_join_all(futures).await?;
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
@@ -53,7 +53,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-async fn get_stats(record: &StringRecord) {
+async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn std::error::Error>> {
     // clone repo
     let fullrepo = record.get(0).unwrap();
     let url = format!("https://github.com/{fullrepo}");
@@ -70,10 +70,7 @@ async fn get_stats(record: &StringRecord) {
     }
 
     // process files
-    let mut num_files = 0;
-    let mut num_lines = 0;
-    let mut has_tests = false;
-    let mut has_docs = false;
+    let mut stats = Stats::default();
 
     for entry in WalkDir::new(repo_path.clone()).into_iter().filter_entry(|e| !is_hidden(e)).filter_map(|e| e.ok()) {
         let path = entry.path();
@@ -89,11 +86,22 @@ async fn get_stats(record: &StringRecord) {
                 },
             };
             println!("{}", content);
+            stats.num_files += 1;
+            stats.num_lines += content.lines().count();
+            if path.to_str().unwrap_or("").contains("test") {
+                stats.has_tests = true;
+            }
+            if path.to_str().unwrap_or("").contains("doc") || content.contains("/**") {
+                stats.has_docs = true;
+            }
         }
     }
     
+    println!("Stats for {}: {:?}", fullrepo, stats);
+    
     //  cleanup repo
-    let _ = std::fs::remove_dir_all(repo_path);
+    std::fs::remove_dir_all(repo_path)?;
+    Ok(())
 }
 
 async fn get_metadata(record: &StringRecord, octocrab: &Octocrab) -> Result<(), Box<dyn std::error::Error>> {
