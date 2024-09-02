@@ -13,3 +13,4 @@ regex = "1.5.4"
 tokio = { version = "1.39.3", features = ["full"] }
 arrow = "52.2.0"
 parquet = { version = "52.2.0", features = ["arrow"] }
+bytes = "1.4.0"

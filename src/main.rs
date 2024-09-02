@@ -4,9 +4,10 @@ use google_cloud_storage::http::objects::get::GetObjectRequest;
 use google_cloud_storage::http::objects::list::ListObjectsRequest;
 use std::default::Default;
 use futures::stream::{self, StreamExt};
-use arrow::record_batch::RecordBatch;
 use parquet::arrow::arrow_reader::ParquetRecordBatchReaderBuilder;
+use parquet::file::reader::ChunkReader;
 use std::io::Cursor;
+use bytes::Bytes;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -70,7 +71,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let size_gb = object.size as f64 / 1_073_741_824.0; // Convert bytes to GB
         println!("Processing object: {} (size: {:.2} GB)", name, size_gb);
 
-        match process_parquet(object.content.clone()) {
+        match process_parquet(&object.content) {
             Ok(results) => {
                 println!("Found {} matching rows in {}", results.len(), name);
                 all_results.extend(results);
@@ -93,9 +94,9 @@ async fn run() -> Result<Client, Box<dyn std::error::Error>> {
     Ok(Client::new(config))
 }
 
-fn process_parquet(data: Vec<u8>) -> Result<Vec<String>, Box<dyn std::error::Error>> {
-    let cursor = Cursor::new(data);
-    let builder = ParquetRecordBatchReaderBuilder::try_new(cursor)?;
+fn process_parquet(data: &[u8]) -> Result<Vec<String>, Box<dyn std::error::Error>> {
+    let bytes = Bytes::from(data.to_vec());
+    let builder = ParquetRecordBatchReaderBuilder::try_new(bytes)?;
     let mut reader = builder.build()?;
 
     let mut results = Vec::new();
