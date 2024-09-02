@@ -3,7 +3,7 @@ use std::sync::Arc;
 use object_store::gcp::GoogleCloudStorageBuilder;
 use object_store::{ObjectStore, path::Path};
 use parquet::arrow::arrow_reader::ParquetRecordBatchReaderBuilder;
-use bytes::Bytes;
+use object_store::GetResult;
 use arrow::array::StringArray;
 use arrow::record_batch::RecordBatchReader;
 use indicatif::{ProgressBar, ProgressStyle};
@@ -50,10 +50,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut all_results: Vec<Info> = Vec::new();
     for path in objects.iter() {
         progress_bar.inc(1);
-        let object: Bytes = store.get(path).await.unwrap();
-        let data = object.bytes();
+        let object: GetResult = store.get(path).await.unwrap();
+        let data = object.bytes().await.unwrap();
         let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-        match process_parquet(&data) {
+        match process_parquet(data.as_ref()) {
             Ok(mut results) => all_results.append(&mut results),
             Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
         }
