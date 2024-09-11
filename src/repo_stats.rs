@@ -99,12 +99,16 @@ fn clone_repository(url: &str, path: &str, token: Option<&str>) -> Result<Reposi
 
 fn count_tests(repo_path: &str) -> Result<u64, Box<dyn Error + Send + Sync>> {
     let output = Command::new("pytest")
-        .args(&["--collect-only", "-q", repo_path])
+        .args(&["--collect-only", "-q"])
+        .current_dir(repo_path)
         .output()?;
 
     if !output.status.success() {
         let stderr = String::from_utf8_lossy(&output.stderr);
-        eprintln!("Warning: Failed to run pytest. Error: {}", stderr);
+        let stdout = String::from_utf8_lossy(&output.stdout);
+        eprintln!("Warning: Failed to run pytest in {}. Error:", repo_path);
+        eprintln!("STDERR: {}", stderr);
+        eprintln!("STDOUT: {}", stdout);
         return Ok(0);
     }
 
