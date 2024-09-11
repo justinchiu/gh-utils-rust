@@ -4,6 +4,7 @@ use walkdir::{DirEntry, WalkDir};
 use std::path::Path;
 use tokio::fs;
 use std::error::Error;
+use std::ffi::OsStr;
 
 pub async fn get_stats(record: &StringRecord) -> Result<u64, Box<dyn Error + Send + Sync>> {
     let fullrepo = record.get(1).unwrap();
@@ -27,12 +28,12 @@ pub async fn get_stats(record: &StringRecord) -> Result<u64, Box<dyn Error + Sen
         .filter_map(|e| e.ok());
 
     for entry in entries {
-        if entry.file_type().is_file() {
+        if entry.file_type().is_file() && is_python_file(entry.path()) {
             let path = entry.path().to_owned();
             if let Ok(content) = fs::read_to_string(&path).await {
                 let line_count = content.lines().count();
                 total_lines += line_count;
-                println!("File: {:?}, Lines: {}", path, line_count);
+                println!("Python File: {:?}, Lines: {}", path, line_count);
             }
         }
     }
@@ -57,4 +58,11 @@ fn is_hidden(entry: &DirEntry) -> bool {
          .to_str()
          .map(|s| s.starts_with("."))
          .unwrap_or(false)
+}
+
+fn is_python_file(path: &Path) -> bool {
+    path.extension()
+        .and_then(OsStr::to_str)
+        .map(|ext| ext == "py")
+        .unwrap_or(false)
 }
