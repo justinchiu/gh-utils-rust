@@ -62,8 +62,8 @@ fn get_stats(record: &StringRecord) -> Result<(), Box<dyn std::error::Error>> {
     for entry in WalkDir::new(repo_path.clone())
         .into_iter()
         .filter_entry(|e| !is_hidden(e))
+        .filter_entry(|e: &DirEntry| e.path().extension().map_or(false, |ext| ext == "py"))
         .filter_map(|e| e.ok())
-        .filter(|e| e.path().extension().map_or(false, |ext| ext == "py"))
     {
         let path = entry.path();
 
