@@ -103,17 +103,19 @@ fn count_tests(repo_path: &str) -> Result<u64, Box<dyn Error + Send + Sync>> {
         .current_dir(repo_path)
         .output()?;
 
+    let stderr = String::from_utf8_lossy(&output.stderr);
+    let stdout = String::from_utf8_lossy(&output.stdout);
+
+    println!("Pytest output for {}:", repo_path);
+    println!("STDOUT:\n{}", stdout);
+    println!("STDERR:\n{}", stderr);
+
     if !output.status.success() {
-        let stderr = String::from_utf8_lossy(&output.stderr);
-        let stdout = String::from_utf8_lossy(&output.stdout);
-        eprintln!("Warning: Failed to run pytest in {}. Error:", repo_path);
-        eprintln!("STDERR: {}", stderr);
-        eprintln!("STDOUT: {}", stdout);
+        eprintln!("Warning: Failed to run pytest in {}.", repo_path);
         return Ok(0);
     }
 
-    let output_str = String::from_utf8(output.stdout)?;
-    let test_count = output_str
+    let test_count = stdout
         .lines()
         .filter(|line| line.contains("collected"))
         .next()
