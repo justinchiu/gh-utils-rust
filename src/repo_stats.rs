@@ -6,7 +6,7 @@ use tokio::fs;
 use std::error::Error;
 use std::ffi::OsStr;
 
-pub async fn get_stats(record: &StringRecord) -> Result<u64, Box<dyn Error + Send + Sync>> {
+pub async fn get_stats(record: &StringRecord) -> Result<(u64, u64), Box<dyn Error + Send + Sync>> {
     let fullrepo = record.get(1).unwrap();
     let url = format!("https://github.com/{fullrepo}");
 
@@ -21,6 +21,7 @@ pub async fn get_stats(record: &StringRecord) -> Result<u64, Box<dyn Error + Sen
     }
 
     let mut total_lines = 0;
+    let mut total_comment_lines = 0;
 
     let entries = WalkDir::new(repo_path.clone())
         .into_iter()
@@ -32,15 +33,18 @@ pub async fn get_stats(record: &StringRecord) -> Result<u64, Box<dyn Error + Sen
         let path = entry.path().to_owned();
         if let Ok(content) = fs::read_to_string(&path).await {
             let line_count = content.lines().count();
+            let comment_count = count_comment_lines(&content);
             total_lines += line_count;
-            println!("Python File: {:?}, Lines: {}", path, line_count);
+            total_comment_lines += comment_count;
+            println!("Python File: {:?}, Total Lines: {}, Comment Lines: {}", path, line_count, comment_count);
         }
     }
    
     println!("Total lines in all files: {}", total_lines);
+    println!("Total comment lines in all files: {}", total_comment_lines);
 
     fs::remove_dir_all(repo_path).await?;
-    Ok(total_lines as u64)
+    Ok((total_lines as u64, total_comment_lines as u64))
 }
 
 fn get_owner_repo(record: &StringRecord) -> (&str, &str) {
@@ -64,4 +68,13 @@ fn is_python_file(path: &Path) -> bool {
         .and_then(OsStr::to_str)
         .map(|ext| ext == "py")
         .unwrap_or(false)
+}
+
+fn count_comment_lines(content: &str) -> usize {
+    content.lines()
+        .filter(|line| {
+            let trimmed = line.trim();
+            trimmed.starts_with("#") || trimmed.starts_with("\"\"\"") || trimmed.starts_with("'''")
+        })
+        .count()
 }
