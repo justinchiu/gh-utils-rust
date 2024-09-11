@@ -33,7 +33,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     
     let start = Instant::now();
     
-    let github_token = env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN not set");
+    let github_token = env::var("GITHUB_TOKEN").unwrap_or_else(|_| {
+        eprintln!("Error: GITHUB_TOKEN environment variable is not set.");
+        eprintln!("Please set it with: export GITHUB_TOKEN=your_token_here");
+        std::process::exit(1);
+    });
 
     let tasks: Vec<_> = records.iter().map(|record| {
         let record = record.clone();
