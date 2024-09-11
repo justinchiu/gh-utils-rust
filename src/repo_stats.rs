@@ -99,7 +99,7 @@ fn clone_repository(url: &str, path: &str, token: Option<&str>) -> Result<Reposi
 
 fn count_tests(repo_path: &str) -> Result<u64, Box<dyn Error + Send + Sync>> {
     let output = Command::new("pytest")
-        .args(&["--collect-only", "-q"])
+        .args(&["--co", "-q"])
         .current_dir(repo_path)
         .output()?;
 
