@@ -34,7 +34,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         })
     }).collect();
 
-    try_join_all(tasks).await?;
+    let results = try_join_all(tasks).await?;
+    let total_lines: u64 = results.into_iter().sum::<Result<u64, _>>()?;
+    println!("Total lines across all repositories: {}", total_lines);
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();

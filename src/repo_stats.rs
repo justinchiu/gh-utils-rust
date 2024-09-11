@@ -5,7 +5,7 @@ use std::path::Path;
 use tokio::fs;
 use std::error::Error;
 
-pub async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn Error + Send + Sync>> {
+pub async fn get_stats(record: &StringRecord) -> Result<u64, Box<dyn Error + Send + Sync>> {
     let fullrepo = record.get(1).unwrap();
     let url = format!("https://github.com/{fullrepo}");
 
@@ -19,21 +19,28 @@ pub async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn Error + Send
         Repository::clone(&url, &repo_path)?;
     }
 
+    let mut total_lines = 0;
+
     let entries = WalkDir::new(repo_path.clone())
         .into_iter()
         .filter_entry(|e| !is_hidden(e))
-        .filter_map(|e| e.ok())
-        .filter(|e| e.path().extension().map_or(false, |ext| ext == "py"));
+        .filter_map(|e| e.ok());
 
     for entry in entries {
-        let path = entry.path().to_owned();
-        let content = fs::read_to_string(&path).await?;
-        println!("Python file: {:?}", path);
-        println!("{}", content);
+        if entry.file_type().is_file() {
+            let path = entry.path().to_owned();
+            if let Ok(content) = fs::read_to_string(&path).await {
+                let line_count = content.lines().count();
+                total_lines += line_count;
+                println!("File: {:?}, Lines: {}", path, line_count);
+            }
+        }
     }
    
+    println!("Total lines in all files: {}", total_lines);
+
     fs::remove_dir_all(repo_path).await?;
-    Ok(())
+    Ok(total_lines as u64)
 }
 
 fn get_owner_repo(record: &StringRecord) -> (&str, &str) {
