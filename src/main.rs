@@ -63,21 +63,20 @@ fn get_stats(record: &StringRecord) -> Result<(), Box<dyn std::error::Error>> {
         .into_iter()
         .filter_entry(|e| !is_hidden(e))
         .filter_map(|e| e.ok())
+        .filter(|e| e.path().extension().map_or(false, |ext| ext == "py"))
     {
         let path = entry.path();
 
-        // Only process files (not directories)
-        if path.is_file() {
-            // Read the file content as a string
-            let content = match read_file_to_string(path) {
-                Ok(content) => content,
-                Err(e) => {
-                    eprintln!("Error reading file {:?}: {}", path, e);
-                    String::new()
-                },
-            };
-            println!("{}", content);
-        }
+        // Read the file content as a string
+        let content = match read_file_to_string(path) {
+            Ok(content) => content,
+            Err(e) => {
+                eprintln!("Error reading file {:?}: {}", path, e);
+                String::new()
+            },
+        };
+        println!("Python file: {:?}", path);
+        println!("{}", content);
     }
    
     //  cleanup repo
