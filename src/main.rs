@@ -1,77 +1,39 @@
+use csv::Reader;
+use csv::StringRecord;
+use std::path::Path;
 use std::time::Instant;
+use std::io::Read;
+use git2::Repository;
+use walkdir::{DirEntry, WalkDir};
+use futures::future::try_join_all;
 use std::sync::Arc;
-use object_store::gcp::GoogleCloudStorageBuilder;
-use object_store::{ObjectStore, path::Path};
-use parquet::file::reader::{FileReader, SerializedFileReader};
-use object_store::GetResult;
-use indicatif::{ProgressBar, ProgressStyle};
-use futures::StreamExt;
-use bytes::{Bytes, BytesMut};
-use tokio::io::AsyncReadExt;
+use regex::Regex;
 
-#[derive(Default,Debug)]
-struct Info {
-    repo: String,
-    num_lines: usize,
-    num_files: usize,
-    has_tests: bool,
-    has_docs: bool,
-}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let bucket_name = "cohere-data";
-    let prefix = "dataacq/github-repos/permissive_and_unlicensed/repo-level-rows/";
+    let token = std::env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN env variable is required");
 
-    let start = Instant::now();
+    let file_path = Path::new("mydata/data.csv");
+    let file = std::fs::File::open(file_path)?;
+    let mut reader = Reader::from_reader(file);
 
-    let store = Arc::new(GoogleCloudStorageBuilder::new()
-        .with_bucket_name(bucket_name)
-        .build()?);
 
-    let objects: Vec<_> = store.list(Some(&Path::from(prefix)))
-        .filter_map(|meta| async move {
-            match meta {
-                Ok(meta) if meta.location.as_ref().ends_with(".parquet") => Some(meta.location),
-                _ => None,
-            }
-        })
-        .collect()
-        .await;
-
-    println!("Number of parquet files: {}", objects.len());
-
-    let progress_bar = ProgressBar::new(objects.len() as u64);
-    progress_bar.set_style(ProgressStyle::default_bar()
-        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} ({eta})")
-        .unwrap()
-        .progress_chars("##-"));
-
-    let mut all_results: Vec<Info> = Vec::new();
-    for path in objects.iter() {
-        progress_bar.inc(1);
-        let result: GetResult = store.get(path).await?;
-        println!("Got result");
-        let mut stream = result.into_stream();
-        let mut buffer = BytesMut::new();
-
-        while let Some(chunk) = stream.next().await {
-            let chunk = chunk?;
-            buffer.extend_from_slice(&chunk);
-        }
-
-        let data = buffer.freeze();
-        println!("Got bytes");
-        let size_gb = data.len() as f64 / 1_073_741_824.0; // Convert bytes to GB
-        match process_parquet(data) {
-            Ok(mut results) => all_results.append(&mut results),
-            Err(e) => eprintln!("Error processing {:?}: {:?}", path, e),
-        };
-        println!("yay!");
+    if !std::path::Path::new("./repos").exists() {
+        std::fs::create_dir("./repos")?;
     }
-    progress_bar.finish();
+    let headers = reader.headers()?.clone();
+    println!("Header: {:?}", headers);
+    
+    let records: Vec<StringRecord> = reader.records().take(5).filter_map(Result::ok).collect();
+    
+    let start = Instant::now();
+    for record in records {
+        let record = record.clone();
+        println!("Record: {:?}", record);
+        get_stats(&record);
 
-    println!("Total processed repos: {}", all_results.len());
+    }
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
@@ -80,16 +42,69 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-fn process_parquet(data: Bytes) -> Result<Vec<Info>, Box<dyn std::error::Error>> {
-    let reader = SerializedFileReader::new(data)?;
-    let mut iter = reader.get_row_iter(None)?;
+fn get_stats(record: &StringRecord) -> Result<(), Box<dyn std::error::Error>> {
+    // clone repo
+    let fullrepo = record.get(1).unwrap();
+    let url = format!("https://github.com/{fullrepo}");
 
-    let mut results = Vec::new();
+    let (owner, reponame) = get_owner_repo(&record);
+    let repo_path = format!("./repos/{reponame}");
+    if std::path::Path::new(&repo_path).exists() {
+        println!("repo already exists at {repo_path}");
+    } else {
+        println!("cloning {owner}/{reponame} to {repo_path}");
+        match Repository::clone(&url, &repo_path) {
+            Ok(repo) => repo,
+            Err(e) => panic!("Failed to clone {}: {}", url, e),
+        };
+    }
 
-    println!("Number of row groups: {}", reader.num_row_groups());
+    for entry in WalkDir::new(repo_path.clone())
+        .into_iter()
+        .filter_entry(|e| !is_hidden(e))
+        .filter_map(|e| e.ok())
+    {
+        let path = entry.path();
 
-    // TODO: Implement the actual processing logic here
-    // This might involve iterating over the rows and populating the Info struct
+        // Only process files (not directories)
+        if path.is_file() {
+            // Read the file content as a string
+            let content = match read_file_to_string(path) {
+                Ok(content) => content,
+                Err(e) => {
+                    eprintln!("Error reading file {:?}: {}", path, e);
+                    String::new()
+                },
+            };
+            println!("{}", content);
+        }
+    }
+   
+    //  cleanup repo
+    std::fs::remove_dir_all(repo_path)?;
+    Ok(())
+}
 
-    Ok(results)
+fn get_owner_repo(record: &StringRecord) -> (&str, &str) {
+    let repo = record.get(1).unwrap();
+    let parts: Vec<&str> = repo.split('/').collect();
+    if parts.len() != 2 {
+        panic!("Invalid input format. Expected 'owner/repo'. Got {:?}", repo);
+    }
+    (parts[0], parts[1])
+}
+
+// Utility function to read a file's contents into a string
+fn read_file_to_string<P: AsRef<Path>>(path: P) -> std::io::Result<String> {
+    let mut file = std::fs::File::open(path)?;
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)?;
+    Ok(contents)
+}
+
+fn is_hidden(entry: &DirEntry) -> bool {
+    entry.file_name()
+         .to_str()
+         .map(|s| s.starts_with("."))
+         .unwrap_or(false)
 }
