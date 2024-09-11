@@ -14,3 +14,9 @@ bytes = "1.4.0"
 object_store = { version = "0.11.0", features = ["gcp"] }
 indicatif = { version = "0.17.8", features = ["rayon"] }
 rayon = "1.8.0"
+[dependencies]
+csv = "1.1"
+tokio = { version = "1", features = ["full"] }
+futures = "0.3"
+git2 = "0.17"
+walkdir = "2.3"

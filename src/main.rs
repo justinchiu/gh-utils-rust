@@ -9,8 +9,6 @@ mod repo_stats;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    let token = std::env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN env variable is required");
-
     let file_path = Path::new("mydata/data.csv");
     let file_content = fs::read_to_string(file_path).await?;
     let mut reader = Reader::from_reader(file_content.as_bytes());
