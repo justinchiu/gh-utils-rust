@@ -25,16 +25,15 @@ pub async fn get_stats(record: &StringRecord) -> Result<u64, Box<dyn Error + Sen
     let entries = WalkDir::new(repo_path.clone())
         .into_iter()
         .filter_entry(|e| !is_hidden(e))
-        .filter_map(|e| e.ok());
+        .filter_map(|e| e.ok())
+        .filter(|e| e.file_type().is_file() && is_python_file(e.path()));
 
     for entry in entries {
-        if entry.file_type().is_file() && is_python_file(entry.path()) {
-            let path = entry.path().to_owned();
-            if let Ok(content) = fs::read_to_string(&path).await {
-                let line_count = content.lines().count();
-                total_lines += line_count;
-                println!("Python File: {:?}, Lines: {}", path, line_count);
-            }
+        let path = entry.path().to_owned();
+        if let Ok(content) = fs::read_to_string(&path).await {
+            let line_count = content.lines().count();
+            total_lines += line_count;
+            println!("Python File: {:?}, Lines: {}", path, line_count);
         }
     }
    
