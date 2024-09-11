@@ -6,7 +6,7 @@ use tokio::fs;
 use std::error::Error;
 use std::ffi::OsStr;
 
-pub async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn Error + Send + Sync>> {
+pub async fn get_stats(record: &StringRecord) -> Result<(u64, u64), Box<dyn Error + Send + Sync>> {
     let fullrepo = record.get(1).unwrap();
     let url = format!("https://github.com/{fullrepo}");
 
@@ -20,6 +20,9 @@ pub async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn Error + Send
         Repository::clone(&url, &repo_path)?;
     }
 
+    let mut total_lines = 0;
+    let mut total_comment_lines = 0;
+
     let entries = WalkDir::new(repo_path.clone())
         .into_iter()
         .filter_entry(|e| !is_hidden(e))
@@ -31,12 +34,16 @@ pub async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn Error + Send
         if let Ok(content) = fs::read_to_string(&path).await {
             let line_count = content.lines().count();
             let comment_count = count_comment_lines(&content);
+            total_lines += line_count;
+            total_comment_lines += comment_count;
             println!("Python File: {:?}, Total Lines: {}, Comment Lines: {}", path, line_count, comment_count);
         }
     }
 
+    println!("Repo: {}, Total Lines: {}, Total Comment Lines: {}", reponame, total_lines, total_comment_lines);
+
     fs::remove_dir_all(repo_path).await?;
-    Ok(())
+    Ok((total_lines as u64, total_comment_lines as u64))
 }
 
 fn get_owner_repo(record: &StringRecord) -> (&str, &str) {

@@ -32,7 +32,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         })
     }).collect();
 
-    let _ = try_join_all(tasks).await?;
+    let results = try_join_all(tasks).await?;
+    
+    for (i, result) in results.into_iter().enumerate() {
+        if let Ok((total_lines, total_comment_lines)) = result {
+            println!("Repository {}: Total Lines: {}, Total Comment Lines: {}", i + 1, total_lines, total_comment_lines);
+        }
+    }
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
