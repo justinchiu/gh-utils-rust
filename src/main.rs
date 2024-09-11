@@ -1,4 +1,4 @@
-use csv::Reader;
+use csv::{Reader, Writer};
 use csv::StringRecord;
 use std::path::Path;
 use std::time::Instant;
@@ -17,7 +17,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         fs::create_dir("./repos").await?;
     }
     
-    let headers = reader.headers()?.clone();
+    let mut headers = reader.headers()?.clone();
+    headers.push_field("total_lines");
+    headers.push_field("comment_lines");
     println!("Header: {:?}", headers);
     
     let records: Vec<StringRecord> = reader.records().take(5).filter_map(Result::ok).collect();
@@ -34,11 +36,20 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
     let results = try_join_all(tasks).await?;
     
-    for (i, result) in results.into_iter().enumerate() {
+    let mut writer = Writer::from_path("mydata/new_data.csv")?;
+    writer.write_record(&headers)?;
+
+    for (i, (record, result)) in records.iter().zip(results.into_iter()).enumerate() {
         if let Ok((total_lines, total_comment_lines)) = result {
             println!("Repository {}: Total Lines: {}, Total Comment Lines: {}", i + 1, total_lines, total_comment_lines);
+            let mut new_record = record.clone();
+            new_record.push_field(&total_lines.to_string());
+            new_record.push_field(&total_comment_lines.to_string());
+            writer.write_record(&new_record)?;
         }
     }
+
+    writer.flush()?;
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
