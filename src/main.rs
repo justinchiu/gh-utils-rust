@@ -12,6 +12,11 @@ mod repo_stats;
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let file_path = Path::new("mydata/data.csv");
+    if !file_path.exists() {
+        eprintln!("Error: Input file 'mydata/data.csv' not found.");
+        std::process::exit(1);
+    }
+
     let file_content = fs::read_to_string(file_path).await?;
     let mut reader = Reader::from_reader(file_content.as_bytes());
 
