@@ -5,11 +5,19 @@ use tokio::fs;
 use futures::future::try_join_all;
 use std::env;
 use std::fs::File;
+use std::process::Command;
 
 mod repo_stats;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    // Print the output of `which pytest`
+    let which_pytest = Command::new("which")
+        .arg("pytest")
+        .output()
+        .expect("Failed to execute 'which pytest'");
+    println!("which pytest: {}", String::from_utf8_lossy(&which_pytest.stdout));
+
     let file_path = Path::new("mydata/data.csv");
     if !file_path.exists() {
         eprintln!("Error: Input file 'mydata/data.csv' not found.");
