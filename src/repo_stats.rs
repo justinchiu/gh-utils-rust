@@ -114,7 +114,7 @@ fn count_tests(repo_path: &str) -> Result<u64, Box<dyn Error + Send + Sync>> {
                 .ok_or_else(|| Box::new(std::io::Error::new(
                     std::io::ErrorKind::Other,
                     "Failed to parse test count",
-                )))
+                )) as Box<dyn Error + Send + Sync>)
         },
         Err(e) => {
             eprintln!("Warning: Failed to execute pytest. Test count will be 0. Error: {}", e);

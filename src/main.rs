@@ -5,7 +5,6 @@ use tokio::fs;
 use futures::future::try_join_all;
 use std::env;
 use std::fs::File;
-use std::io::Write;
 
 mod repo_stats;
 
