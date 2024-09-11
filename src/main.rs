@@ -33,8 +33,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     }).collect();
 
     let results = try_join_all(tasks).await?;
-    let total_lines: u64 = results.into_iter().sum::<Result<u64, _>>()?;
+    let (total_lines, total_comment_lines): (u64, u64) = results.into_iter()
+        .filter_map(Result::ok)
+        .fold((0, 0), |(acc_lines, acc_comments), (lines, comments)| {
+            (acc_lines + lines, acc_comments + comments)
+        });
     println!("Total lines across all repositories: {}", total_lines);
+    println!("Total comment lines across all repositories: {}", total_comment_lines);
 
     let end = Instant::now();
     let duration = (end - start).as_secs_f32();
