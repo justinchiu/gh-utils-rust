@@ -6,7 +6,7 @@ use tokio::fs;
 use std::error::Error;
 use std::ffi::OsStr;
 
-pub async fn get_stats(record: &StringRecord) -> Result<(u64, u64), Box<dyn Error + Send + Sync>> {
+pub async fn get_stats(record: &StringRecord, github_token: Option<&str>) -> Result<(u64, u64), Box<dyn Error + Send + Sync>> {
     let fullrepo = record.get(1).unwrap();
     let url = format!("https://github.com/{fullrepo}");
 
@@ -17,7 +17,7 @@ pub async fn get_stats(record: &StringRecord) -> Result<(u64, u64), Box<dyn Erro
         println!("repo already exists at {repo_path}");
     } else {
         println!("cloning {owner}/{reponame} to {repo_path}");
-        Repository::clone(&url, &repo_path)?;
+        clone_repository(&url, &repo_path, github_token)?;
     }
 
     let mut total_lines = 0;
@@ -76,4 +76,20 @@ fn count_comment_lines(content: &str) -> usize {
             trimmed.starts_with("#") || trimmed.starts_with("\"\"\"") || trimmed.starts_with("'''")
         })
         .count()
+}
+fn clone_repository(url: &str, path: &str, token: Option<&str>) -> Result<Repository, git2::Error> {
+    let mut callbacks = git2::RemoteCallbacks::new();
+    let mut fetch_options = git2::FetchOptions::new();
+
+    if let Some(token) = token {
+        callbacks.credentials(|_url, _username_from_url, _allowed_types| {
+            git2::Cred::userpass_plaintext("git", token)
+        });
+        fetch_options.remote_callbacks(callbacks);
+    }
+
+    let mut builder = git2::build::RepoBuilder::new();
+    builder.fetch_options(fetch_options);
+
+    builder.clone(url, Path::new(path))
 }

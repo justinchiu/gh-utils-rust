@@ -4,6 +4,7 @@ use std::path::Path;
 use std::time::Instant;
 use tokio::fs;
 use futures::future::try_join_all;
+use std::env;
 
 mod repo_stats;
 
@@ -26,11 +27,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     
     let start = Instant::now();
     
+    let github_token = env::var("GITHUB_TOKEN").ok();
+
     let tasks: Vec<_> = records.iter().map(|record| {
         let record = record.clone();
+        let token = github_token.clone();
         tokio::spawn(async move {
             println!("Record: {:?}", record);
-            repo_stats::get_stats(&record).await
+            repo_stats::get_stats(&record, token.as_deref()).await
         })
     }).collect();
 
