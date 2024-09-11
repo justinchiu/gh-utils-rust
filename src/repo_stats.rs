@@ -98,27 +98,24 @@ fn clone_repository(url: &str, path: &str, token: Option<&str>) -> Result<Reposi
 }
 
 fn count_tests(repo_path: &str) -> Result<u64, Box<dyn Error + Send + Sync>> {
-    match Command::new("pytest").args(&["--collect-only", "--count", repo_path]).output() {
-        Ok(output) => {
-            if !output.status.success() {
-                eprintln!("Warning: Failed to run pytest. Test count will be 0.");
-                return Ok(0);
-            }
+    let output = Command::new("pytest")
+        .args(&["--collect-only", "-q", repo_path])
+        .output()?;
 
-            let output_str = String::from_utf8(output.stdout)?;
-            output_str
-                .lines()
-                .find(|line| line.contains("collected"))
-                .and_then(|line| line.split_whitespace().nth(1))
-                .and_then(|count| count.parse::<u64>().ok())
-                .ok_or_else(|| Box::new(std::io::Error::new(
-                    std::io::ErrorKind::Other,
-                    "Failed to parse test count",
-                )) as Box<dyn Error + Send + Sync>)
-        },
-        Err(e) => {
-            eprintln!("Warning: Failed to execute pytest. Test count will be 0. Error: {}", e);
-            Ok(0)
-        }
+    if !output.status.success() {
+        let stderr = String::from_utf8_lossy(&output.stderr);
+        eprintln!("Warning: Failed to run pytest. Error: {}", stderr);
+        return Ok(0);
     }
+
+    let output_str = String::from_utf8(output.stdout)?;
+    let test_count = output_str
+        .lines()
+        .filter(|line| line.contains("collected"))
+        .next()
+        .and_then(|line| line.split_whitespace().nth(1))
+        .and_then(|count| count.parse::<u64>().ok())
+        .unwrap_or(0);
+
+    Ok(test_count)
 }
