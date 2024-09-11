@@ -3,8 +3,9 @@ use git2::Repository;
 use walkdir::{DirEntry, WalkDir};
 use std::path::Path;
 use tokio::fs;
+use std::error::Error;
 
-pub async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn std::error::Error>> {
+pub async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn Error + Send + Sync>> {
     let fullrepo = record.get(1).unwrap();
     let url = format!("https://github.com/{fullrepo}");
 
@@ -18,13 +19,13 @@ pub async fn get_stats(record: &StringRecord) -> Result<(), Box<dyn std::error::
         Repository::clone(&url, &repo_path)?;
     }
 
-    let mut entries = WalkDir::new(repo_path.clone())
+    let entries = WalkDir::new(repo_path.clone())
         .into_iter()
         .filter_entry(|e| !is_hidden(e))
-        .filter_entry(|e: &DirEntry| e.path().extension().map_or(false, |ext| ext == "py"))
-        .filter_map(|e| e.ok());
+        .filter_map(|e| e.ok())
+        .filter(|e| e.path().extension().map_or(false, |ext| ext == "py"));
 
-    while let Some(entry) = entries.next() {
+    for entry in entries {
         let path = entry.path().to_owned();
         let content = fs::read_to_string(&path).await?;
         println!("Python file: {:?}", path);

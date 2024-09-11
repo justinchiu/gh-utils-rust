@@ -8,7 +8,7 @@ use futures::future::try_join_all;
 mod repo_stats;
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let token = std::env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN env variable is required");
 
     let file_path = Path::new("mydata/data.csv");
