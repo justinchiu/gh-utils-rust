@@ -23,7 +23,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     headers.push_field("comment_lines");
     println!("Header: {:?}", headers);
     
-    let records: Vec<StringRecord> = reader.records().take(5).filter_map(Result::ok).collect();
+    //#let records: Vec<StringRecord> = reader.records().take(5).filter_map(Result::ok).collect();
+    let records: Vec<StringRecord> = reader.records().filter_map(Result::ok).collect();
     
     let start = Instant::now();
     

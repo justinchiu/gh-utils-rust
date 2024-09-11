@@ -10,7 +10,7 @@ pub async fn get_stats(record: &StringRecord, github_token: Option<&str>) -> Res
     let fullrepo = record.get(1).unwrap();
     let url = format!("https://github.com/{fullrepo}");
 
-    let (owner, reponame) = get_owner_repo(&record);
+    let (owner, reponame) = get_owner_repo(record);
     let repo_path = format!("./repos/{reponame}");
     
     if Path::new(&repo_path).exists() {
