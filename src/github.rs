@@ -62,5 +62,6 @@ pub async fn get_pull_requests_with_issues(
         }
         repo_prs.insert(repo.to_string(), prs_with_issues);
 
+    }
     repo_prs
 }
