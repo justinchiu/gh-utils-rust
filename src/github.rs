@@ -8,7 +8,13 @@ pub async fn get_pull_requests_with_issues(repos: Vec<&str>) -> HashMap<String, 
     let issue_regex = Regex::new(r"#(\d+)").unwrap();
 
     for repo in repos {
-        let pulls = octocrab.pulls(repo, "").list().send().await.unwrap();
+        let pulls = match octocrab.pulls(repo, "").list().send().await {
+            Ok(pulls) => pulls,
+            Err(e) => {
+                eprintln!("Failed to fetch pull requests for {}: {:?}", repo, e);
+                continue;
+            }
+        };
         let mut prs_with_issues = Vec::new();
 
         for pull in pulls {
