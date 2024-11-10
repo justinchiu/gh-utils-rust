@@ -12,7 +12,6 @@ pub async fn get_pull_requests_with_issues(
 
     for repo in repos {
         let (owner, repo_name) = repo.split_once('/').expect("Repository must be in format owner/repo");
-        let mut all_pulls = Vec::new();
         let initial_page = octocrab.pulls(owner, repo_name)
             .list()
             .state(State::All)  // Get both open and closed PRs
