@@ -10,7 +10,7 @@ pub async fn get_pull_requests_with_issues(
 ) -> HashMap<String, Vec<(PullRequest, Vec<String>)>> {
     let mut repo_prs = HashMap::new();
     // Match GitHub issue linking keywords followed by issue number
-    let issue_regex = Regex::new(r"(?i)(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|#)(\d+)|(?:#)(\d+)|https?://\S+").unwrap();
+    let issue_regex = Regex::new(r"(?i)(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|#)(\d+)|https?://github\.com/[^/]+/[^/]+/issues/(\d+)").unwrap();
 
     for repo in repos {
         let (owner, repo_name) = repo.split_once('/').expect("Repository must be in format owner/repo");
@@ -48,6 +48,9 @@ pub async fn get_pull_requests_with_issues(
                         issues.push(issue.as_str().to_string());
                     } else if let Some(url) = cap.get(0) {
                         issues.push(url.as_str().to_string());
+                    }
+                    } else if let Some(url_issue) = cap.get(2) {
+                        issues.push(url_issue.as_str().to_string());
                     }
                 }
             }
