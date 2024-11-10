@@ -2,3 +2,4 @@ target/
 mydata/
 .aider*
 repos/
+.env
