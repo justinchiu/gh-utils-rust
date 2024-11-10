@@ -22,18 +22,9 @@ pub async fn get_pull_requests_with_issues(
         let all_pulls = match initial_page {
             Ok(mut page) => {
                 let mut pulls = page.items;
-                while let Some(next_url) = page.next {
-                    match octocrab.get_page::<PullRequest>(&Some(next_url)).await {
-                        Ok(Some(next_page)) => {
-                            pulls.extend(next_page.items.clone().into_iter());
-                            page = next_page;
-                        }
-                        Ok(None) => break,
-                        Err(e) => {
-                            eprintln!("Error fetching next page: {:?}", e);
-                            break;
-                        }
-                    }
+                while let Some(next_page) = octocrab.get_page::<PullRequest>(&page.next).await.unwrap_or(None) {
+                    pulls.extend(next_page.items);
+                    page = next_page;
                 }
                 println!("Retrieved {} pulls from API for {}", pulls.len(), repo);
                 pulls
