@@ -13,7 +13,10 @@ pub async fn get_pull_requests_with_issues(
     for repo in repos {
         let (owner, repo_name) = repo.split_once('/').expect("Repository must be in format owner/repo");
         let pulls = match octocrab.pulls(owner, repo_name).list().send().await {
-            Ok(pulls) => pulls,
+            Ok(pulls) => {
+                println!("Retrieved {} pulls from API for {}", pulls.items.len(), repo);
+                pulls
+            },
             Err(e) => {
                 eprintln!("Failed to fetch pull requests for {}: {:?}", repo, e);
                 continue;
