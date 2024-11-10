@@ -66,25 +66,3 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     Ok(())
 }
 
-fn write_csv_results(
-    headers: &StringRecord,
-    records: &[StringRecord],
-    results: &[Result<(u64, u64, u64), Box<dyn std::error::Error + Send + Sync>>],
-) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    let file = File::create("mydata/new_data.csv")?;
-    let mut writer = WriterBuilder::new().from_writer(file);
-    writer.write_record(headers)?;
-
-    for (i, (record, result)) in records.iter().zip(results.iter()).enumerate() {
-        if let Ok((total_lines, comment_lines, _)) = result {
-            println!("Repository {}: Total Lines: {}, Comment Lines: {}", i + 1, total_lines, comment_lines);
-            let mut new_record = record.clone();
-            new_record.push_field(&total_lines.to_string());
-            new_record.push_field(&comment_lines.to_string());
-            writer.write_record(&new_record)?;
-        }
-    }
-
-    writer.flush()?;
-    Ok(())
-}
