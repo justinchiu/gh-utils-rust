@@ -23,12 +23,13 @@ pub async fn get_pull_requests_with_issues(
         match current_page {
             Ok(mut page) => {
                 all_pulls.extend(page.items);
-                while page.next.is_some() {
-                    match octocrab.get_page(&page.next.unwrap()).await {
-                        Ok(next_page) => {
+                while let Some(next_url) = page.next {
+                    match octocrab.get_page::<PullRequest>(&next_url).await {
+                        Ok(Some(next_page)) => {
                             all_pulls.extend(next_page.items);
                             page = next_page;
                         }
+                        Ok(None) => break,
                         Err(e) => {
                             eprintln!("Error fetching next page: {:?}", e);
                             break;
