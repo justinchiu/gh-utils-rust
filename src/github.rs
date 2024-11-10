@@ -46,11 +46,6 @@ pub async fn get_pull_requests_with_issues(
                 for cap in issue_regex.captures_iter(title) {
                     if let Some(issue) = cap.get(1) {
                         issues.push(issue.as_str().to_string());
-                    } else if let Some(url_issue) = cap.get(2) {
-                        issues.push(url_issue.as_str().to_string());
-                    }
-                    } else if let Some(url_issue) = cap.get(2) {
-                        issues.push(url_issue.as_str().to_string());
                     }
                     } else if let Some(url_issue) = cap.get(2) {
                         issues.push(url_issue.as_str().to_string());
@@ -69,7 +64,6 @@ pub async fn get_pull_requests_with_issues(
             prs_with_issues.push((pull, issues));
         }
         repo_prs.insert(repo.to_string(), prs_with_issues);
-    }
 
     repo_prs
 }
