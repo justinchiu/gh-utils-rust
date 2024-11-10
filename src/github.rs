@@ -1,4 +1,4 @@
-use octocrab::{Octocrab, models::pulls::PullRequest};
+use octocrab::{Octocrab, models::pulls::PullRequest, params::State};
 use regex::Regex;
 use std::collections::HashMap;
 
@@ -13,7 +13,7 @@ pub async fn get_pull_requests_with_issues(
     for repo in repos {
         let (owner, repo_name) = repo.split_once('/').expect("Repository must be in format owner/repo");
         let pulls = match octocrab.pulls(owner, repo_name).list()
-            .state("all")  // Get both open and closed PRs
+            .state(State::All)  // Get both open and closed PRs
             .send().await {
             Ok(pulls) => {
                 println!("Retrieved {} pulls from API for {}", pulls.items.len(), repo);
