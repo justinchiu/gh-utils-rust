@@ -13,20 +13,20 @@ pub async fn get_pull_requests_with_issues(
     for repo in repos {
         let (owner, repo_name) = repo.split_once('/').expect("Repository must be in format owner/repo");
         let mut all_pulls = Vec::new();
-        let mut current_page = octocrab.pulls(owner, repo_name)
+        let initial_page = octocrab.pulls(owner, repo_name)
             .list()
             .state(State::All)  // Get both open and closed PRs
             .per_page(100)  // Maximum allowed per page
             .send()
             .await;
 
-        match current_page {
+        let mut all_pulls = match initial_page {
             Ok(mut page) => {
-                all_pulls.extend(page.items);
+                let mut pulls = page.items;
                 while let Some(next_url) = page.next {
                     match octocrab.get_page::<PullRequest>(&Some(next_url)).await {
                         Ok(Some(next_page)) => {
-                            all_pulls.extend(next_page.items);
+                            pulls.extend(next_page.items.into_iter());
                             page = next_page;
                         }
                         Ok(None) => break,
@@ -36,8 +36,8 @@ pub async fn get_pull_requests_with_issues(
                         }
                     }
                 }
-                println!("Retrieved {} pulls from API for {}", all_pulls.len(), repo);
-                all_pulls
+                println!("Retrieved {} pulls from API for {}", pulls.len(), repo);
+                pulls
             },
             Err(e) => {
                 eprintln!("Failed to fetch pull requests for {}: {:?}", repo, e);
