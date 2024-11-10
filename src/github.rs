@@ -3,7 +3,10 @@ use regex::Regex;
 use std::collections::HashMap;
 
 pub async fn get_pull_requests_with_issues(repos: Vec<&str>) -> HashMap<String, Vec<(PullRequest, Vec<String>)>> {
-    let octocrab = Octocrab::builder().build().unwrap();
+    let octocrab = Octocrab::builder()
+        .personal_token("YOUR_GITHUB_TOKEN".to_string())
+        .build()
+        .unwrap();
     let mut repo_prs = HashMap::new();
     let issue_regex = Regex::new(r"#(\d+)").unwrap();
 
