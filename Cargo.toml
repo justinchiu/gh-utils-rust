@@ -5,4 +5,6 @@ edition = "2021"
 
 [dependencies]
 octocrab = "0.41.2"
+regex = "1"
+tokio = { version = "1", features = ["full"] }
 

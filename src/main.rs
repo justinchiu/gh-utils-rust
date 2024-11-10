@@ -2,7 +2,6 @@ mod hello;
 mod github;
 
 use github::get_pull_requests_with_issues;
-use tokio;
 
 #[tokio::main]
 async fn main() {
