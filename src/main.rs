@@ -1,5 +1,6 @@
 mod github;
 
+use octocrab::Octocrab;
 use github::get_pull_requests_with_issues;
 
 #[tokio::main]

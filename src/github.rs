@@ -1,5 +1,4 @@
 use octocrab::{Octocrab, models::pulls::PullRequest};
-use std::env;
 use regex::Regex;
 use std::collections::HashMap;
 
@@ -11,7 +10,8 @@ pub async fn get_pull_requests_with_issues(
     let issue_regex = Regex::new(r"#(\d+)").unwrap();
 
     for repo in repos {
-        let pulls = match octocrab.pulls(repo).list().send().await {
+        let (owner, repo_name) = repo.split_once('/').expect("Repository must be in format owner/repo");
+        let pulls = match octocrab.pulls(owner, repo_name).list().send().await {
             Ok(pulls) => pulls,
             Err(e) => {
                 eprintln!("Failed to fetch pull requests for {}: {:?}", repo, e);
