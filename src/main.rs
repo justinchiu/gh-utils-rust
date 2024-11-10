@@ -1,13 +1,10 @@
 mod github;
-mod hello;
 
 use octocrab::Octocrab;
 use github::get_pull_requests_with_issues;
-use hello::hello;
 
 #[tokio::main]
 async fn main() {
-    hello();
     let token = std::env::var("GITHUB_TOKEN").expect("GITHUB_TOKEN not set");
     let octocrab = Octocrab::builder()
         .personal_token(token)
