@@ -1,13 +1,10 @@
-mod hello;
 mod github;
 
 use github::get_pull_requests_with_issues;
 
 #[tokio::main]
 async fn main() {
-    hello::hello();
-
-    let repos = vec!["owner/repo1", "owner/repo2"];
+    let repos = vec!["msiemens/tinydb"];
     let repo_prs = get_pull_requests_with_issues(repos).await;
 
     for (repo, prs) in repo_prs {
