@@ -14,11 +14,12 @@ async fn main() {
     let repos = vec!["msiemens/tinydb"];
     let repo_prs = get_pull_requests_with_issues(&octocrab, repos).await;
 
-    for (repo, prs) in repo_prs {
+    if let Some((repo, prs)) = repo_prs.iter().next() {
         println!("Repository: {}", repo);
-        println!("Number of PRs: {}", prs.len());
-        for (pr, issues) in prs {
-            println!("PR: {} - Issues: {:?}", pr.title.unwrap_or_default(), issues);
+        if let Some((pr, issues)) = prs.first() {
+            println!("First PR Title: {}", pr.title.as_deref().unwrap_or("No title"));
+            println!("First PR Body: {}", pr.body.as_deref().unwrap_or("No body"));
+            println!("Issues: {:?}", issues);
         }
     }
 }
