@@ -49,6 +49,12 @@ pub async fn get_pull_requests_with_issues(
                     } else if let Some(url_issue) = cap.get(2) {
                         issues.push(url_issue.as_str().to_string());
                     }
+                    } else if let Some(url_issue) = cap.get(2) {
+                        issues.push(url_issue.as_str().to_string());
+                    }
+                    } else if let Some(url_issue) = cap.get(2) {
+                        issues.push(url_issue.as_str().to_string());
+                    }
                 }
             }
             
