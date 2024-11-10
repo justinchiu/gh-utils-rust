@@ -19,13 +19,13 @@ pub async fn get_pull_requests_with_issues(
             .send()
             .await;
 
-        let mut all_pulls = match initial_page {
+        let all_pulls = match initial_page {
             Ok(mut page) => {
                 let mut pulls = page.items;
                 while let Some(next_url) = page.next {
                     match octocrab.get_page::<PullRequest>(&Some(next_url)).await {
                         Ok(Some(next_page)) => {
-                            pulls.extend(next_page.items.into_iter());
+                            pulls.extend(next_page.items.clone().into_iter());
                             page = next_page;
                         }
                         Ok(None) => break,
