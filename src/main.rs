@@ -16,6 +16,7 @@ async fn main() {
 
     for (repo, prs) in repo_prs {
         println!("Repository: {}", repo);
+        println!("Number of PRs: {}", prs.len());
         for (pr, issues) in prs {
             println!("PR: {} - Issues: {:?}", pr.title.unwrap_or_default(), issues);
         }
