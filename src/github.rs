@@ -117,6 +117,8 @@ async fn fetch_all_commits(
     }
     all_commits
 }
+
+fn extract_issues_from_pr(
     pull: &PullRequest,
     keyword_issue_regex: &Regex,
     url_issue_regex: &Regex,
