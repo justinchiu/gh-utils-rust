@@ -1,9 +1,9 @@
 use octocrab::{models::pulls::PullRequest, models::repos::Commit, params::State, Octocrab};
+use std::time::Instant;
 
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
 use regex::Regex;
 use std::collections::HashMap;
-use std::time::Instant;
 
 pub async fn get_pull_requests_with_issues(
     octocrab: &Octocrab,
@@ -35,22 +35,20 @@ pub async fn get_pull_requests_with_issues(
 
         println!("Retrieved {} pulls from API for {}", all_pulls.len(), repo);
         let mut prs_with_issues = Vec::new();
-
         for pull in all_pulls {
             let issues = extract_issues_from_pr(&pull, &keyword_issue_regex, &url_issue_regex);
             prs_with_issues.push((pull, issues));
         }
+
         // Fetch all commits and apply issue URLs
-        let commits = fetch_all_commits(octocrab, owner, repo_name).await;
-        for commit in commits {
-            let mut message = commit.commit.message.clone();
-            for (pr, issues) in prs_with_issues.iter() {
-                for issue in issues {
-                    message.push_str(&format!("\nRelated issue: #{}", issue));
-                }
-            }
-            println!("Commit: {}\nMessage: {}\n", commit.sha, message);
-        }
+        let start_time = Instant::now();
+        let all_commits = fetch_all_commits(octocrab, owner, repo_name).await;
+        let duration = start_time.elapsed();
+        println!(
+            "Time taken to fetch commits for {}: {:?}",
+            repo, duration
+        );
+        println!("Retrieved {} commits from API for {}", all_commits.len(), repo);
 
         repo_prs.insert(repo.to_string(), prs_with_issues);
     }
@@ -78,7 +76,7 @@ async fn fetch_all_pull_requests(
             .await
             .unwrap_or(None)
         {
-            page = Ok(next_page.map(|p| p.into_iter().collect::<Vec<_>>()));
+            page = Ok(next_page.into_iter().map(|p| p.into_iter().collect::<Vec<_>>()));
         } else {
             break;
         }
