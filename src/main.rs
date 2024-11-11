@@ -1,6 +1,6 @@
 mod github;
 
-use github::get_pull_requests_with_issues;
+use github::{get_pull_requests_with_issues, get_commits_with_issues};
 use octocrab::Octocrab;
 
 #[tokio::main]
@@ -27,27 +27,45 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let repos = vec!["msiemens/tinydb"];
     println!("Fetching pull requests for repositories: {:?}", repos);
     
-    let repo_prs = get_pull_requests_with_issues(&octocrab, repos).await;
+    let repo_prs = get_pull_requests_with_issues(&octocrab, repos.clone()).await;
+    let repo_commits = get_commits_with_issues(&octocrab, repos).await;
     
-    if repo_prs.is_empty() {
-        println!("No repositories found with pull requests.");
+    if repo_prs.is_empty() && repo_commits.is_empty() {
+        println!("No repositories found with pull requests or commits.");
         return Ok(());
     }
 
+    // Print pull requests
     for (repo, prs) in repo_prs.iter() {
         println!("\nRepository: {}", repo);
         if prs.is_empty() {
             println!("No pull requests found.");
-            continue;
+        } else {
+            println!("Found {} pull requests", prs.len());
+            for (pr, issues) in prs {
+                println!("\nPR #{}: {}", 
+                    pr.number,
+                    pr.title.as_deref().unwrap_or("No title")
+                );
+                if !issues.is_empty() {
+                    println!("Related issues: {:?}", issues);
+                }
+            }
         }
+    }
 
-        println!("Found {} pull requests", prs.len());
-        for (pr, issues) in prs {
-            println!("\nPR #{}: {}", 
-                pr.number,
-                pr.title.as_deref().unwrap_or("No title")
-            );
-            if !issues.is_empty() {
+    // Print commits
+    for (repo, commits) in repo_commits.iter() {
+        println!("\nRepository: {} (Commits)", repo);
+        if commits.is_empty() {
+            println!("No commits found with issue references.");
+        } else {
+            println!("Found {} commits with issue references", commits.len());
+            for (commit, issues) in commits {
+                println!("\nCommit {}: {}", 
+                    &commit.sha[..7],
+                    commit.commit.message.lines().next().unwrap_or("No message")
+                );
                 println!("Related issues: {:?}", issues);
             }
         }
