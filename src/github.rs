@@ -58,19 +58,17 @@ async fn fetch_all_pull_requests(
         .state(State::All)
         .per_page(100)
         .send()
-        .await;
+        .await?;
 
     let mut all_pulls = Vec::new();
-    while let Ok(mut current_page) = page {
-        all_pulls.extend(current_page.take_items());
-        if let Some(next_page) = octocrab
-            .get_page::<PullRequest>(&current_page.next)
-            .await
-            .unwrap_or(None)
+    loop {
+        all_pulls.extend(page.take_items());
+        page = match octocrab
+            .get_page::<PullRequest>(&page.next)
+            .await?
         {
-            page = Ok(next_page);
-        } else {
-            break;
+            Some(next_page) => next_page,
+            None => break,
         }
     }
     all_pulls
@@ -143,7 +141,7 @@ pub async fn get_commits_with_issues(
             let commit_issues = extract_issues_from_commit(&commit, &keyword_issue_regex, &url_issue_regex);
             if !commit_issues.is_empty() {
                 println!("Found issues in commit {}: {:?}", 
-                    commit.sha.as_ref().unwrap_or("unknown"),
+                    commit.sha,
                     commit_issues
                 );
                 commits_with_issues.push((commit, commit_issues));
@@ -158,17 +156,16 @@ pub async fn get_commits_with_issues(
 fn extract_issues_from_commit(commit: &RepoCommit, keyword_issue_regex: &Regex, url_issue_regex: &Regex) -> Vec<String> {
     let mut issues = Vec::new();
     
-    if let Some(ref message) = commit.commit.message {
-        // Check commit message for issue references
-        for cap in keyword_issue_regex.captures_iter(message) {
-            if let Some(issue) = cap.get(1) {
-                issues.push(issue.as_str().to_string());
-            }
+    let message = &commit.commit.message;
+    // Check commit message for issue references
+    for cap in keyword_issue_regex.captures_iter(&message) {
+        if let Some(issue) = cap.get(1) {
+            issues.push(issue.as_str().to_string());
         }
-        for cap in url_issue_regex.captures_iter(message) {
-            if let Some(issue) = cap.get(1) {
-                issues.push(issue.as_str().to_string());
-            }
+    }
+    for cap in url_issue_regex.captures_iter(&message) {
+        if let Some(issue) = cap.get(1) {
+            issues.push(issue.as_str().to_string());
         }
     }
     issues
@@ -179,24 +176,22 @@ async fn fetch_all_commits(
     owner: &str,
     repo_name: &str,
 ) -> Vec<RepoCommit> {
-    let mut all_commits = Vec::new();
     let mut page = octocrab
         .repos(owner, repo_name)
         .list_commits()
         .per_page(100)
         .send()
-        .await;
+        .await?;
 
-    while let Ok(mut current_page) = page {
-        all_commits.extend(current_page.take_items());
-        if let Some(next_page) = octocrab
-            .get_page::<octocrab::models::repos::RepoCommit>(&current_page.next)
-            .await
-            .unwrap_or(None)
+    let mut all_commits = Vec::new();
+    loop {
+        all_commits.extend(page.take_items());
+        page = match octocrab
+            .get_page::<RepoCommit>(&page.next)
+            .await?
         {
-            page = Ok(next_page);
-        } else {
-            break;
+            Some(next_page) => next_page,
+            None => break,
         }
     }
     all_commits
