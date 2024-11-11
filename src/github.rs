@@ -1,4 +1,4 @@
-use octocrab::{models::pulls::PullRequest, params::State, Octocrab};
+use octocrab::{models::pulls::PullRequest, models::repos::Commit, params::State, Octocrab};
 
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
 use regex::Regex;
@@ -42,6 +42,22 @@ pub async fn get_pull_requests_with_issues(
         }
         repo_prs.insert(repo.to_string(), prs_with_issues);
     }
+    // Fetch all commits and apply issue URLs
+    for repo in repos {
+        let (owner, repo_name) = repo
+            .split_once('/')
+            .expect("Repository must be in format owner/repo");
+        let commits = fetch_all_commits(octocrab, owner, repo_name).await;
+        for commit in commits {
+            let mut message = commit.commit.message.clone();
+            for (pr, issues) in prs_with_issues.iter() {
+                for issue in issues {
+                    message.push_str(&format!("\nRelated issue: #{}", issue));
+                }
+            }
+            println!("Commit: {}\nMessage: {}\n", commit.sha, message);
+        }
+    }
     repo_prs
 }
 
@@ -74,7 +90,33 @@ async fn fetch_all_pull_requests(
     all_pulls
 }
 
-fn extract_issues_from_pr(
+async fn fetch_all_commits(
+    octocrab: &Octocrab,
+    owner: &str,
+    repo_name: &str,
+) -> Vec<Commit> {
+    let mut page = octocrab
+        .repos(owner, repo_name)
+        .list_commits()
+        .per_page(100)
+        .send()
+        .await;
+
+    let mut all_commits = Vec::new();
+    while let Ok(mut current_page) = page {
+        all_commits.extend(current_page.take_items());
+        if let Some(next_page) = octocrab
+            .get_page::<Commit>(&current_page.next)
+            .await
+            .unwrap_or(None)
+        {
+            page = Ok(next_page);
+        } else {
+            break;
+        }
+    }
+    all_commits
+}
     pull: &PullRequest,
     keyword_issue_regex: &Regex,
     url_issue_regex: &Regex,
