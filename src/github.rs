@@ -40,26 +40,7 @@ pub async fn get_pull_requests_with_issues(
             prs_with_issues.push((pull, issues));
         }
 
-        // Fetch all commits and apply issue URLs
-        let start_time = Instant::now();
-        let all_commits = fetch_all_commits(octocrab, owner, repo_name).await;
-        let duration = start_time.elapsed();
-        println!(
-            "Time taken to fetch commits for {}: {:?}",
-            repo, duration
-        );
-        println!("Retrieved {} commits from API for {}", all_commits.len(), repo);
 
-        // Process commits for issues
-        for commit in &all_commits {
-            let commit_issues = extract_issues_from_commit(commit, &keyword_issue_regex, &url_issue_regex);
-            if !commit_issues.is_empty() {
-                println!("Found issues in commit {}: {:?}", 
-                    commit.sha.as_deref().unwrap_or("unknown"),
-                    commit_issues
-                );
-            }
-        }
 
         repo_prs.insert(repo.to_string(), prs_with_issues);
     }
@@ -94,6 +75,78 @@ async fn fetch_all_pull_requests(
     }
     all_pulls
 }
+
+
+fn extract_issues_from_pr(
+    pull: &PullRequest,
+    keyword_issue_regex: &Regex,
+    url_issue_regex: &Regex,
+) -> Vec<String> {
+    let mut issues = Vec::new();
+    // Check PR title for issue references
+    if let Some(title) = &pull.title {
+        for cap in keyword_issue_regex.captures_iter(title) {
+            if let Some(issue) = cap.get(1) {
+                issues.push(issue.as_str().to_string());
+            }
+        }
+        for cap in url_issue_regex.captures_iter(title) {
+            if let Some(issue) = cap.get(1) {
+                issues.push(issue.as_str().to_string());
+            }
+        }
+    }
+    // Check PR body for issue references
+    if let Some(body) = &pull.body {
+        for cap in keyword_issue_regex.captures_iter(body) {
+            if let Some(issue) = cap.get(1) {
+                issues.push(issue.as_str().to_string());
+            }
+        }
+        for cap in url_issue_regex.captures_iter(body) {
+            if let Some(issue) = cap.get(1) {
+                issues.push(issue.as_str().to_string());
+            }
+        }
+    }
+    issues
+}
+
+pub async fn get_commits_with_issues(
+    octocrab: &Octocrab,
+    repos: Vec<&str>,
+) -> HashMap<String, Vec<(Commit, Vec<String>)>> {
+    let mut repo_prs = HashMap::new();
+    // Match GitHub issue linking keywords followed by issue number
+    let keyword_issue_regex =
+        Regex::new(r"(?i)(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|#)(\d+)").unwrap();
+    // Match GitHub issue URLs
+    let url_issue_regex = Regex::new(r"https?://github\.com/[^/]+/[^/]+/issues/(\d+)").unwrap();
+
+    for repo in repos {
+        let (owner, repo_name) = repo
+            .split_once('/')
+            .expect("Repository must be in format owner/repo");
+        // Fetch all commits and apply issue URLs
+        let start_time = Instant::now();
+        let all_commits = fetch_all_commits(octocrab, owner, repo_name).await;
+        let duration = start_time.elapsed();
+        println!(
+            "Time taken to fetch commits for {}: {:?}",
+            repo, duration
+        );
+        println!("Retrieved {} commits from API for {}", all_commits.len(), repo);
+
+        // Process commits for issues
+        for commit in &all_commits {
+            let commit_issues = extract_issues_from_commit(commit, &keyword_issue_regex, &url_issue_regex);
+            if !commit_issues.is_empty() {
+                println!("Found issues in commit {}: {:?}", 
+                    commit.sha.as_deref().unwrap_or("unknown"),
+                    commit_issues
+                );
+            }
+        }
 
 fn extract_issues_from_commit(commit: &RepoCommit, keyword_issue_regex: &Regex, url_issue_regex: &Regex) -> Vec<String> {
     let mut issues = Vec::new();
@@ -140,39 +193,4 @@ async fn fetch_all_commits(
         }
     }
     all_commits
-}
-
-fn extract_issues_from_pr(
-    pull: &PullRequest,
-    keyword_issue_regex: &Regex,
-    url_issue_regex: &Regex,
-) -> Vec<String> {
-    let mut issues = Vec::new();
-    // Check PR title for issue references
-    if let Some(title) = &pull.title {
-        for cap in keyword_issue_regex.captures_iter(title) {
-            if let Some(issue) = cap.get(1) {
-                issues.push(issue.as_str().to_string());
-            }
-        }
-        for cap in url_issue_regex.captures_iter(title) {
-            if let Some(issue) = cap.get(1) {
-                issues.push(issue.as_str().to_string());
-            }
-        }
-    }
-    // Check PR body for issue references
-    if let Some(body) = &pull.body {
-        for cap in keyword_issue_regex.captures_iter(body) {
-            if let Some(issue) = cap.get(1) {
-                issues.push(issue.as_str().to_string());
-            }
-        }
-        for cap in url_issue_regex.captures_iter(body) {
-            if let Some(issue) = cap.get(1) {
-                issues.push(issue.as_str().to_string());
-            }
-        }
-    }
-    issues
 }
