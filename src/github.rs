@@ -40,19 +40,19 @@ pub async fn get_pull_requests_with_issues(
             let issues = extract_issues_from_pr(&pull, &keyword_issue_regex, &url_issue_regex);
             prs_with_issues.push((pull, issues));
         }
-        repo_prs.insert(repo.to_string(), prs_with_issues);
-    }
         // Fetch all commits and apply issue URLs
         let commits = fetch_all_commits(octocrab, owner, repo_name).await;
         for commit in commits {
-            let mut message = commit.commit.message.clone().unwrap_or_default();
+            let mut message = commit.commit.message.clone();
             for (pr, issues) in prs_with_issues.iter() {
                 for issue in issues {
                     message.push_str(&format!("\nRelated issue: #{}", issue));
                 }
             }
-            println!("Commit: {}\nMessage: {:?}\n", commit.sha, message);
+            println!("Commit: {}\nMessage: {}\n", commit.sha, message);
         }
+
+        repo_prs.insert(repo.to_string(), prs_with_issues);
     repo_prs
 }
 
@@ -77,7 +77,7 @@ async fn fetch_all_pull_requests(
             .await
             .unwrap_or(None)
         {
-            page = Ok(next_page);
+            page = Ok(next_page.map(|p| p.into_iter().collect::<Vec<_>>()));
         } else {
             break;
         }
