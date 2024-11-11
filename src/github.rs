@@ -47,6 +47,8 @@ pub async fn get_pull_requests_with_issues(
             if let Some(title) = &pull.title {
                 for cap in keyword_issue_regex.captures_iter(title) {
                     if let Some(issue) = cap.get(1) {
+                        println!("Captured issue from URL in body: {}", issue.as_str());
+                        println!("Captured issue from URL in title: {}", issue.as_str());
                         issues.push(issue.as_str().to_string());
                     }
                 }
