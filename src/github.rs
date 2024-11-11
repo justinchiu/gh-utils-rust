@@ -6,7 +6,7 @@ use std::collections::HashMap;
 
 pub async fn get_pull_requests_with_issues(
     octocrab: &Octocrab,
-    repos: Vec<&str>
+    repos: Vec<&str>,
 ) -> HashMap<String, Vec<(PullRequest, Vec<String>)>> {
     let mut repo_prs = HashMap::new();
     // Match GitHub issue linking keywords followed by issue number
@@ -16,7 +16,6 @@ pub async fn get_pull_requests_with_issues(
 
     for repo in repos {
         let (owner, repo_name) = repo.split_once('/').expect("Repository must be in format owner/repo");
-        let mut all_pulls = Vec::new();
         let mut page = octocrab.pulls(owner, repo_name)
             .list()
             .state(State::All)
@@ -24,6 +23,7 @@ pub async fn get_pull_requests_with_issues(
             .send()
             .await;
 
+        let mut all_pulls = Vec::new();
         while let Ok(mut current_page) = page {
             all_pulls.extend(current_page.take_items());
             if let Some(next_page) = octocrab.get_page::<PullRequest>(&current_page.next).await.unwrap_or(None) {
@@ -47,8 +47,6 @@ pub async fn get_pull_requests_with_issues(
             if let Some(title) = &pull.title {
                 for cap in keyword_issue_regex.captures_iter(title) {
                     if let Some(issue) = cap.get(1) {
-                        println!("Captured issue from URL in body: {}", issue.as_str());
-                        println!("Captured issue from URL in title: {}", issue.as_str());
                         issues.push(issue.as_str().to_string());
                     }
                 }
@@ -58,7 +56,6 @@ pub async fn get_pull_requests_with_issues(
                     }
                 }
             }
-            
             // Check PR body for issue references
             if let Some(body) = &pull.body {
                 for cap in keyword_issue_regex.captures_iter(body) {
