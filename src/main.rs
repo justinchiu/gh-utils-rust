@@ -28,11 +28,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let repos = vec!["msiemens/tinydb"];
     println!("Fetching pull requests for repositories: {:?}", repos);
     
-    let start = Instant::now();
     let repo_prs = get_pull_requests_with_issues(&octocrab, repos.clone()).await;
     let repo_commits = get_commits_with_issues(&octocrab, repos).await;
-    let duration = start.elapsed();
-    println!("\nTotal time to fetch all issues: {:?}", duration);
     
     if repo_prs.is_empty() && repo_commits.is_empty() {
         println!("No repositories found with pull requests or commits.");
