@@ -1,4 +1,4 @@
-use octocrab::{models::pulls::PullRequest, models::repos::Commit, params::State, Octocrab};
+use octocrab::{models::pulls::PullRequest, params::State, Octocrab};
 use std::time::Instant;
 
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
@@ -99,9 +99,14 @@ async fn fetch_all_commits(
 
     while let Ok(mut current_page) = page {
         all_commits.extend(current_page.take_items());
-        page = match current_page.next {
-            Some(url) => octocrab.get_page::<octocrab::models::repos::RepoCommit>(&url).await,
-            None => break,
+        if let Some(next_page) = octocrab
+            .get_page::<octocrab::models::repos::RepoCommit>(&current_page.next)
+            .await
+            .unwrap_or(None)
+        {
+            page = Ok(next_page);
+        } else {
+            break;
         }
     }
     all_commits
