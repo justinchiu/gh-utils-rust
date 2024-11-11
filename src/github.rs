@@ -55,7 +55,7 @@ pub async fn get_pull_requests_with_issues(
             let commit_issues = extract_issues_from_commit(commit, &keyword_issue_regex, &url_issue_regex);
             if !commit_issues.is_empty() {
                 println!("Found issues in commit {}: {:?}", 
-                    commit.sha.as_deref().unwrap_or("unknown"),
+                    commit.sha.as_ref().unwrap_or("unknown"),
                     commit_issues
                 );
             }
@@ -98,7 +98,7 @@ async fn fetch_all_pull_requests(
 fn extract_issues_from_commit(commit: &RepoCommit, keyword_issue_regex: &Regex, url_issue_regex: &Regex) -> Vec<String> {
     let mut issues = Vec::new();
     
-    if let Some(message) = &commit.commit.message {
+    if let Some(message) = commit.commit.message.as_ref() {
         // Check commit message for issue references
         for cap in keyword_issue_regex.captures_iter(message) {
             if let Some(issue) = cap.get(1) {
