@@ -1,4 +1,4 @@
-use octocrab::{models::pulls::PullRequest, params::State, Octocrab};
+use octocrab::{models::{pulls::PullRequest, repos::RepoCommit}, params::State, Octocrab};
 use std::time::Instant;
 
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
@@ -50,6 +50,17 @@ pub async fn get_pull_requests_with_issues(
         );
         println!("Retrieved {} commits from API for {}", all_commits.len(), repo);
 
+        // Process commits for issues
+        for commit in &all_commits {
+            let commit_issues = extract_issues_from_commit(commit, &keyword_issue_regex, &url_issue_regex);
+            if !commit_issues.is_empty() {
+                println!("Found issues in commit {}: {:?}", 
+                    commit.sha.as_deref().unwrap_or("unknown"),
+                    commit_issues
+                );
+            }
+        }
+
         repo_prs.insert(repo.to_string(), prs_with_issues);
     }
     repo_prs
@@ -84,11 +95,30 @@ async fn fetch_all_pull_requests(
     all_pulls
 }
 
+fn extract_issues_from_commit(commit: &RepoCommit, keyword_issue_regex: &Regex, url_issue_regex: &Regex) -> Vec<String> {
+    let mut issues = Vec::new();
+    
+    if let Some(message) = &commit.commit.message {
+        // Check commit message for issue references
+        for cap in keyword_issue_regex.captures_iter(message) {
+            if let Some(issue) = cap.get(1) {
+                issues.push(issue.as_str().to_string());
+            }
+        }
+        for cap in url_issue_regex.captures_iter(message) {
+            if let Some(issue) = cap.get(1) {
+                issues.push(issue.as_str().to_string());
+            }
+        }
+    }
+    issues
+}
+
 async fn fetch_all_commits(
     octocrab: &Octocrab,
     owner: &str,
     repo_name: &str,
-) -> Vec<octocrab::models::repos::RepoCommit> {
+) -> Vec<RepoCommit> {
     let mut all_commits = Vec::new();
     let mut page = octocrab
         .repos(owner, repo_name)
