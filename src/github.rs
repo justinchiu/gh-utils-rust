@@ -3,6 +3,7 @@ use octocrab::{Octocrab, models::pulls::PullRequest, params::State};
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
 use regex::Regex;
 use std::collections::HashMap;
+use std::time::Instant;
 
 pub async fn get_pull_requests_with_issues(
     octocrab: &Octocrab,
