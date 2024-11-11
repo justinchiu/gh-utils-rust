@@ -42,37 +42,46 @@ pub async fn get_pull_requests_with_issues(
         let mut prs_with_issues = Vec::new();
 
         for pull in all_pulls {
-            let mut issues = Vec::new();
-            // Check PR title for issue references
-            if let Some(title) = &pull.title {
-                for cap in keyword_issue_regex.captures_iter(title) {
-                    if let Some(issue) = cap.get(1) {
-                        issues.push(issue.as_str().to_string());
-                    }
-                }
-                for cap in url_issue_regex.captures_iter(title) {
-                    if let Some(issue) = cap.get(1) {
-                        issues.push(issue.as_str().to_string());
-                    }
-                }
-            }
-            // Check PR body for issue references
-            if let Some(body) = &pull.body {
-                for cap in keyword_issue_regex.captures_iter(body) {
-                    if let Some(issue) = cap.get(1) {
-                        issues.push(issue.as_str().to_string());
-                    }
-                }
-                for cap in url_issue_regex.captures_iter(body) {
-                    if let Some(issue) = cap.get(1) {
-                        issues.push(issue.as_str().to_string());
-                    }
-                }
-            }
+            let issues = extract_issues_from_pr(&pull, &keyword_issue_regex, &url_issue_regex);
             prs_with_issues.push((pull, issues));
         }
         repo_prs.insert(repo.to_string(), prs_with_issues);
 
     }
     repo_prs
+}
+
+fn extract_issues_from_pr(
+    pull: &PullRequest,
+    keyword_issue_regex: &Regex,
+    url_issue_regex: &Regex,
+) -> Vec<String> {
+    let mut issues = Vec::new();
+    // Check PR title for issue references
+    if let Some(title) = &pull.title {
+        for cap in keyword_issue_regex.captures_iter(title) {
+            if let Some(issue) = cap.get(1) {
+                issues.push(issue.as_str().to_string());
+            }
+        }
+        for cap in url_issue_regex.captures_iter(title) {
+            if let Some(issue) = cap.get(1) {
+                issues.push(issue.as_str().to_string());
+            }
+        }
+    }
+    // Check PR body for issue references
+    if let Some(body) = &pull.body {
+        for cap in keyword_issue_regex.captures_iter(body) {
+            if let Some(issue) = cap.get(1) {
+                issues.push(issue.as_str().to_string());
+            }
+        }
+        for cap in url_issue_regex.captures_iter(body) {
+            if let Some(issue) = cap.get(1) {
+                issues.push(issue.as_str().to_string());
+            }
+        }
+    }
+    issues
 }
