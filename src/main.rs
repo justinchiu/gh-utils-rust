@@ -2,7 +2,6 @@ mod github;
 
 use github::get_pull_requests_with_issues;
 use octocrab::Octocrab;
-use std::time::Instant;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
