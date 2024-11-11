@@ -42,22 +42,17 @@ pub async fn get_pull_requests_with_issues(
         }
         repo_prs.insert(repo.to_string(), prs_with_issues);
     }
-    // Fetch all commits and apply issue URLs
-    for repo in repos {
-        let (owner, repo_name) = repo
-            .split_once('/')
-            .expect("Repository must be in format owner/repo");
+        // Fetch all commits and apply issue URLs
         let commits = fetch_all_commits(octocrab, owner, repo_name).await;
         for commit in commits {
-            let mut message = commit.commit.message.clone();
+            let mut message = commit.commit.message.clone().unwrap_or_default();
             for (pr, issues) in prs_with_issues.iter() {
                 for issue in issues {
                     message.push_str(&format!("\nRelated issue: #{}", issue));
                 }
             }
-            println!("Commit: {}\nMessage: {}\n", commit.sha, message);
+            println!("Commit: {}\nMessage: {:?}\n", commit.sha, message);
         }
-    }
     repo_prs
 }
 
@@ -94,7 +89,7 @@ async fn fetch_all_commits(
     octocrab: &Octocrab,
     owner: &str,
     repo_name: &str,
-) -> Vec<Commit> {
+) -> Vec<octocrab::models::repos::RepoCommit> {
     let mut page = octocrab
         .repos(owner, repo_name)
         .list_commits()
