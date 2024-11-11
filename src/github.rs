@@ -16,7 +16,10 @@ pub async fn get_pull_requests_with_issues(
 
     for repo in repos {
         let (owner, repo_name) = repo.split_once('/').expect("Repository must be in format owner/repo");
+        let start_time = Instant::now();
         let all_pulls = fetch_all_pull_requests(octocrab, owner, repo_name).await;
+        let duration = start_time.elapsed();
+        println!("Time taken to fetch pull requests for {}: {:?}", repo, duration);
 
         if all_pulls.is_empty() {
             eprintln!("Failed to fetch pull requests for {}", repo);

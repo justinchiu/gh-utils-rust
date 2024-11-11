@@ -1,5 +1,6 @@
 mod github;
 
+use std::time::Instant;
 use octocrab::Octocrab;
 use github::get_pull_requests_with_issues;
 
