@@ -44,7 +44,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("Found {} pull requests", prs.len());
         for (pr, issues) in prs {
             println!("\nPR #{}: {}", 
-                pr.number.unwrap_or(0),
+                pr.number,
                 pr.title.as_deref().unwrap_or("No title")
             );
             if !issues.is_empty() {

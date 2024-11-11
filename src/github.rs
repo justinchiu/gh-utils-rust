@@ -76,7 +76,7 @@ async fn fetch_all_pull_requests(
             .await
             .unwrap_or(None)
         {
-            page = Ok(next_page.into_iter().map(|p| p.into_iter().collect::<Vec<_>>()));
+            page = Ok(next_page);
         } else {
             break;
         }
@@ -89,6 +89,7 @@ async fn fetch_all_commits(
     owner: &str,
     repo_name: &str,
 ) -> Vec<octocrab::models::repos::RepoCommit> {
+    let mut all_commits = Vec::new();
     let mut page = octocrab
         .repos(owner, repo_name)
         .list_commits()
@@ -96,17 +97,11 @@ async fn fetch_all_commits(
         .send()
         .await;
 
-    let mut all_commits = Vec::new();
     while let Ok(mut current_page) = page {
         all_commits.extend(current_page.take_items());
-        if let Some(next_page) = octocrab
-            .get_page::<Commit>(&current_page.next)
-            .await
-            .unwrap_or(None)
-        {
-            page = Ok(next_page);
-        } else {
-            break;
+        page = match current_page.next {
+            Some(url) => octocrab.get_page::<octocrab::models::repos::RepoCommit>(&url).await,
+            None => break,
         }
     }
     all_commits
