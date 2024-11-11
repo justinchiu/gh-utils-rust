@@ -115,8 +115,8 @@ fn extract_issues_from_pr(
 pub async fn get_commits_with_issues(
     octocrab: &Octocrab,
     repos: Vec<&str>,
-) -> HashMap<String, Vec<(Commit, Vec<String>)>> {
-    let mut repo_prs = HashMap::new();
+) -> HashMap<String, Vec<(RepoCommit, Vec<String>)>> {
+    let mut repo_commits = HashMap::new();
     // Match GitHub issue linking keywords followed by issue number
     let keyword_issue_regex =
         Regex::new(r"(?i)(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|#)(\d+)").unwrap();
@@ -137,21 +137,28 @@ pub async fn get_commits_with_issues(
         );
         println!("Retrieved {} commits from API for {}", all_commits.len(), repo);
 
+        let mut commits_with_issues = Vec::new();
         // Process commits for issues
-        for commit in &all_commits {
-            let commit_issues = extract_issues_from_commit(commit, &keyword_issue_regex, &url_issue_regex);
+        for commit in all_commits {
+            let commit_issues = extract_issues_from_commit(&commit, &keyword_issue_regex, &url_issue_regex);
             if !commit_issues.is_empty() {
                 println!("Found issues in commit {}: {:?}", 
-                    commit.sha.as_deref().unwrap_or("unknown"),
+                    commit.sha.as_ref().unwrap_or("unknown"),
                     commit_issues
                 );
+                commits_with_issues.push((commit, commit_issues));
             }
         }
+        
+        repo_commits.insert(repo.to_string(), commits_with_issues);
+    }
+    repo_commits
+}
 
 fn extract_issues_from_commit(commit: &RepoCommit, keyword_issue_regex: &Regex, url_issue_regex: &Regex) -> Vec<String> {
     let mut issues = Vec::new();
     
-    if let Some(message) = &commit.commit.message {
+    if let Some(ref message) = commit.commit.message {
         // Check commit message for issue references
         for cap in keyword_issue_regex.captures_iter(message) {
             if let Some(issue) = cap.get(1) {
