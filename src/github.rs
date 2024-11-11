@@ -55,16 +55,16 @@ pub async fn get_pull_requests_with_issues(
                         issues.push(issue.as_str().to_string());
                     }
                 }
-                for cap in url_issue_regex.captures_iter(title) {
-                    if let Some(issue) = cap.get(1) {
-                        issues.push(issue.as_str().to_string());
-                    }
-                }
             }
             
             // Check PR body for issue references
             if let Some(body) = &pull.body {
                 for cap in keyword_issue_regex.captures_iter(body) {
+                    if let Some(issue) = cap.get(1) {
+                        issues.push(issue.as_str().to_string());
+                    }
+                }
+                for cap in url_issue_regex.captures_iter(body) {
                     if let Some(issue) = cap.get(1) {
                         issues.push(issue.as_str().to_string());
                     }
