@@ -1,6 +1,6 @@
 mod github;
 
-use github::{get_pull_requests_with_issues, get_commits_with_issues};
+use github::{get_commits_with_issues, get_pull_requests_with_issues};
 use octocrab::Octocrab;
 use std::time::Instant;
 
@@ -27,10 +27,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let repos = vec!["msiemens/tinydb"];
     println!("Fetching pull requests for repositories: {:?}", repos);
-    
+
     let repo_prs = get_pull_requests_with_issues(&octocrab, repos.clone()).await;
     let repo_commits = get_commits_with_issues(&octocrab, repos).await;
-    
+
     if repo_prs.is_empty() && repo_commits.is_empty() {
         println!("No repositories found with pull requests or commits.");
         return Ok(());
@@ -44,7 +44,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         } else {
             println!("Found {} pull requests", prs.len());
             for (pr, issues) in prs {
-                println!("\nPR #{}: {}", 
+                println!(
+                    "\nPR #{}: {}",
                     pr.number,
                     pr.title.as_deref().unwrap_or("No title")
                 );
@@ -63,7 +64,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         } else {
             println!("Found {} commits with issue references", commits.len());
             for (commit, issues) in commits {
-                println!("\nCommit {}: {}", 
+                println!(
+                    "\nCommit {}: {}",
                     &commit.sha[..7],
                     commit.commit.message.lines().next().unwrap_or("No message")
                 );
