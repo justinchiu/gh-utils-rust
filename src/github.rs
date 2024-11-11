@@ -58,14 +58,22 @@ async fn fetch_all_pull_requests(
         .state(State::All)
         .per_page(100)
         .send()
-        .await?;
+        .await
+        .unwrap_or_else(|e| {
+            eprintln!("Error fetching PRs: {}", e);
+            panic!("Failed to fetch pull requests")
+        });
 
     let mut all_pulls = Vec::new();
     loop {
         all_pulls.extend(page.take_items());
         page = match octocrab
             .get_page::<PullRequest>(&page.next)
-            .await?
+            .await
+            .unwrap_or_else(|e| {
+                eprintln!("Error fetching next page: {}", e);
+                panic!("Failed to fetch next page")
+            })
         {
             Some(next_page) => next_page,
             None => break,
@@ -181,14 +189,22 @@ async fn fetch_all_commits(
         .list_commits()
         .per_page(100)
         .send()
-        .await?;
+        .await
+        .unwrap_or_else(|e| {
+            eprintln!("Error fetching commits: {}", e);
+            panic!("Failed to fetch commits")
+        });
 
     let mut all_commits = Vec::new();
     loop {
         all_commits.extend(page.take_items());
         page = match octocrab
             .get_page::<RepoCommit>(&page.next)
-            .await?
+            .await
+            .unwrap_or_else(|e| {
+                eprintln!("Error fetching next commit page: {}", e);
+                panic!("Failed to fetch next commit page")
+            })
         {
             Some(next_page) => next_page,
             None => break,
