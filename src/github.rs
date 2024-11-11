@@ -1,4 +1,4 @@
-use octocrab::{Octocrab, models::pulls::PullRequest, params::State};
+use octocrab::{models::pulls::PullRequest, params::State, Octocrab};
 
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
 use regex::Regex;
@@ -11,16 +11,22 @@ pub async fn get_pull_requests_with_issues(
 ) -> HashMap<String, Vec<(PullRequest, Vec<String>)>> {
     let mut repo_prs = HashMap::new();
     // Match GitHub issue linking keywords followed by issue number
-    let keyword_issue_regex = Regex::new(r"(?i)(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|#)(\d+)").unwrap();
+    let keyword_issue_regex =
+        Regex::new(r"(?i)(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|#)(\d+)").unwrap();
     // Match GitHub issue URLs
     let url_issue_regex = Regex::new(r"https?://github\.com/[^/]+/[^/]+/issues/(\d+)").unwrap();
 
     for repo in repos {
-        let (owner, repo_name) = repo.split_once('/').expect("Repository must be in format owner/repo");
+        let (owner, repo_name) = repo
+            .split_once('/')
+            .expect("Repository must be in format owner/repo");
         let start_time = Instant::now();
         let all_pulls = fetch_all_pull_requests(octocrab, owner, repo_name).await;
         let duration = start_time.elapsed();
-        println!("Time taken to fetch pull requests for {}: {:?}", repo, duration);
+        println!(
+            "Time taken to fetch pull requests for {}: {:?}",
+            repo, duration
+        );
 
         if all_pulls.is_empty() {
             eprintln!("Failed to fetch pull requests for {}", repo);
@@ -35,7 +41,6 @@ pub async fn get_pull_requests_with_issues(
             prs_with_issues.push((pull, issues));
         }
         repo_prs.insert(repo.to_string(), prs_with_issues);
-
     }
     repo_prs
 }
@@ -45,7 +50,8 @@ async fn fetch_all_pull_requests(
     owner: &str,
     repo_name: &str,
 ) -> Vec<PullRequest> {
-    let mut page = octocrab.pulls(owner, repo_name)
+    let mut page = octocrab
+        .pulls(owner, repo_name)
         .list()
         .state(State::All)
         .per_page(100)
@@ -55,7 +61,11 @@ async fn fetch_all_pull_requests(
     let mut all_pulls = Vec::new();
     while let Ok(mut current_page) = page {
         all_pulls.extend(current_page.take_items());
-        if let Some(next_page) = octocrab.get_page::<PullRequest>(&current_page.next).await.unwrap_or(None) {
+        if let Some(next_page) = octocrab
+            .get_page::<PullRequest>(&current_page.next)
+            .await
+            .unwrap_or(None)
+        {
             page = Ok(next_page);
         } else {
             break;
