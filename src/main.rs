@@ -1,8 +1,23 @@
 mod github;
 
+use csv::Reader;
 use github::{get_commits_with_issues, get_pull_requests_with_issues};
 use octocrab::Octocrab;
+use serde::Deserialize;
+use std::error::Error;
+use std::fs::File;
 use std::time::Instant;
+
+#[derive(Debug, Deserialize)]
+struct RepoData {
+    repo_name: String,
+    stars: i32,
+    forks: i32,
+    issues: i32,
+    license_type: String,
+    num_files: i32,
+    num_python_files: i32,
+}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {

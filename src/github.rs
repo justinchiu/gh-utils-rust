@@ -66,8 +66,8 @@ async fn fetch_all_pull_requests(
         Ok(x) => x,
         Err(e) => {
             eprintln!("Error fetching PRs: {}", e);
-            return all_pulls
-        },
+            return all_pulls;
+        }
     };
 
     loop {
@@ -77,8 +77,8 @@ async fn fetch_all_pull_requests(
             Ok(None) => break,
             Err(e) => {
                 eprintln!("Error fetching next page: {}", e);
-                break
-            },
+                break;
+            }
         }
     }
     all_pulls
@@ -196,7 +196,7 @@ async fn fetch_all_commits(octocrab: &Octocrab, owner: &str, repo_name: &str) ->
         Err(e) => {
             eprintln!("Error fetching initial commits: {}", e);
             return all_commits;
-        },
+        }
     };
 
     loop {
@@ -206,8 +206,8 @@ async fn fetch_all_commits(octocrab: &Octocrab, owner: &str, repo_name: &str) ->
             Ok(None) => break,
             Err(e) => {
                 eprintln!("Error fetching next commit page: {}", e);
-                break
-            },
+                break;
+            }
         }
     }
     all_commits
