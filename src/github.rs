@@ -54,19 +54,22 @@ async fn fetch_all_pull_requests(
     owner: &str,
     repo_name: &str,
 ) -> Vec<PullRequest> {
-    let mut page = octocrab
+    let mut all_pulls = Vec::new();
+    let result_page = octocrab
         .pulls(owner, repo_name)
         .list()
         .state(State::All)
         .per_page(100)
         .send()
-        .await
-        .unwrap_or_else(|e| {
+        .await;
+    let mut page = match result_page {
+        Ok(x) => x,
+        Err(e) => {
             eprintln!("Error fetching PRs: {}", e);
-            panic!("Failed to fetch pull requests")
-        });
+            return all_pulls
+        },
+    };
 
-    let mut all_pulls = Vec::new();
     loop {
         all_pulls.extend(page.take_items());
         match octocrab.get_page(&page.next).await {
@@ -74,7 +77,7 @@ async fn fetch_all_pull_requests(
             Ok(None) => break,
             Err(e) => {
                 eprintln!("Error fetching next page: {}", e);
-                panic!("Failed to fetch next page")
+                break
             },
         }
     }
@@ -181,18 +184,21 @@ fn extract_issues_from_commit(
 }
 
 async fn fetch_all_commits(octocrab: &Octocrab, owner: &str, repo_name: &str) -> Vec<RepoCommit> {
-    let mut page = octocrab
+    let mut all_commits = Vec::new();
+    let result_page = octocrab
         .repos(owner, repo_name)
         .list_commits()
         .per_page(100)
         .send()
-        .await
-        .unwrap_or_else(|e| {
-            eprintln!("Error fetching commits: {}", e);
-            panic!("Failed to fetch commits")
-        });
+        .await;
+    let mut page = match result_page {
+        Ok(x) => x,
+        Err(e) => {
+            eprintln!("Error fetching initial commits: {}", e);
+            return all_commits;
+        },
+    };
 
-    let mut all_commits = Vec::new();
     loop {
         all_commits.extend(page.take_items());
         match octocrab.get_page(&page.next).await {
@@ -200,7 +206,7 @@ async fn fetch_all_commits(octocrab: &Octocrab, owner: &str, repo_name: &str) ->
             Ok(None) => break,
             Err(e) => {
                 eprintln!("Error fetching next commit page: {}", e);
-                panic!("Failed to fetch next commit page")
+                break
             },
         }
     }
