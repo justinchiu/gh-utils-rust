@@ -25,7 +25,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build()
         .map_err(|e| format!("Failed to create GitHub client: {}", e))?;
 
-    let repos = vec!["msiemens/tinydb"];
+    let repos = vec![
+        "msiemens/tinydb",
+        "dateutil/dateutil",
+        "davidhalter/jedi",
+        "scrapy/parsel",
+    ];
     println!("Fetching pull requests for repositories: {:?}", repos);
 
     let repo_prs = get_pull_requests_with_issues(&octocrab, repos.clone()).await;
