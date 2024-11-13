@@ -32,7 +32,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         repos.push(record.repo_name);
     }
 
-
     // Check if token exists and print status
     let token = match std::env::var("GITHUB_TOKEN") {
         Ok(token) => {
@@ -51,7 +50,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .personal_token(token)
         .build()
         .map_err(|e| format!("Failed to create GitHub client: {}", e))?;
-
 
     let repo_prs = get_pull_requests_with_issues(&octocrab, &repos).await;
     let repo_commits = get_commits_with_issues(&octocrab, &repos).await;
