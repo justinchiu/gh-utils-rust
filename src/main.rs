@@ -1,11 +1,37 @@
 mod github;
 
+use csv::Reader;
 use github::{get_commits_with_issues, get_pull_requests_with_issues};
 use octocrab::Octocrab;
+use serde::Deserialize;
+use std::error::Error;
+use std::fs::File;
 use std::time::Instant;
+
+#[derive(Debug, Deserialize)]
+struct RepoData {
+    repo_name: String,
+    stars: i32,
+    forks: i32,
+    issues: i32,
+    license_type: String,
+    num_files: i32,
+    num_python_files: i32,
+}
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    // Get repos
+    let file = File::open("mydata/repos.csv")?;
+    let mut rdr = Reader::from_reader(file);
+
+    let mut repos = Vec::new();
+    for result in rdr.deserialize() {
+        let record: RepoData = result?;
+        println!("{:?}", &record.repo_name);
+        repos.push(record.repo_name);
+    }
+
     // Check if token exists and print status
     let token = match std::env::var("GITHUB_TOKEN") {
         Ok(token) => {
@@ -25,16 +51,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build()
         .map_err(|e| format!("Failed to create GitHub client: {}", e))?;
 
-    let repos = vec![
-        "msiemens/tinydb",
-        "dateutil/dateutil",
-        "davidhalter/jedi",
-        "scrapy/parsel",
-    ];
-    println!("Fetching pull requests for repositories: {:?}", repos);
-
-    let repo_prs = get_pull_requests_with_issues(&octocrab, repos.clone()).await;
-    let repo_commits = get_commits_with_issues(&octocrab, repos).await;
+    let repo_prs = get_pull_requests_with_issues(&octocrab, &repos).await;
+    let repo_commits = get_commits_with_issues(&octocrab, &repos).await;
 
     if repo_prs.is_empty() && repo_commits.is_empty() {
         println!("No repositories found with pull requests or commits.");

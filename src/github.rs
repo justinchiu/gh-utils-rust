@@ -3,6 +3,7 @@ use octocrab::{
     params::State,
     Octocrab,
 };
+use std::string::String;
 use std::time::Instant;
 
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
@@ -11,7 +12,7 @@ use std::collections::HashMap;
 
 pub async fn get_pull_requests_with_issues(
     octocrab: &Octocrab,
-    repos: Vec<&str>,
+    repos: &Vec<String>,
 ) -> HashMap<String, Vec<(PullRequest, Vec<String>)>> {
     let mut repo_prs = HashMap::new();
     // Match GitHub issue linking keywords followed by issue number
@@ -66,8 +67,8 @@ async fn fetch_all_pull_requests(
         Ok(x) => x,
         Err(e) => {
             eprintln!("Error fetching PRs: {}", e);
-            return all_pulls
-        },
+            return all_pulls;
+        }
     };
 
     loop {
@@ -77,8 +78,8 @@ async fn fetch_all_pull_requests(
             Ok(None) => break,
             Err(e) => {
                 eprintln!("Error fetching next page: {}", e);
-                break
-            },
+                break;
+            }
         }
     }
     all_pulls
@@ -121,7 +122,7 @@ fn extract_issues_from_pr(
 
 pub async fn get_commits_with_issues(
     octocrab: &Octocrab,
-    repos: Vec<&str>,
+    repos: &Vec<String>,
 ) -> HashMap<String, Vec<(RepoCommit, Vec<String>)>> {
     let mut repo_commits = HashMap::new();
     // Match GitHub issue linking keywords followed by issue number
@@ -196,7 +197,7 @@ async fn fetch_all_commits(octocrab: &Octocrab, owner: &str, repo_name: &str) ->
         Err(e) => {
             eprintln!("Error fetching initial commits: {}", e);
             return all_commits;
-        },
+        }
     };
 
     loop {
@@ -206,8 +207,8 @@ async fn fetch_all_commits(octocrab: &Octocrab, owner: &str, repo_name: &str) ->
             Ok(None) => break,
             Err(e) => {
                 eprintln!("Error fetching next commit page: {}", e);
-                break
-            },
+                break;
+            }
         }
     }
     all_commits
