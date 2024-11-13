@@ -4,6 +4,7 @@ use octocrab::{
     Octocrab,
 };
 use std::time::Instant;
+use std::string::String;
 
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
 use regex::Regex;
@@ -11,7 +12,7 @@ use std::collections::HashMap;
 
 pub async fn get_pull_requests_with_issues(
     octocrab: &Octocrab,
-    repos: Vec<&str>,
+    repos: &Vec<String>,
 ) -> HashMap<String, Vec<(PullRequest, Vec<String>)>> {
     let mut repo_prs = HashMap::new();
     // Match GitHub issue linking keywords followed by issue number
@@ -121,7 +122,7 @@ fn extract_issues_from_pr(
 
 pub async fn get_commits_with_issues(
     octocrab: &Octocrab,
-    repos: Vec<&str>,
+    repos: &Vec<String>,
 ) -> HashMap<String, Vec<(RepoCommit, Vec<String>)>> {
     let mut repo_commits = HashMap::new();
     // Match GitHub issue linking keywords followed by issue number
