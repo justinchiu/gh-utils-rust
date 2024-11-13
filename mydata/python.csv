@@ -1,0 +1,1334 @@
+repo_name,stars,forks,issues,license_type,num_files,num_python_files
+zhayujie/bot-on-anything,3211,784,350,Permissive,57,40
+Lyken17/pytorch-OpCounter,1171,111,37,Permissive,25,18
+haotian-liu/LLaVA,10310,1023,699,Permissive,146,70
+explodinggradients/ragas,1519,126,127,Permissive,97,45
+google/benchmark,1803,384,108,Permissive,167,12
+dreamgaussian/dreamgaussian,2818,201,64,Permissive,40,21
+Scholar01/sd-webui-mov2mov,1680,231,95,Permissive,27,14
+hegelai/prompttools,1829,113,36,Permissive,124,80
+librosa/librosa,1269,144,173,Permissive,129,74
+jhao104/proxy_pool,4778,958,93,Permissive,55,36
+s3rius/FastAPI-template,1065,113,61,Permissive,153,119
+FlagOpen/FlagEmbedding,1824,104,257,Permissive,104,73
+guidance-ai/guidance,2634,172,84,Permissive,97,73
+fundamentalvision/BEVFormer,1257,256,99,Permissive,174,167
+aqlaboratory/openfold,1329,283,178,Permissive,137,98
+lionsoul2014/ip2region,4451,719,58,Permissive,134,9
+CjangCjengh/MoeGoe,2162,244,38,Permissive,22,20
+al-one/hass-xiaomi-miot,2268,377,771,Permissive,58,33
+nat/openplayground,5369,406,61,Permissive,64,15
+FreedomIntelligence/LLMZoo,2611,176,44,Permissive,89,24
+roboflow/awesome-openai-vision-api-experiments,1377,102,3,no license file was found,20,6
+facebookresearch/segment-anything,38736,4517,483,Permissive,41,17
+Stability-AI/stability-sdk,2336,325,91,Permissive,19,14
+deep-learning-with-pytorch/dlwpt-code,1101,534,21,no license file was found,51,38
+xtekky/TikTok-ViewBot,1162,419,143,Permissive,25,12
+testerSunshine/12306,3328,647,16,Permissive,59,49
+Nixtla/statsforecast,2633,199,207,Permissive,131,63
+IDEA-Research/Grounded-Segment-Anything,10940,966,270,Permissive,138,108
+LinkSoul-AI/Chinese-Llama-2-7b,1997,171,34,Permissive,11,8
+ParthJadhav/Tkinter-Designer,3845,443,85,Permissive,56,12
+aymericdamien/TensorFlow-Examples,2112,456,4,Permissive,70,65
+uber/causalml,1508,278,104,Permissive,126,68
+paulpierre/RasaGPT,1782,176,43,Permissive,48,10
+TA-Lib/ta-lib-python,1247,216,45,Permissive,51,17
+imoneoi/openchat,3152,280,72,Permissive,30,24
+simonw/datasette,2552,215,342,Permissive,195,94
+thomas-yanxin/LangChain-ChatGLM-Webui,2436,370,109,Permissive,25,12
+lyogavin/Anima,1359,118,32,Permissive,39,27
+graphdeco-inria/gaussian-splatting,7184,705,425,no license file was found,27,24
+opengeos/segment-geospatial,2274,218,85,Permissive,45,11
+marella/ctransformers,1280,107,161,Permissive,60,16
+filip-michalsky/SalesGPT,1172,234,40,Permissive,29,16
+NVIDIA/tacotron2,1285,316,48,Permissive,24,19
+tssovi/grokking-the-object-oriented-design-interview,2027,943,4,no license file was found,120,96
+fastai/fastai,3053,556,171,Permissive,107,89
+encode/uvicorn,2225,262,78,Permissive,78,59
+facebookresearch/dinov2,6316,489,247,Permissive,150,126
+OlafenwaMoses/ImageAI,1349,288,47,Permissive,136,108
+yandexdataschool/nlp_course,1383,363,10,Permissive,194,12
+openai/glide-text2im,1228,206,13,Permissive,20,17
+YORG-AI/Open-Assistant,1247,172,0,Permissive,79,67
+baowenbo/DAIN,1033,101,7,Permissive,109,75
+xuebinqin/U-2-Net,2200,387,61,Permissive,15,12
+zhengjim/camille,1009,167,33,no license file was found,11,5
+yoheinakajima/babyagi,16845,2243,131,Permissive,104,47
+UndeadSec/SocialFish,1055,260,42,Permissive,41,12
+DAMO-NLP-SG/Video-LLaMA,1802,160,104,Permissive,82,55
+bigb0sss/RedTeam-OffensiveSecurity,1117,187,0,Permissive,22,9
+easydiffusion/easydiffusion,1526,141,211,Permissive,105,22
+Hello-SimpleAI/chatgpt-comparison-detection,1046,101,23,Permissive,12,6
+stylegan-human/StyleGAN-Human,1020,122,44,no license file was found,106,81
+ai-forever/Kandinsky-2,2294,225,58,Permissive,37,34
+KurtBestor/Hitomi-Downloader,10378,895,1486,no license file was found,84,73
+icloud-photos-downloader/icloud_photos_downloader,2461,172,106,Permissive,89,43
+AI4Finance-Foundation/FinGPT,9054,1691,70,Permissive,158,91
+openai/guided-diffusion,3618,508,85,Permissive,28,23
+lvwerra/trl,4081,462,290,Permissive,112,69
+gaomingqi/Track-Anything,5306,364,109,Permissive,40,33
+MahmoudAshraf97/whisper-diarization,1142,124,92,Permissive,10,5
+home-assistant/operating-system,1571,297,491,Permissive,125,6
+google-research/frame-interpolation,1844,173,46,Permissive,32,27
+kkroening/ffmpeg-python,2413,272,119,Permissive,45,20
+kwea123/ngp_pl,1079,148,131,Permissive,40,22
+absolute-quantum/cats-blender-plugin,1575,214,174,Permissive,122,115
+vnpy/vnpy,4605,1221,127,Permissive,104,39
+xianhu/LearnPython,1129,351,0,no license file was found,46,35
+cloneofsimo/lora,5738,432,129,Permissive,25,17
+charles2gan/GDA-android-reversing-Tool,1142,116,52,Permissive,29,11
+karpathy/minGPT,9511,1226,24,Permissive,12,8
+amazon-science/mm-cot,3481,297,40,Permissive,131,125
+AI4Finance-Foundation/FinRL,4156,1110,276,Permissive,111,55
+isl-org/ZoeDepth,1303,115,72,Permissive,56,48
+MaartenGr/KeyBERT,1571,136,70,Permissive,50,27
+imartinez/privateGPT,41366,5334,706,Permissive,97,67
+CadQuery/cadquery,1033,109,212,Permissive,120,79
+amueller/introduction_to_ml_with_python,1086,602,18,no license file was found,32,30
+openvpi/DiffSinger,2330,271,80,Permissive,96,82
+MorvanZhou/PyTorch-Tutorial,1227,291,3,Permissive,21,20
+laramies/theHarvester,2923,379,74,no license file was found,84,62
+facebookresearch/encodec,2832,254,58,Permissive,31,21
+brentvollebregt/auto-py-to-exe,1537,275,120,Permissive,48,15
+CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers,1999,428,11,Permissive,34,16
+google/re2,1744,220,70,Permissive,108,7
+bowang-lab/MedSAM,1230,152,150,Permissive,49,38
+OFA-Sys/Chinese-CLIP,2879,263,193,Permissive,65,33
+QingdaoU/OnlineJudge,1110,290,35,Permissive,146,131
+toddmotto/public-apis,1485,219,0,Permissive,9,6
+openai/chatgpt-retrieval-plugin,18929,3582,185,Permissive,96,45
+pywebio/PyWebIO,1359,123,102,Permissive,178,68
+mlfoundations/open_clip,6091,638,302,no license file was found,155,42
+smol-ai/developer,10485,989,84,Permissive,43,13
+Threekiii/Awesome-Redteam,2771,482,1,no license file was found,32,8
+yshui/picom,1267,158,194,Permissive,109,16
+kyegomez/tree-of-thoughts,3521,326,53,Permissive,12,6
+lifeiteng/vall-e,1486,260,105,Permissive,50,29
+alisen39/TrWebOCR,1094,206,27,Permissive,34,14
+Pythagora-io/gpt-pilot,14510,1124,155,Permissive,106,93
+01-ai/Yi,4561,240,135,Permissive,47,17
+SHI-Labs/OneFormer,1092,102,88,Permissive,123,73
+fauxpilot/fauxpilot,6037,279,53,Permissive,36,11
+GoogleContainerTools/distroless,4408,345,115,Permissive,166,31
+lawlite19/MachineLearning_Python,1666,358,3,Permissive,19,13
+Jittor/JittorLLMs,1906,153,148,Permissive,198,149
+xinntao/Real-ESRGAN,13785,1628,313,Permissive,63,25
+mrdbourke/pytorch-deep-learning,5648,1882,110,Permissive,24,7
+pyannote/pyannote-audio,2459,315,329,Permissive,143,88
+Yelp/detect-secrets,1011,109,52,Permissive,178,148
+advimman/lama,1641,160,54,Permissive,180,89
+hiyouga/LLaMA-Factory,2132,271,451,Permissive,113,98
+jadore801120/attention-is-all-you-need-pytorch,1796,334,12,Permissive,16,13
+donnemartin/data-science-ipython-notebooks,3611,819,8,Permissive,50,38
+williamyang1991/VToonify,3271,421,60,Permissive,69,49
+MIC-DKFZ/nnUNet,1915,607,566,Permissive,149,119
+mlfoundations/open_flamingo,2903,218,99,Permissive,44,27
+gururise/AlpacaDataCleaned,1206,130,21,Permissive,33,12
+JoePenna/Dreambooth-Stable-Diffusion,2998,534,96,Permissive,89,49
+keylase/nvidia-patch,2080,186,95,no license file was found,50,14
+openai/gpt-2,5123,1369,19,Permissive,12,6
+kitao/pyxel,3352,232,87,Permissive,168,53
+bndr/pipreqs,1359,122,58,Permissive,30,13
+PhoebusSi/Alpaca-CoT,2087,217,88,Permissive,88,53
+dongrixinyu/JioNLP,1534,180,109,Permissive,139,101
+togethercomputer/OpenChatKit,8462,963,87,Permissive,72,53
+digitalinnovationone/trilha-python-dio,1527,2233,5,no license file was found,109,108
+DataTalksClub/data-engineering-zoomcamp,12201,2998,106,no license file was found,167,33
+greyhatguy007/Machine-Learning-Specialization-Coursera,2028,1498,20,Permissive,89,45
+X-PLUG/mPLUG-Owl,1581,128,155,Permissive,77,61
+lucidrains/DALLE2-pytorch,10353,1010,188,Permissive,30,19
+FlareSolverr/FlareSolverr,3067,334,439,Permissive,36,20
+qu-niao/LimApiTest,1161,210,3,Permissive,145,60
+faif/python-patterns,7539,817,9,no license file was found,60,55
+SCUTlihaoyu/open-chat-video-editor,2183,285,28,no license file was found,68,43
+lucidrains/x-transformers,2104,205,94,Permissive,16,12
+lkwq007/stablediffusion-infinity,3669,300,161,Permissive,34,8
+jantic/DeOldify,2464,427,62,Permissive,117,105
+Avinash987/Coding,1646,543,5,no license file was found,137,47
+suno-ai/bark,27223,2721,336,Permissive,12,8
+mnielsen/neural-networks-and-deep-learning,1832,570,0,Permissive,29,26
+guoyww/AnimateDiff,5546,429,189,Permissive,52,14
+helblazer811/ManimML,1799,106,32,Permissive,184,127
+modelscope/facechain,6208,599,211,Permissive,137,41
+houseofsecrets/SdPaint,1448,110,30,Permissive,25,7
+TencentARC/GFPGAN,14572,2541,206,Permissive,47,26
+deep-diver/LLM-As-Chatbot,1607,174,23,Permissive,106,68
+tinyvision/SOLIDER,1711,309,19,Permissive,11,7
+BlinkDL/ChatRWKV,8599,636,95,Permissive,41,28
+open-mmlab/Multimodal-GPT,1208,101,14,Permissive,38,34
+Visualize-ML/Book3_Elements-of-Mathematics,4222,632,109,no license file was found,137,136
+llm-attacks/llm-attacks,2209,289,64,Permissive,25,17
+hiroi-sora/Umi-OCR,12475,1152,219,Permissive,163,65
+zhm-real/PathPlanning,2808,639,7,Permissive,69,63
+mrlt8/docker-wyze-bridge,1375,102,378,no license file was found,49,25
+riffusion/riffusion,2019,253,61,Permissive,50,35
+OpenTalker/video-retalking,3577,425,135,Permissive,192,152
+dsdanielpark/Bard-API,4548,530,148,Permissive,46,28
+1adrianb/face-alignment,1045,168,35,Permissive,26,21
+google-research/multinerf,3291,316,130,Permissive,47,29
+tloen/alpaca-lora,16475,2003,422,Permissive,18,6
+TurboWay/bigdata_analyse,1567,345,5,Permissive,23,9
+kwea123/nerf_pl,1504,295,59,Permissive,28,18
+rasbt/deeplearning-models,1433,322,3,Permissive,20,15
+TheExplainthis/ChatGPT-Line-Bot,1268,1421,37,Permissive,14,9
+facebookresearch/nougat,6670,423,145,Permissive,38,31
+yanx27/Pointnet_Pointnet2_pytorch,1371,344,69,Permissive,49,37
+theskumar/python-dotenv,1877,108,51,Permissive,27,17
+baaivision/Painter,2144,155,49,Permissive,117,95
+CodedotAl/gpt-code-clippy,2382,149,7,Permissive,58,37
+voila-dashboards/voila,1027,109,102,Permissive,188,78
+mseitzer/pytorch-fid,1115,129,17,Permissive,9,7
+dragen1860/Deep-Learning-with-TensorFlow-book,1025,270,2,no license file was found,68,66
+wkentaro/labelme,3328,760,79,no license file was found,94,45
+imClumsyPanda/langchain-ChatGLM,11971,1870,682,Permissive,147,118
+BBuf/tvm_mlir_learn,1169,180,0,no license file was found,104,53
+polakowo/vectorbt,1559,253,140,Permissive,131,103
+SizheAn/PanoHead,1645,210,31,Permissive,88,68
+yihong0618/bilingual_book_maker,6243,758,217,Permissive,46,24
+benfred/py-spy,2917,104,80,Permissive,65,13
+PetoiCamp/OpenCat,1907,185,19,Permissive,174,16
+zalando/patroni,1309,205,288,Permissive,166,106
+paul-gauthier/aider,5013,669,283,Permissive,114,52
+fastai/nbdev,1440,165,446,Permissive,45,28
+hackerkid/Mind-Expanding-Books,2348,184,11,Permissive,50,6
+NLP-LOVE/ML-NLP,3204,666,4,no license file was found,79,15
+chidiwilliams/buzz,7756,577,309,Permissive,131,99
+AliaksandrSiarohin/first-order-model,1895,493,66,Permissive,34,21
+bhattsameer/Bombers,1483,372,20,no license file was found,12,9
+Perfare/Il2CppDumper,2234,450,149,Permissive,69,11
+fxsjy/jieba,3914,449,40,Permissive,61,56
+THUDM/CodeGeeX2,4953,314,137,Permissive,20,8
+xiaotudui/pytorch-tutorial,1214,290,1,no license file was found,25,24
+chubin/wttr.in,5568,274,153,Permissive,189,26
+mail-in-a-box/mailinabox,2022,254,135,Permissive,84,24
+yxlllc/DDSP-SVC,1234,194,44,Permissive,62,51
+showlab/Tune-A-Video,3652,324,80,Permissive,14,8
+flightlessmango/MangoHud,1976,133,307,Permissive,145,5
+guofei9987/blind_watermark,2983,334,43,Permissive,34,15
+facebookresearch/detr,3747,764,91,Permissive,39,27
+huggingface/setfit,1652,185,217,Permissive,121,84
+kohya-ss/sd-scripts,3231,588,514,Permissive,96,76
+microsoft/BioGPT,4019,429,82,Permissive,78,23
+girafe-ai/ml-course,1100,565,8,Permissive,36,10
+openai/whisper,49331,5700,0,Permissive,32,21
+tqdm/tqdm,5010,278,116,Permissive,72,61
+openai/gpt-discord-bot,1639,664,51,Permissive,11,6
+zalandoresearch/fashion-mnist,1472,438,6,Permissive,21,8
+zas023/JdBuyer,4138,811,59,no license file was found,47,9
+wkentaro/gdown,1576,133,46,Permissive,21,12
+tgbot-collection/YYeTsBot,4759,462,27,Permissive,128,44
+SpacehuhnTech/esp8266_deauther,2833,477,106,Permissive,147,9
+thewhiteh4t/seeker,2866,533,98,Permissive,46,12
+spiritLHLS/ecs,1489,159,5,Permissive,32,7
+openai/human-eval,1199,161,13,Permissive,7,5
+ashawkey/stable-dreamfusion,6858,639,265,Permissive,114,75
+Layout-Parser/layout-parser,1205,135,53,Permissive,73,46
+newren/git-filter-repo,2966,409,85,Permissive,24,10
+norvig/pytudes,3489,275,2,Permissive,122,20
+huggingface/peft,10480,918,598,Permissive,195,116
+pytube/pytube,3751,898,398,Permissive,51,38
+biobootloader/wolverine,4827,479,20,Permissive,14,7
+allenai/RL4LMs,1838,177,47,Permissive,118,60
+babysor/MockingBird,12146,2088,393,Permissive,178,152
+microsoft/table-transformer,1002,119,86,Permissive,57,41
+p-christ/Deep-Reinforcement-Learning-Algorithms-with-PyTorch,1062,199,4,Permissive,86,81
+davidsandberg/facenet,1125,238,16,Permissive,78,68
+sfyc23/EverydayWechat,1170,307,4,Permissive,60,54
+thunlp/WantWords,2262,194,15,no license file was found,15,7
+guillaumekln/faster-whisper,5425,440,351,Permissive,17,12
+lm-sys/FastChat,28214,3506,1489,Permissive,156,112
+neonbjb/tortoise-tts,9607,1224,412,Permissive,41,30
+TimDettmers/bitsandbytes,4064,418,708,Permissive,86,49
+tianqiraf/DouZero_For_HappyDouDiZhu,1082,241,16,Permissive,24,21
+openai/tiktoken,7160,471,148,Permissive,21,15
+hoffstadt/DearPyGui,4118,347,289,Permissive,194,10
+xfgryujk/blivechat,1035,118,56,Permissive,88,24
+MorvanZhou/Reinforcement-learning-with-tensorflow,1380,519,10,Permissive,57,56
+docker/genai-stack,1536,275,34,Permissive,27,6
+h2oai/h2o-llmstudio,2858,317,221,Permissive,157,84
+madawei2699/myGPTReader,4038,418,35,Permissive,55,10
+zuruoke/watermark-removal,1290,206,19,no license file was found,8,6
+MenghaoGuo/Awesome-Vision-Attentions,1128,183,4,no license file was found,33,32
+pypa/pipx,2399,116,130,Permissive,109,64
+cdk-team/CDK,1170,166,18,Permissive,127,6
+google/latexify_py,4741,212,55,Permissive,62,50
+pallets/click,2432,248,175,Permissive,114,58
+101dotxyz/GPTeam,1291,202,37,Permissive,64,51
+shibing624/pycorrector,1685,267,154,Permissive,154,108
+eriklindernoren/PyTorch-GAN,3608,796,16,Permissive,64,60
+zhouhaoyi/Informer2020,2183,504,250,Permissive,22,13
+HobbitLong/SupContrast,1089,203,25,Permissive,7,6
+huggingface/notebooks,2051,860,79,Permissive,44,25
+LaurentMazare/tch-rs,1889,154,212,Permissive,165,11
+graviraja/MLOps-Basics,1003,227,4,Permissive,145,69
+whitead/paper-qa,3053,296,102,Permissive,19,13
+NExT-GPT/NExT-GPT,2269,234,60,Permissive,57,36
+patriciogonzalezvivo/glslViewer,1307,112,57,Permissive,131,13
+salesforce/CodeGen,4227,303,63,Permissive,21,8
+matplotlib/cheatsheets,1239,140,12,Permissive,60,44
+bigcode-project/starcoder,6267,437,118,Permissive,13,7
+iryna-kondr/scikit-llm,2460,199,40,Permissive,55,42
+yuanxiaosc/DeepNude-an-Image-to-Image-technology,1030,316,8,no license file was found,35,22
+stefan-jansen/machine-learning-for-trading,5196,1103,60,no license file was found,78,28
+GoogleCloudPlatform/generative-ai,2430,514,42,Permissive,134,22
+OpenDriveLab/UniAD,2376,264,120,Permissive,120,107
+iam-veeramalla/Docker-Zero-to-Hero,1419,2434,2,no license file was found,25,12
+voicepaw/so-vits-svc-fork,6153,868,172,Permissive,86,42
+PrefectHQ/marvin,3548,362,123,Permissive,165,88
+wzpan/wukong-robot,1961,338,91,Permissive,199,52
+ssbuild/chatglm_finetuning,1419,153,227,no license file was found,36,22
+EleutherAI/gpt-neox,4258,678,210,Permissive,185,88
+togethercomputer/RedPajama-Data,3717,290,59,Permissive,55,49
+chubin/cheat.sh,8205,371,37,Permissive,78,41
+alphacep/vosk-api,3119,407,470,Permissive,187,21
+trustedsec/social-engineer-toolkit,2256,435,86,no license file was found,135,76
+BlinkDL/AI-Writer,2026,351,14,Permissive,14,7
+TencentARC/T2I-Adapter,2554,158,83,no license file was found,25,19
+dunbar12138/pix2pix3D,1518,119,30,Permissive,71,53
+openai/baselines,2739,570,21,Permissive,152,136
+pycaret/pycaret,2618,550,720,Permissive,197,158
+vipstone/faceai,1147,199,4,Permissive,68,25
+ZHKKKe/MODNet,1103,182,32,Permissive,23,13
+josStorer/RWKV-Runner,3021,270,206,Permissive,191,46
+microsoft/lida,1805,142,41,Permissive,64,23
+thygate/stable-diffusion-webui-depthmap-script,1325,127,216,Permissive,122,110
+hugsy/gef,1600,147,70,Permissive,176,63
+EniasCailliau/GirlfriendGPT,2241,381,52,Permissive,27,11
+yangjianxin1/GPT2-chitchat,1204,234,27,no license file was found,13,8
+sxyu/svox2,1045,160,50,Permissive,75,37
+ashawkey/torch-ngp,1535,255,136,Permissive,86,55
+facebookresearch/Detectron,1395,238,12,Permissive,196,83
+NVlabs/tiny-cuda-nn,1873,313,237,Permissive,101,10
+Micro-sheep/efinance,1105,270,90,Permissive,33,23
+chenyuntc/pytorch-book,1772,362,2,Permissive,54,31
+rev1si0n/lamda,4359,618,64,no license file was found,53,11
+Rudrabha/Wav2Lip,4647,1059,192,no license file was found,35,25
+shibing624/MedicalGPT,1822,261,240,Permissive,41,14
+nateraw/stable-diffusion-videos,3596,347,108,Permissive,16,12
+openai/shap-e,10065,784,91,Permissive,62,59
+zixiiu/Digital_Life_Server,2047,398,79,Permissive,35,16
+erikbern/ann-benchmarks,1370,202,55,Permissive,169,70
+KevinWang676/Bark-Voice-Cloning,1199,154,60,Permissive,36,25
+mmz-001/knowledge_gpt,1328,465,25,Permissive,30,20
+WyattBlue/auto-editor,1243,180,123,Permissive,83,44
+ShangtongZhang/reinforcement-learning-an-introduction,1711,411,5,Permissive,29,26
+jupyterlab/jupyter-ai,2044,177,251,Permissive,154,49
+mlc-ai/web-stable-diffusion,3026,172,32,Permissive,39,24
+ninja-build/ninja,2241,324,107,Permissive,131,8
+qiuyu96/CoDeF,4546,358,68,Permissive,44,23
+pywinauto/pywinauto,1027,106,89,Permissive,196,116
+princeton-nlp/SimCSE,1208,256,93,Permissive,52,33
+jtsang4/claude-to-chatgpt,1029,132,21,Permissive,16,5
+fastapi-admin/fastapi-admin,1088,164,25,Permissive,87,31
+lucidrains/musiclm-pytorch,2743,223,48,Permissive,7,5
+Visualize-ML/Book1_Python-For-Beginners,2405,395,105,no license file was found,21,20
+649453932/Bert-Chinese-Text-Classification-Pytorch,1343,260,32,Permissive,33,27
+benbusby/whoogle-search,3047,442,203,Permissive,86,22
+Rockyzsu/stock,1365,294,6,Permissive,146,139
+Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6,1124,252,14,Permissive,13,11
+visual-openllm/visual-openllm,1117,138,40,no license file was found,10,6
+waditu/czsc,1290,451,25,Permissive,167,149
+dvlab-research/LongLoRA,2027,173,118,Permissive,35,25
+aiwaves-cn/agents,3939,272,51,Permissive,64,47
+microsoft/Swin-Transformer,4568,873,112,Permissive,83,28
+ddgth/cf2dns,1648,1007,28,no license file was found,9,6
+pallets/jinja,1369,170,113,Permissive,102,59
+pwxcoo/chinese-xinhua,1212,313,9,Permissive,7,5
+YuliangXiu/ICON,1001,178,174,no license file was found,177,142
+gaogaotiantian/viztracer,1928,275,61,Permissive,141,74
+melih-unsal/DemoGPT,1336,159,14,Permissive,75,65
+karpathy/llama2.c,12745,1204,167,Permissive,20,8
+d8ahazard/sd_dreambooth_extension,1646,309,745,no license file was found,88,52
+aamini/introtodeeplearning,1522,946,21,Permissive,13,10
+opendilab/PPOxFamily,2047,190,13,Permissive,57,53
+HobbitLong/SupContrast,1089,203,25,Permissive,7,6
+Evil0ctal/Douyin_TikTok_Download_API,4616,761,247,Permissive,57,37
+orpatashnik/StyleCLIP,1035,155,30,Permissive,77,66
+shibing624/pycorrector,1685,267,154,Permissive,158,111
+liuhuanyong/QASystemOnMedicalKG,1635,398,12,no license file was found,17,8
+sdatkinson/NeuralAmpModelerPlugin,1424,115,243,Permissive,143,16
+cdk-team/CDK,1170,166,18,Permissive,130,7
+PacktPublishing/The-Kaggle-Book,1941,422,2,Permissive,21,5
+rhasspy/piper,1738,132,188,Permissive,119,47
+tj/git-extras,1157,124,53,Permissive,177,8
+ymcui/Chinese-LLaMA-Alpaca,14833,1516,659,Permissive,81,18
+modelscope/facechain,6208,599,211,Permissive,134,45
+Python3WebSpider/ProxyPool,1825,553,43,Permissive,62,45
+THUDM/WebGLM,1377,124,60,Permissive,28,22
+saharmor/dalle-playground,2643,636,81,Permissive,29,5
+openai/whisper,49331,5700,0,Permissive,32,21
+xusenlinzy/api-for-open-llm,1175,146,161,Permissive,111,94
+shidenggui/easytrader,1215,324,15,Permissive,52,34
+mxrch/GHunt,3445,321,102,no license file was found,78,67
+openatx/uiautomator2,1419,257,103,Permissive,92,52
+THUDM/ChatGLM2-6B,14072,1998,546,no license file was found,29,12
+QwenLM/Qwen,2118,170,293,Permissive,91,38
+google-research/t5x,1867,245,95,Permissive,191,126
+zhayujie/chatgpt-on-wechat,17680,5467,1145,Permissive,174,140
+xuebinqin/U-2-Net,2200,387,61,Permissive,15,12
+Rikorose/DeepFilterNet,1365,130,177,no license file was found,128,60
+fastapi-users/fastapi-users,1868,199,55,Permissive,141,88
+mrlt8/docker-wyze-bridge,1375,102,378,no license file was found,63,27
+spotDL/spotify-downloader,6015,582,294,Permissive,126,84
+psf/requests,4424,1015,272,Permissive,89,36
+NExT-GPT/NExT-GPT,2269,234,60,Permissive,72,50
+huggingface/setfit,1652,185,217,Permissive,125,87
+abi/screenshot-to-code,21301,2007,75,Permissive,123,30
+mail-in-a-box/mailinabox,2022,254,135,Permissive,84,24
+DAMO-NLP-SG/Video-LLaMA,1802,160,104,Permissive,88,61
+pyenv-win/pyenv-win,1825,183,108,Permissive,73,21
+matplotlib/cheatsheets,1239,140,12,Permissive,60,44
+noDRM/DeDRM_tools,4422,215,294,no license file was found,97,66
+google/yapf,1315,107,80,Permissive,92,73
+adobe-research/custom-diffusion,1572,107,70,Permissive,99,18
+dsdanielpark/Bard-API,4548,530,148,Permissive,63,33
+tgbot-collection/YYeTsBot,4759,462,27,Permissive,130,44
+OpenDriveLab/UniAD,2376,264,120,Permissive,129,115
+argosopentech/argos-translate,1626,132,90,Permissive,55,20
+openai/Video-Pre-Training,1051,121,21,Permissive,24,22
+RsaCtfTool/RsaCtfTool,1275,201,51,no license file was found,111,84
+cszn/KAIR,1031,250,36,Permissive,179,116
+PyCQA/isort,1494,153,156,Permissive,175,112
+Visualize-ML/Book5_Essentials-of-Probability-and-Statistics,1732,361,38,no license file was found,82,81
+microsoft/torchscale,2607,171,57,Permissive,79,68
+tencent-ailab/IP-Adapter,1834,110,114,Permissive,16,14
+iam-veeramalla/Docker-Zero-to-Hero,1419,2434,2,no license file was found,28,15
+davidteather/TikTok-Api,1950,378,141,Permissive,82,51
+lutzroeder/netron,6817,572,219,Permissive,185,14
+pjialin/py12306,1009,225,21,Permissive,61,44
+Vaibhavs10/insanely-fast-whisper,2522,107,46,Permissive,11,8
+microsoft/generative-ai-for-beginners,17109,7858,31,Permissive,159,21
+coleifer/peewee,1604,126,202,Permissive,155,89
+yitter/IdGenerator,1153,141,41,Permissive,137,7
+google/benchmark,1803,384,108,Permissive,166,11
+serengil/deepface,4808,886,360,Permissive,93,73
+dataabc/weibo-crawler,1109,207,107,no license file was found,11,6
+daveshap/OpenAI_Agent_Swarm,2495,286,21,Permissive,83,37
+GoogleContainerTools/distroless,4408,345,115,Permissive,149,30
+firmai/financial-machine-learning,2639,316,3,no license file was found,28,7
+trustedsec/social-engineer-toolkit,2256,435,86,no license file was found,162,103
+g1879/DrissionPage,2210,191,70,Permissive,116,40
+aiwaves-cn/agents,3939,272,51,Permissive,71,53
+mkdocs/mkdocs,3702,563,227,Permissive,194,65
+pre-commit/pre-commit-hooks,1619,241,119,Permissive,92,76
+advimman/lama,1641,160,54,Permissive,189,98
+KurtBestor/Hitomi-Downloader,10378,895,1486,no license file was found,98,72
+mli/autocut,5516,532,64,Permissive,20,14
+netease-youdao/EmotiVoice,4810,331,50,Permissive,74,59
+apernet/hysteria,6630,765,225,Permissive,179,6
+sensity-ai/dot,3208,296,69,Permissive,121,86
+modularml/mojo,15423,2075,838,no license file was found,68,7
+nmslib/hnswlib,1660,192,75,Permissive,62,27
+t3l3machus/Villain,3204,529,84,no license file was found,36,30
+wkentaro/gdown,1576,133,46,Permissive,23,14
+GokuMohandas/Made-With-ML,4594,693,19,Permissive,48,25
+robertmartin8/PyPortfolioOpt,1157,213,96,Permissive,67,36
+easydiffusion/easydiffusion,1526,141,211,no license file was found,106,23
+IDEA-Research/GroundingDINO,3425,353,199,Permissive,51,39
+huggingface/safetensors,1677,107,103,Permissive,83,39
+stylegan-human/StyleGAN-Human,1020,122,44,no license file was found,117,92
+dreamgaussian/dreamgaussian,2818,201,64,Permissive,40,21
+minimaxir/simpleaichat,2945,173,66,Permissive,11,8
+3b1b/manim,12324,1118,139,Permissive,153,94
+hegelai/prompttools,1829,113,36,Permissive,136,92
+huggingface/trl,1840,230,221,Permissive,163,112
+AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin,5394,411,279,Permissive,147,10
+MaartenGr/BERTopic,2684,341,826,Permissive,180,82
+amanchadha/coursera-deep-learning-specialization,1461,1114,11,no license file was found,133,75
+fundamentalvision/BEVFormer,1257,256,99,Permissive,186,179
+microsoft/AI-For-Beginners,21389,3443,78,Permissive,134,9
+zqzess/rule_for_quantumultX,1324,112,26,no license file was found,122,18
+microsoft/JARVIS,20959,1761,165,Permissive,80,20
+budtmo/docker-android,2127,260,50,Permissive,56,20
+blue-yonder/tsfresh,1569,227,37,Permissive,119,71
+rasbt/machine-learning-book,1704,672,48,Permissive,70,36
+run-llama/rags,2600,244,14,no license file was found,22,16
+xinntao/Real-ESRGAN,13785,1628,313,Permissive,62,25
+pyannote/pyannote-audio,2459,315,329,Permissive,164,108
+Linaqruf/kohya-trainer,1534,246,252,Permissive,49,45
+cvg/Hierarchical-Localization,1055,236,99,Permissive,78,62
+danielgatis/rembg,9313,1019,235,Permissive,44,26
+aqlaboratory/openfold,1329,283,178,Permissive,192,133
+DLR-RM/stable-baselines3,3723,809,631,Permissive,164,96
+OWASP/CheatSheetSeries,5052,777,98,no license file was found,137,5
+mouredev/Hello-Python,17274,1219,15,Permissive,40,36
+BigBrotherTrade/trader,1670,380,1,Permissive,23,18
+guidance-ai/guidance,2634,172,84,Permissive,154,120
+instaloader/instaloader,2944,399,526,Permissive,60,21
+mseitzer/pytorch-fid,1115,129,17,Permissive,12,7
+TachibanaYoshino/AnimeGANv3,1045,114,32,no license file was found,29,25
+spiritLHLS/ecs,1489,159,5,Permissive,34,7
+hugsy/gef,1600,147,70,Permissive,189,73
+Yelp/detect-secrets,1011,109,52,Permissive,195,164
+Nixtla/statsforecast,2633,199,207,Permissive,149,74
+addi00000/empyrean,8490,402,319,Permissive,24,14
+devicons/devicon,3399,1928,400,Permissive,58,15
+QwenLM/Qwen-VL,1759,125,151,no license file was found,54,20
+librosa/librosa,1269,144,173,Permissive,132,77
+Kaggle/kaggle-api,1110,188,81,Permissive,85,43
+srbhr/Resume-Matcher,3143,828,40,Permissive,53,39
+PhoebusSi/Alpaca-CoT,2087,217,88,Permissive,94,54
+qubvel/segmentation_models.pytorch,3211,577,163,Permissive,112,86
+lmcinnes/umap,1130,158,129,Permissive,97,44
+PetoiCamp/OpenCat,1907,185,19,Permissive,177,17
+rq/rq,1110,150,138,no license file was found,114,64
+THUDM/VisualGLM-6B,3478,344,291,Permissive,22,13
+jina-ai/clip-as-service,2102,251,86,no license file was found,93,45
+PromtEngineer/localGPT,16649,1869,408,Permissive,45,10
+vnpy/vnpy,4605,1221,127,Permissive,111,42
+Kanaries/pygwalker,7634,358,106,Permissive,137,68
+rasbt/deeplearning-models,1433,322,3,Permissive,20,15
+TheR1D/shell_gpt,6291,505,174,Permissive,41,28
+jdepoix/youtube-transcript-api,1087,103,63,Permissive,24,15
+opengeos/leafmap,1044,103,48,Permissive,136,33
+soimort/you-get,5945,935,0,no license file was found,149,137
+facebookresearch/moco,1226,223,18,Permissive,16,7
+nginx-proxy/nginx-proxy,1960,393,75,Permissive,181,77
+google-research/vision_transformer,3631,506,51,Permissive,35,28
+voila-dashboards/voila,1027,109,102,no license file was found,191,80
+shroominic/codeinterpreter-api,3260,368,96,Permissive,53,29
+lucidrains/vector-quantize-pytorch,1048,101,44,Permissive,20,14
+LianjiaTech/BELLE,6561,675,376,Permissive,119,46
+norvig/pytudes,3489,275,2,Permissive,123,20
+shibing624/text2vec,2914,243,95,Permissive,82,63
+lamini-ai/lamini,2330,138,20,no license file was found,53,51
+dwisiswant0/apkleaks,1438,133,8,Permissive,18,7
+zhulf0804/3D-PointCloud,1123,143,3,no license file was found,10,5
+MaartenGr/KeyBERT,1571,136,70,Permissive,53,28
+kaieye/2022-Machine-Learning-Specialization,3013,1327,21,no license file was found,145,86
+PeterL1n/BackgroundMattingV2,1248,191,22,Permissive,26,23
+butaixianran/Stable-Diffusion-Webui-Civitai-Helper,1951,215,203,no license file was found,18,10
+matplotlib/mplfinance,1197,176,87,no license file was found,130,107
+openscopeproject/InteractiveHtmlBom,1171,184,95,Permissive,48,28
+amueller/word_cloud,1154,202,37,Permissive,61,22
+amueller/introduction_to_ml_with_python,1086,602,18,no license file was found,32,30
+JoePenna/Dreambooth-Stable-Diffusion,2998,534,96,Permissive,97,57
+civitai/sd_civitai_extension,2003,358,89,Permissive,20,14
+TA-Lib/ta-lib-python,1247,216,45,no license file was found,51,17
+home-assistant/operating-system,1571,297,491,Permissive,129,6
+yihong0618/xiaogpt,4146,540,257,Permissive,33,26
+XPixelGroup/DiffBIR,2456,195,78,Permissive,42,31
+tebelorg/RPA-Python,1365,200,116,Permissive,8,5
+Facico/Chinese-Vicuna,3833,425,215,Permissive,75,32
+py-pdf/pypdf,1711,164,297,no license file was found,173,82
+k8gege/K8tools,1117,192,5,Permissive,39,19
+li-plus/chatglm.cpp,1688,239,125,Permissive,35,13
+pallets/jinja,1369,170,113,Permissive,105,60
+pre-commit/pre-commit,3450,259,451,Permissive,181,131
+young-geng/EasyLM,1923,184,74,Permissive,35,19
+ytisf/theZoo,2120,390,20,no license file was found,19,13
+kaixindelele/ChatPaper,15440,1673,195,no license file was found,80,31
+GoogleCloudPlatform/asl-ml-immersion,1165,644,33,Permissive,162,100
+CadQuery/cadquery,1033,109,212,Permissive,126,84
+zalando/patroni,1309,205,288,Permissive,174,112
+bndr/pipreqs,1359,122,58,Permissive,39,16
+Visualize-ML/Book7_Visualizations-for-Machine-Learning,1276,224,17,no license file was found,14,13
+yihong0618/bilingual_book_maker,6243,758,217,Permissive,51,26
+edtechre/pybroker,1280,159,45,no license file was found,62,33
+dongrixinyu/JioNLP,1534,180,109,Permissive,145,106
+Nixtla/neuralforecast,1505,200,284,no license file was found,87,59
+gpuweb/gpuweb,1444,106,650,no license file was found,82,13
+pradyunsg/furo,1293,200,31,Permissive,136,7
+smallfawn/QLScriptPublic,1036,141,118,no license file was found,111,6
+Visualize-ML/Book4_Power-of-Matrix,6423,897,87,no license file was found,82,81
+connorferster/handcalcs,1868,177,65,Permissive,55,35
+pkuliyi2015/multidiffusion-upscaler-for-automatic1111,3619,254,247,no license file was found,13,10
+flightlessmango/MangoHud,1976,133,307,Permissive,152,5
+google/automl,1224,214,47,Permissive,132,115
+lm-sys/FastChat,28214,3506,1489,Permissive,183,135
+littlefs-project/littlefs,1127,203,153,Permissive,66,21
+shibing624/MedicalGPT,1822,261,240,Permissive,45,17
+Rudrabha/Wav2Lip,4647,1059,192,no license file was found,42,27
+bentoml/OpenLLM,6227,429,154,Permissive,150,90
+CHNZYX/Auto_Simulated_Universe,3591,171,162,Permissive,36,21
+huggingface/course,1168,497,79,Permissive,118,5
+ourownstory/neural_prophet,1263,183,234,Permissive,136,60
+laramies/theHarvester,2923,379,74,no license file was found,91,69
+VainF/Torch-Pruning,1399,154,182,Permissive,182,109
+X-PLUG/mPLUG-Owl,1581,128,155,Permissive,86,70
+openvpi/DiffSinger,2330,271,80,Permissive,107,95
+timesler/facenet-pytorch,1195,227,14,Permissive,17,10
+BBuf/tvm_mlir_learn,1169,180,0,no license file was found,104,53
+Stability-AI/generative-models,14527,1585,115,Permissive,100,68
+microsoft/DeepSpeed-MII,1156,115,161,Permissive,160,120
+kitao/pyxel,3352,232,87,Permissive,177,54
+floooh/sokol,1989,202,168,Permissive,102,9
+emilwallner/Screenshot-to-code,2233,176,4,Permissive,17,7
+neonbjb/tortoise-tts,9607,1224,412,Permissive,45,33
+KevinWang676/Bark-Voice-Cloning,1199,154,60,Permissive,40,29
+google/re2,1744,220,70,Permissive,110,8
+cvg/LightGlue,2365,199,66,Permissive,14,10
+albumentations-team/albumentations,3030,351,197,Permissive,100,71
+rom1504/clip-retrieval,1519,149,107,Permissive,64,36
+timeseriesAI/tsai,2223,271,279,Permissive,112,99
+xfgryujk/blivechat,1035,118,56,Permissive,110,38
+bitcoin/bips,2224,1490,0,no license file was found,57,17
+jdb78/pytorch-forecasting,1516,261,253,Permissive,81,50
+Kent0n-Li/ChatDoctor,2953,325,43,Permissive,18,9
+OFA-Sys/Chinese-CLIP,2879,263,193,Permissive,70,38
+togethercomputer/OpenChatKit,8462,963,87,Permissive,81,62
+alufers/mitmproxy2swagger,4424,196,24,Permissive,27,15
+skills/secure-code-game,1014,104,10,Permissive,73,19
+tinyvision/DAMO-YOLO,3444,399,110,Permissive,107,86
+filip-michalsky/SalesGPT,1172,234,40,Permissive,171,23
+bowang-lab/MedSAM,1230,152,150,Permissive,50,39
+pyecharts/pyecharts,2157,284,220,Permissive,158,127
+continue-revolution/sd-webui-segment-anything,2614,165,125,no license file was found,46,38
+facefusion/facefusion,8755,944,143,no license file was found,102,94
+kuafuai/DevOpsGPT,5122,572,51,no license file was found,196,95
+opengeos/segment-geospatial,2274,218,85,Permissive,49,11
+lucidrains/audiolm-pytorch,1951,217,140,Permissive,16,14
+lyogavin/Anima,1359,118,32,Permissive,44,29
+ddgth/cf2dns,1648,1007,28,no license file was found,19,13
+weaviate/Verba,1021,102,44,Permissive,172,36
+encode/starlette,2256,279,90,Permissive,105,67
+yoheinakajima/instagraph,2876,244,28,Permissive,19,5
+chubin/wttr.in,5568,274,153,Permissive,191,28
+ranaroussi/yfinance,4005,622,388,Permissive,39,24
+theOehrly/Fast-F1,1215,163,118,Permissive,161,73
+sherlock-project/sherlock,15320,2423,248,Permissive,34,14
+madawei2699/myGPTReader,4038,418,35,Permissive,56,11
+deep-diver/LLM-As-Chatbot,1607,174,23,Permissive,111,73
+encode/uvicorn,2225,262,78,Permissive,90,70
+chidiwilliams/buzz,7756,577,309,Permissive,178,142
+changkun/modern-cpp-tutorial,5752,800,17,Permissive,139,5
+ungoogled-software/ungoogled-chromium,3842,202,400,Permissive,71,36
+docker/genai-stack,1536,275,34,Permissive,27,6
+fastai/fastai,3053,556,171,Permissive,113,95
+YORG-AI/Open-Assistant,1247,172,0,Permissive,89,77
+huawei-noah/Efficient-AI-Backbones,1381,244,125,no license file was found,119,63
+h2oai/h2o-llmstudio,2858,317,221,Permissive,168,96
+facebookresearch/ImageBind,6838,575,63,no license file was found,13,8
+lucidrains/denoising-diffusion-pytorch,5282,757,205,Permissive,21,19
+lucidrains/vit-pytorch,7034,1167,57,Permissive,58,54
+mlc-ai/web-stable-diffusion,3026,172,32,Permissive,39,24
+CorentinJ/Real-Time-Voice-Cloning,15347,2178,180,Permissive,65,59
+mandiant/capa,1260,210,310,Permissive,198,165
+rom1504/img2dataset,2180,242,120,Permissive,58,22
+pdfminer/pdfminer.six,1487,188,122,Permissive,96,59
+thuml/Autoformer,1207,274,145,Permissive,58,24
+ninja-build/ninja,2241,324,107,Permissive,134,8
+RVC-Project/Retrieval-based-Voice-Conversion-WebUI,12427,1805,955,Permissive,188,83
+SergeyPirogov/webdriver_manager,1123,158,193,Permissive,54,46
+obss/sahi,1801,298,78,Permissive,161,133
+openai/chatgpt-retrieval-plugin,18929,3582,185,Permissive,106,51
+Uberi/speech_recognition,1590,310,72,Permissive,38,25
+blackboxo/CleanMyWechat,2504,107,18,Permissive,12,6
+google/latexify_py,4741,212,55,Permissive,62,50
+faif/python-patterns,7539,817,9,no license file was found,68,62
+facebookresearch/detr,3747,764,91,Permissive,39,28
+mlfoundations/open_clip,6091,638,302,no license file was found,172,43
+ymcui/Chinese-LLaMA-Alpaca-2,4817,364,259,Permissive,70,40
+farizrahman4u/loopgpt,1227,124,23,Permissive,78,54
+guoyww/AnimateDiff,5546,429,189,Permissive,52,14
+benbusby/whoogle-search,3047,442,203,Permissive,91,25
+run-llama/sec-insights,1527,326,41,Permissive,119,46
+mnielsen/neural-networks-and-deep-learning,1832,570,0,no license file was found,42,26
+megvii-research/NAFNet,1709,215,115,no license file was found,107,55
+Threekiii/Awesome-Redteam,2771,482,1,no license file was found,33,8
+JerBouma/FinanceDatabase,1433,170,17,Permissive,23,9
+yxlllc/DDSP-SVC,1234,194,44,Permissive,73,61
+Rockyzsu/stock,1365,294,6,Permissive,148,141
+argosopentech/argos-translate,1626,132,90,Permissive,58,22
+soxoj/maigret,7900,539,589,Permissive,82,37
+vwxyzjn/cleanrl,2853,392,98,no license file was found,187,72
+houseofsecrets/SdPaint,1448,110,30,Permissive,26,7
+zuruoke/watermark-removal,1290,206,19,no license file was found,9,6
+satwikkansal/wtfpython,6274,382,24,Permissive,20,8
+visual-openllm/visual-openllm,1117,138,40,no license file was found,12,8
+neulab/prompt2model,1558,128,57,Permissive,119,95
+jupyter/docker-stacks,1041,448,114,no license file was found,195,68
+suno-ai/bark,27223,2721,336,Permissive,12,8
+pi-hole/pi-hole,10121,570,339,no license file was found,57,8
+assafelovic/gpt-researcher,5409,627,97,Permissive,166,106
+cure-lab/LTSF-Linear,1275,264,79,Permissive,94,64
+kyegomez/tree-of-thoughts,3521,326,53,Permissive,39,22
+pypa/pipx,2399,116,130,Permissive,122,74
+pallets/click,2432,248,175,Permissive,117,60
+karpathy/nanoGPT,25087,3582,218,Permissive,19,15
+BlinkDL/ChatRWKV,8599,636,95,Permissive,46,33
+RapidAI/RapidOCR,1096,193,68,Permissive,132,78
+apple/ml-stable-diffusion,14746,812,201,Permissive,52,16
+phlippe/uvadlc_notebooks,1301,317,63,Permissive,34,15
+dataabc/weiboSpider,2384,441,96,no license file was found,76,45
+datafold/data-diff,2457,168,249,Permissive,123,74
+dvlab-research/LongLoRA,2027,173,118,Permissive,37,27
+haotian-liu/LLaVA,10310,1023,699,Permissive,138,61
+facebookresearch/AnimatedDrawings,9240,754,126,Permissive,102,39
+NewFuture/DDNS,1253,160,53,Permissive,37,15
+BlinkDL/RWKV-LM,9746,613,152,Permissive,75,51
+hiroi-sora/Umi-OCR,12475,1152,219,Permissive,185,83
+Visualize-ML/Book3_Elements-of-Mathematics,4222,632,109,no license file was found,137,136
+AI4Finance-Foundation/ElegantRL,1404,403,118,Permissive,138,83
+cuifengcn/TAICHI-flet,2170,274,51,Permissive,34,26
+sdatkinson/neural-amp-modeler,1333,115,212,Permissive,77,50
+anmol098/waka-readme-stats,1150,392,98,Permissive,28,9
+01-ai/Yi,4561,240,135,Permissive,62,31
+corpnewt/gibMacOS,1213,184,23,Permissive,15,10
+LaurentMazare/tch-rs,1889,154,212,Permissive,165,11
+SysCV/sam-hq,2671,153,87,Permissive,108,93
+explodinggradients/ragas,1519,126,127,Permissive,131,65
+patriciogonzalezvivo/glslViewer,1307,112,57,Permissive,131,13
+whitead/paper-qa,3053,296,102,Permissive,17,11
+icloud-photos-downloader/icloud_photos_downloader,2461,172,106,Permissive,126,58
+yoheinakajima/babyagi,16845,2243,131,Permissive,110,51
+agronholm/apscheduler,1317,138,88,Permissive,93,71
+RhinoSecurityLabs/pacu,1178,169,18,Permissive,196,176
+salesforce/CodeGen,4227,303,63,Permissive,21,8
+huangsam/ultimate-python,1312,188,6,Permissive,56,43
+TheLastBen/fast-stable-diffusion,6781,1284,1746,Permissive,24,12
+WassimTenachi/PhySO,1555,222,37,Permissive,152,97
+WeNeedHome/SummaryOfLoanSuspension,20821,2442,129,no license file was found,132,17
+jacobgil/pytorch-grad-cam,4059,529,171,Permissive,43,38
+libfuse/libfuse,1006,203,69,no license file was found,84,5
+canonical/microk8s,1534,166,510,Permissive,178,72
+openai/CLIP,12149,1843,134,Permissive,15,7
+tqdm/tqdm,5010,278,116,Permissive,73,62
+alphacep/vosk-api,3119,407,470,Permissive,194,23
+liucongg/ChatGLM-Finetuning,1787,176,106,no license file was found,30,17
+mrdbourke/pytorch-deep-learning,5648,1882,110,Permissive,24,7
+microsoft/Swin-Transformer,4568,873,112,Permissive,84,29
+gto76/python-cheatsheet,6033,1189,19,no license file was found,44,5
+pygod-team/pygod,1071,109,35,Permissive,109,73
+huggingface/autotrain-advanced,1524,218,186,Permissive,180,125
+google/python-fire,3767,212,46,Permissive,78,62
+voicepaw/so-vits-svc-fork,6153,868,172,Permissive,92,47
+ThrowTheSwitch/Unity,1036,254,43,Permissive,158,5
+sharkdp/hyperfine,7197,130,76,Permissive,55,6
+facebookresearch/deit,1113,224,64,Permissive,25,14
+chrieke/prettymapp,1821,124,24,Permissive,27,14
+GuyTevet/motion-diffusion-model,2464,283,149,Permissive,102,81
+DLLXW/baby-llama2-chinese,1035,135,35,Permissive,16,13
+OpenBMB/ToolBench,3572,301,180,Permissive,151,81
+luosiallen/latent-consistency-model,2991,149,45,Permissive,13,7
+togethercomputer/RedPajama-Data,3717,290,59,Permissive,64,58
+AI4Finance-Foundation/FinGPT,9054,1691,70,Permissive,194,123
+THUDM/ChatGLM3,5954,579,351,Permissive,64,34
+getsentry/self-hosted,1872,385,841,Permissive,72,5
+freedmand/semantra,1941,107,44,Permissive,39,5
+Codium-ai/pr-agent,2564,206,108,Permissive,153,80
+lionsoul2014/ip2region,4451,719,58,Permissive,157,10
+xmu-xiaoma666/External-Attention-pytorch,5444,912,30,Permissive,103,86
+tensorflow/rust,1286,131,30,Permissive,115,7
+thewhiteh4t/seeker,2866,533,98,Permissive,47,12
+lucidrains/PaLM-rlhf-pytorch,7307,617,43,Permissive,13,10
+Sitoi/dailycheckin,2316,405,97,Permissive,67,36
+Stability-AI/stability-sdk,2336,325,91,Permissive,20,15
+jhao104/proxy_pool,4778,958,93,Permissive,57,37
+MahmoudAshraf97/whisper-diarization,1142,124,92,Permissive,10,5
+iryna-kondr/scikit-llm,2460,199,40,Permissive,65,52
+yuanzhoulvpi2017/zero_nlp,2008,259,146,Permissive,140,74
+nadermx/backgroundremover,4167,321,66,Permissive,20,12
+rhasspy/piper,1738,132,188,Permissive,129,52
+al-one/hass-xiaomi-miot,2268,377,771,Permissive,58,33
+theskumar/python-dotenv,1877,108,51,Permissive,34,18
+maurosoria/dirsearch,3000,491,123,Permissive,95,71
+Vision-CAIR/MiniGPT-4,22427,2681,350,Permissive,131,69
+OpenEthan/SMSBoom,11465,2696,169,Permissive,19,10
+Kozea/WeasyPrint,1322,109,305,Permissive,170,142
+InternLM/InternLM,3577,305,190,Permissive,49,5
+elevenlabs/elevenlabs-python,1269,144,113,Permissive,159,154
+Beomi/KoAlpaca,1352,220,90,Permissive,27,6
+Visualize-ML/Book2_Beauty-of-Data-Visualization,1599,278,12,no license file was found,68,67
+openai/gpt-2,5123,1369,19,Permissive,12,6
+thygate/stable-diffusion-webui-depthmap-script,1325,127,216,Permissive,130,117
+cloneofsimo/lora,5738,432,129,Permissive,25,17
+microsoft/lida,1805,142,41,Permissive,72,23
+lucidrains/toolformer-pytorch,1708,101,13,Permissive,10,7
+polakowo/vectorbt,1559,253,140,Permissive,136,105
+IDEA-Research/Grounded-Segment-Anything,10940,966,270,Permissive,145,115
+ParthJadhav/Tkinter-Designer,3845,443,85,Permissive,60,16
+Physton/sd-webui-prompt-all-in-one,1839,158,228,Permissive,152,44
+williamyang1991/Rerender_A_Video,2589,161,83,Permissive,28,17
+AI4Finance-Foundation/FinRL,4156,1110,276,Permissive,131,75
+GreyDGL/PentestGPT,5147,597,79,Permissive,80,47
+uber/causalml,1508,278,104,Permissive,130,72
+keylase/nvidia-patch,2080,186,95,no license file was found,50,14
+Micro-sheep/efinance,1105,270,90,Permissive,38,26
+NVlabs/tiny-cuda-nn,1873,313,237,Permissive,101,10
+EniasCailliau/GirlfriendGPT,2241,381,52,Permissive,31,14
+ocrmypdf/OCRmyPDF,4318,272,186,Permissive,155,103
+junyanz/pytorch-CycleGAN-and-pix2pix,4201,1129,169,Permissive,65,36
+brentvollebregt/auto-py-to-exe,1537,275,120,Permissive,58,15
+biobootloader/wolverine,4827,479,20,Permissive,15,8
+facebook/prophet,3100,530,274,Permissive,141,27
+imoneoi/openchat,3152,280,72,Permissive,38,29
+PyCQA/flake8,1221,130,166,Permissive,199,77
+PRBonn/kiss-icp,1076,246,141,Permissive,89,38
+TomSchimansky/CustomTkinter,8870,1099,1007,Permissive,94,86
+crowsonkb/k-diffusion,1513,290,46,Permissive,35,23
+chenyuntc/pytorch-book,1772,362,2,Permissive,57,33
+google-deepmind/graphcast,3123,253,17,Permissive,28,26
+nodejs/node-gyp,1267,330,187,Permissive,167,67
+deepseek-ai/DeepSeek-Coder,2814,186,42,Permissive,54,32
+encode/httpx,3074,249,116,Permissive,100,61
+langchain-ai/opengpts,3846,346,32,Permissive,123,41
+erikbern/ann-benchmarks,1370,202,55,Permissive,185,77
+liangliangyy/DjangoBlog,1655,668,53,Permissive,180,111
+jzhang38/TinyLlama,3219,138,72,Permissive,35,25
+bigscience-workshop/petals,7527,398,142,Permissive,91,84
+PWhiddy/PokemonRedExperiments,5558,441,73,Permissive,26,16
+nateraw/stable-diffusion-videos,3596,347,108,Permissive,15,11
+benfred/py-spy,2917,104,80,Permissive,66,14
+daquexian/onnx-simplifier,1298,126,110,Permissive,21,7
+huggingface/notebooks,2051,860,79,Permissive,47,26
+greyhatguy007/Machine-Learning-Specialization-Coursera,2028,1498,20,Permissive,99,45
+google-research/text-to-text-transfer-transformer,1561,194,21,Permissive,54,43
+yihong0618/running_page,1274,687,131,Permissive,100,44
+spotify/basic-pitch,2403,181,52,Permissive,39,26
+ShangtongZhang/reinforcement-learning-an-introduction,1711,411,5,Permissive,29,26
+QingdaoU/OnlineJudge,1110,290,35,Permissive,177,162
+graphdeco-inria/gaussian-splatting,7184,705,425,no license file was found,27,24
+jazzband/pip-tools,1458,121,173,Permissive,83,51
+sczhou/ProPainter,3757,422,57,Permissive,109,98
+yangjianxin1/Firefly,3013,265,163,no license file was found,73,14
+aamini/introtodeeplearning,1522,946,21,Permissive,13,10
+jupyterlab/jupyter-ai,2044,177,251,Permissive,188,71
+fastai/nbdev,1440,165,446,Permissive,45,28
+WyattBlue/auto-editor,1243,180,123,Permissive,66,51
+arogozhnikov/einops,2706,140,43,Permissive,54,32
+THUDM/CogVLM,2296,103,119,Permissive,46,32
+lucidrains/imagen-pytorch,7195,734,274,Permissive,18,14
+DataTalksClub/data-engineering-zoomcamp,12201,2998,106,no license file was found,193,42
+hoffstadt/DearPyGui,4118,347,289,Permissive,195,11
+abetlen/llama-cpp-python,4136,528,559,Permissive,84,45
+FlareSolverr/FlareSolverr,3067,334,439,Permissive,37,21
+TimDettmers/bitsandbytes,4064,418,708,Permissive,110,60
+qu-niao/LimApiTest,1161,210,3,Permissive,156,70
+lucidrains/x-transformers,2104,205,94,Permissive,19,14
+je-suis-tm/quant-trading,2084,355,6,Permissive,32,26
+google/brotli,1867,263,51,Permissive,118,10
+openai/tiktoken,7160,471,148,Permissive,22,16
+scottbez1/smartknob,12029,737,74,Permissive,117,14
+biliup/biliup,1408,269,283,Permissive,169,84
+r0oth3x49/ghauri,1567,177,97,Permissive,32,27
+HFrost0/bilix,1137,126,111,Permissive,94,65
+jtsang4/claude-to-chatgpt,1029,132,21,Permissive,18,7
+huggingface/alignment-handbook,2378,126,39,Permissive,56,16
+ben1234560/AiLearning-Theory-Applying,1631,217,1,Permissive,82,27
+qiuyu96/CoDeF,4546,358,68,Permissive,51,25
+wjakob/nanobind,1045,101,64,Permissive,159,27
+aigc-apps/sd-webui-EasyPhoto,3360,259,158,Permissive,82,50
+CreditTone/hooker,1308,262,12,Permissive,179,16
+yl4579/StyleTTS2,2647,127,65,Permissive,36,28
+liltom-eth/llama2-webui,1707,169,40,Permissive,25,14
+deforum-art/deforum-stable-diffusion,1929,341,186,Permissive,137,128
+jantic/DeOldify,2464,427,62,Permissive,117,105
+sanchit-gandhi/whisper-jax,3480,306,135,Permissive,18,13
+TingsongYu/PyTorch_Tutorial,3450,583,5,no license file was found,29,26
+mit-han-lab/streaming-llm,5200,278,59,Permissive,12,11
+facebookresearch/dinov2,6316,489,247,Permissive,157,133
+Visualize-ML/Book1_Python-For-Beginners,2405,395,105,no license file was found,22,21
+OlafenwaMoses/ImageAI,1349,288,47,Permissive,149,120
+NVIDIA-AI-IOT/torch2trt,1036,120,132,Permissive,131,70
+llm-attacks/llm-attacks,2209,289,64,Permissive,30,21
+Pythagora-io/gpt-pilot,14510,1124,155,Permissive,155,127
+andyzys/jd_seckill,1007,487,0,no license file was found,8,6
+TencentARC/GFPGAN,14572,2541,206,Permissive,46,26
+shengqiangzhang/examples-of-web-crawlers,2337,506,13,Permissive,52,26
+Akegarasu/ChatGLM-webui,1762,249,49,no license file was found,12,6
+d8ahazard/sd_dreambooth_extension,1646,309,745,no license file was found,83,47
+bmild/nerf,4015,607,49,Permissive,15,5
+fmtlib/fmt,4790,710,521,Permissive,121,8
+melih-unsal/DemoGPT,1336,159,14,Permissive,62,53
+yenchenlin/nerf-pytorch,2716,622,57,Permissive,25,6
+kuangliu/pytorch-cifar,1112,409,11,Permissive,22,21
+corpnewt/gibMacOS,1213,184,23,Permissive,15,10
+noDRM/DeDRM_tools,4422,215,294,no license file was found,97,66
+RhinoSecurityLabs/pacu,1178,169,18,Permissive,114,93
+bilibili/ailab,2089,199,63,no license file was found,12,5
+public-apis/public-apis,87426,9438,168,Permissive,9,6
+pyppeteer/pyppeteer,1086,102,65,Permissive,136,52
+tj/git-extras,1157,124,53,Permissive,175,7
+sczhou/CodeFormer,11207,2264,267,Permissive,106,85
+google-research/t5x,1867,245,95,Permissive,186,121
+chriskiehl/Gooey,2589,203,56,Permissive,194,141
+bazingagin/npc_gzip,1793,151,21,Permissive,33,25
+liucongg/ChatGLM-Finetuning,1787,176,106,no license file was found,30,17
+pyscript/pyscript,17070,1512,642,Permissive,163,37
+Codium-ai/pr-agent,2564,206,108,Permissive,108,66
+mistralai/mistral-src,4283,282,49,Permissive,13,9
+facebookresearch/deit,1113,224,64,Permissive,26,14
+microsoft/TypeChat,6793,311,54,Permissive,162,38
+BigBrotherTrade/trader,1670,380,1,Permissive,21,16
+injetlee/Python,1606,599,9,no license file was found,22,20
+THUDM/VisualGLM-6B,3478,344,291,Permissive,22,13
+lucidrains/toolformer-pytorch,1708,101,13,Permissive,10,7
+NafisiAslH/KnowledgeSharing,1018,244,2,no license file was found,95,10
+facebookresearch/dino,2043,389,69,Permissive,15,12
+ranaroussi/quantstats,1766,311,83,Permissive,22,9
+li-plus/chatglm.cpp,1688,239,125,Permissive,35,13
+nodejs/node-gyp,1267,330,187,Permissive,142,64
+clovaai/donut,4457,373,249,Permissive,29,19
+magicleap/SuperGluePretrainedNetwork,1094,236,31,no license file was found,15,6
+tinyvision/DAMO-YOLO,3444,399,110,Permissive,104,83
+HFrost0/bilix,1137,126,111,Permissive,94,65
+ReFirmLabs/binwalk,1698,237,36,Permissive,57,49
+arogozhnikov/einops,2706,140,43,Permissive,51,31
+carefree0910/carefree-creator,2029,194,34,Permissive,38,34
+jina-ai/dalle-flow,2796,210,80,Permissive,51,11
+ArchiveBox/ArchiveBox,4334,304,181,Permissive,193,115
+ricklamers/gpt-code-ui,3162,387,28,Permissive,38,8
+Uberi/speech_recognition,1590,310,72,Permissive,33,21
+xuebinqin/DIS,1614,202,80,Permissive,11,7
+MLEveryday/100-Days-Of-ML-Code,3319,706,4,Permissive,23,11
+PyJun/Mooc_Downloader,1535,187,22,no license file was found,18,16
+scottbez1/smartknob,12029,737,74,Permissive,114,11
+SergeyPirogov/webdriver_manager,1123,158,193,Permissive,49,41
+yoheinakajima/instagraph,2876,244,28,Permissive,19,5
+CorentinJ/Real-Time-Voice-Cloning,15347,2178,180,Permissive,62,56
+yl4579/StyleTTS2,2647,127,65,Permissive,31,23
+openai/point-e,5872,699,79,Permissive,28,26
+continue-revolution/sd-webui-animatediff,1659,150,232,no license file was found,19,14
+jupyter/docker-stacks,1041,448,114,Permissive,188,65
+VeNoMouS/cloudscraper,1884,174,0,Permissive,36,23
+pyenv-win/pyenv-win,1825,183,108,Permissive,67,18
+ggerganov/ggml,7478,674,264,Permissive,164,23
+sdatkinson/NeuralAmpModelerPlugin,1424,115,243,Permissive,141,16
+AI4Finance-Foundation/ElegantRL,1404,403,118,Permissive,126,75
+yunjey/pytorch-tutorial,5571,1092,4,Permissive,29,21
+openatx/uiautomator2,1419,257,103,Permissive,80,49
+spotify/annoy,2649,159,42,Permissive,36,20
+gaogaotiantian/viztracer,1928,275,61,Permissive,129,71
+xusenlinzy/api-for-open-llm,1175,146,161,Permissive,111,89
+karpathy/llama2.c,12745,1204,167,Permissive,20,8
+williamyang1991/DualStyleGAN,1018,175,74,Permissive,65,46
+W01fh4cker/Serein,1075,180,22,no license file was found,55,52
+jacobgil/pytorch-grad-cam,4059,529,171,Permissive,41,36
+yandex/YaLM-100B,3444,283,27,Permissive,149,103
+TCM-Course-Resources/Practical-Ethical-Hacking-Resources,1729,420,0,no license file was found,10,7
+mkdocs/mkdocs,3702,563,227,Permissive,182,56
+gto76/python-cheatsheet,6033,1189,19,no license file was found,38,5
+juncongmoo/chatllama,1080,135,7,no license file was found,15,12
+g1879/DrissionPage,2210,191,70,Permissive,38,36
+cofactoryai/textbase,1343,413,20,no license file was found,53,18
+lucidrains/PaLM-rlhf-pytorch,7307,617,43,Permissive,13,10
+chrieke/prettymapp,1821,124,24,Permissive,18,11
+openai/Video-Pre-Training,1051,121,21,Permissive,23,21
+microsoft/JARVIS,20959,1761,165,Permissive,79,19
+microsoft/Bringing-Old-Photos-Back-to-Life,3877,579,45,Permissive,65,56
+joelgrus/data-science-from-scratch,1353,591,12,Permissive,96,80
+qwopqwop200/GPTQ-for-LLaMa,2593,320,193,Permissive,21,18
+devicons/devicon,3399,1928,400,Permissive,48,14
+rasbt/machine-learning-book,1704,672,48,Permissive,70,36
+PostgREST/postgrest,3067,151,304,Permissive,195,6
+shankarpandala/lazypredict,1878,203,46,Permissive,35,7
+facebookresearch/Mask2Former,1161,253,128,Permissive,169,76
+salesforce/BLIP,3059,444,122,Permissive,44,28
+kaieye/2022-Machine-Learning-Specialization,3013,1327,21,no license file was found,134,86
+TheKingOfDuck/fuzzDicts,2122,593,3,no license file was found,136,21
+jina-ai/clip-as-service,2102,251,86,Permissive,91,43
+pre-commit/pre-commit,3450,259,451,Permissive,171,121
+matplotlib/mplfinance,1197,176,87,no license file was found,130,107
+salesforce/CodeT5,1918,274,105,Permissive,47,30
+young-geng/EasyLM,1923,184,74,Permissive,38,22
+opencv/opencv-python,1288,274,187,Permissive,24,7
+daquexian/onnx-simplifier,1298,126,110,Permissive,21,7
+openai/spinningup,2437,555,19,Permissive,107,60
+TomSchimansky/CustomTkinter,8870,1099,1007,Permissive,93,85
+ShishirPatil/gorilla,8192,588,79,Permissive,81,40
+adamian98/pulse,1509,242,8,no license file was found,11,9
+crowsonkb/k-diffusion,1513,290,46,Permissive,35,23
+GoogleCloudPlatform/asl-ml-immersion,1165,644,33,Permissive,166,75
+encode/httpx,3074,249,116,Permissive,94,56
+ddangelov/Top2Vec,1131,130,79,Permissive,10,5
+nsarrazin/serge,3998,286,102,Permissive,61,10
+asweigart/pyautogui,2587,317,110,Permissive,25,8
+Pierian-Data/Complete-Python-3-Bootcamp,6474,16165,75,no license file was found,139,10
+Kent0n-Li/ChatDoctor,2953,325,43,Permissive,18,9
+rdeepak2002/reddit-place-script-2022,1071,463,271,Permissive,19,6
+twintproject/twint,2843,560,37,Permissive,36,23
+huashengdun/webssh,1266,258,64,Permissive,34,18
+ben1234560/AiLearning-Theory-Applying,1631,217,1,Permissive,69,24
+biliup/biliup,1408,269,283,Permissive,139,75
+snesrev/zelda3,3920,332,152,Permissive,195,15
+CreditTone/hooker,1308,262,12,Permissive,178,16
+farizrahman4u/loopgpt,1227,124,23,Permissive,75,51
+EnableSecurity/wafw00f,1413,189,18,Permissive,179,168
+borisdayma/dalle-mini,13469,1106,103,Permissive,39,20
+jmorganca/ollama,18776,992,616,Permissive,192,15
+ctgk/PRML,1032,235,1,Permissive,155,151
+fastapi-users/fastapi-users,1868,199,55,Permissive,135,83
+ccyanxyz/uniswap-arbitrage-analysis,1224,384,6,no license file was found,63,14
+ztxz16/fastllm,2439,267,277,Permissive,161,36
+ijl/orjson,2031,103,140,Permissive,124,39
+databrickslabs/dolly,10057,1084,151,Permissive,16,8
+cvlab-columbia/zero123,1838,119,91,Permissive,102,78
+dataabc/weiboSpider,2384,441,96,no license file was found,68,41
+UN-GCPDS/qt-material,1089,130,40,Permissive,71,22
+sdatkinson/neural-amp-modeler,1333,115,212,Permissive,55,39
+libfuse/libfuse,1006,203,69,no license file was found,84,5
+mli/autocut,5516,532,64,Permissive,18,13
+kwai/DouZero,1224,190,29,Permissive,27,22
+ashleve/lightning-hydra-template,1947,396,103,Permissive,70,22
+dataabc/weibo-crawler,1109,207,107,no license file was found,11,6
+khuyentran1401/Data-science,1521,339,1,no license file was found,195,131
+huggingface/safetensors,1677,107,103,Permissive,81,38
+IST-DASLab/gptq,1377,103,35,Permissive,36,30
+MetaCubeX/Clash.Meta,7593,2484,544,Permissive,26,19
+MShawon/YouTube-Viewer,1002,490,218,Permissive,22,12
+microsoft/AI-For-Beginners,21389,3443,78,Permissive,131,9
+tangyoha/telegram_media_downloader,1050,119,73,Permissive,120,32
+stochasticai/xturing,1801,134,70,Permissive,185,117
+davidrmiller/biosim4,1080,170,18,Permissive,48,6
+Sitoi/dailycheckin,2316,405,97,Permissive,35,19
+OpenBMB/ToolBench,3572,301,180,Permissive,136,73
+hyunwoongko/transformer,1237,243,11,Permissive,29,26
+instaloader/instaloader,2944,399,526,Permissive,61,22
+google-research/vision_transformer,3631,506,51,Permissive,33,26
+qubvel/segmentation_models.pytorch,3211,577,163,Permissive,109,84
+gxcuizy/Python,1392,450,3,no license file was found,158,117
+victoresque/pytorch-template,1196,270,6,Permissive,23,19
+shroominic/codeinterpreter-api,3260,368,96,Permissive,54,28
+FACEGOOD/FACEGOOD-Audio2Face,1148,235,55,Permissive,28,19
+VainF/Torch-Pruning,1399,154,182,Permissive,166,104
+dwisiswant0/apkleaks,1438,133,8,Permissive,15,6
+junyanz/pytorch-CycleGAN-and-pix2pix,4201,1129,169,Permissive,65,36
+SevaSk/ecoute,4899,662,120,Permissive,14,11
+Visualize-ML/Book2_Beauty-of-Data-Visualization,1599,278,12,no license file was found,68,67
+ocrmypdf/OCRmyPDF,4318,272,186,Permissive,153,102
+smallfawn/QLScriptPublic,1036,141,118,no license file was found,106,6
+pytorch/examples,3409,1377,90,Permissive,194,86
+yanqiangmiffy/Chinese-LangChain,2308,286,48,no license file was found,30,20
+fundamentalvision/Deformable-DETR,1264,227,72,Permissive,48,30
+Morizeyao/GPT2-Chinese,2537,575,36,Permissive,23,9
+openai/DALL-E,6505,1307,39,Permissive,8,5
+lucidrains/imagen-pytorch,7195,734,274,Permissive,17,13
+weaviate/Verba,1021,102,44,Permissive,116,39
+THUDM/CogVLM,2296,103,119,Permissive,45,31
+sherlock-project/sherlock,15320,2423,248,Permissive,31,11
+ysymyth/tree-of-thought-llm,1651,128,18,Permissive,29,12
+huggingface/alignment-handbook,2378,126,39,Permissive,37,11
+turboderp/exllamav2,1691,103,121,Permissive,135,70
+hiyouga/ChatGLM-Efficient-Tuning,3243,459,345,Permissive,91,70
+vwxyzjn/cleanrl,2853,392,98,Permissive,185,71
+neulab/prompt2model,1558,128,57,Permissive,113,90
+run-llama/sec-insights,1527,326,41,Permissive,112,40
+rasbt/python-machine-learning-book-3rd-edition,1182,506,14,Permissive,85,38
+Jack-Cherish/python-spider,2770,628,2,no license file was found,63,49
+NVIDIA-AI-IOT/torch2trt,1036,120,132,Permissive,186,129
+THUDM/ChatGLM-6B,34687,4515,1188,Permissive,32,13
+TeamYukki/YukkiMusicBot,1012,4302,27,Permissive,129,100
+edarchimbaud/awesome-systematic-trading,1820,283,2,no license file was found,64,60
+isl-org/MiDaS,2182,295,73,Permissive,113,27
+iam-veeramalla/Jenkins-Zero-To-Hero,3280,5147,12,Permissive,44,19
+deforum-art/deforum-stable-diffusion,1929,341,186,Permissive,129,120
+basujindal/stable-diffusion,3156,565,140,no license file was found,90,44
+GokuMohandas/mlops-course,1374,254,8,Permissive,46,23
+Ciphey/Ciphey,4694,311,34,Permissive,137,88
+morph-labs/rift,2704,124,78,Permissive,145,73
+postmanlabs/httpbin,1525,243,19,Permissive,25,8
+microsoft/torchscale,2607,171,57,Permissive,69,58
+TheLastBen/fast-stable-diffusion,6781,1284,1746,Permissive,22,11
+linyiLYi/street-fighter-ai,5740,1220,65,Permissive,13,6
+hojonathanho/diffusion,2122,229,11,no license file was found,15,13
+netease-youdao/EmotiVoice,4810,331,50,Permissive,74,59
+ly4k/Certipy,1146,167,98,Permissive,45,42
+rawandahmad698/PyChatGPT,4211,463,103,Permissive,20,7
+GuyTevet/motion-diffusion-model,2464,283,149,Permissive,96,77
+pygod-team/pygod,1071,109,35,Permissive,105,70
+sharkdp/hyperfine,7197,130,76,Permissive,54,6
+UX-Decoder/Segment-Everything-Everywhere-All-At-Once,3411,236,87,Permissive,176,145
+MorvanZhou/tutorials,1419,340,0,Permissive,122,115
+tensorflow/rust,1286,131,30,Permissive,115,7
+littlecodersh/ItChat,2895,403,39,Permissive,50,17
+pesser/stable-diffusion,1025,131,23,Permissive,172,52
+elevenlabs/elevenlabs-python,1269,144,113,Permissive,23,18
+Janspiry/Palette-Image-to-Image-Diffusion-Models,1163,156,84,Permissive,27,21
+CompVis/latent-diffusion,8492,1136,251,Permissive,71,32
+turboderp/exllama,2210,216,200,Permissive,65,22
+justinpinkney/stable-diffusion,1277,267,69,Permissive,193,65
+marcotcr/lime,1416,248,50,Permissive,36,19
+timeseriesAI/tsai,2223,271,279,Permissive,108,95
+cs230-stanford/cs230-code-examples,1104,233,1,Permissive,67,38
+edtechre/pybroker,1280,159,45,Permissive,60,31
+iam-veeramalla/aws-devops-zero-to-hero,2863,3315,7,Permissive,75,6
+Bitwise-01/Instagram-,1465,351,0,Permissive,12,10
+yihong0618/xiaogpt,4146,540,257,Permissive,32,25
+SCIR-HI/Huatuo-Llama-Med-Chinese,3649,344,92,Permissive,20,7
+archinetai/audio-diffusion-pytorch,1575,133,36,Permissive,10,7
+bee-san/pyWhat,1159,155,4,Permissive,35,19
+timothybrooks/instruct-pix2pix,5380,460,97,no license file was found,96,48
+kaqijiang/Auto-GPT-ZH,2658,458,26,Permissive,174,127
+cvg/nice-slam,1117,189,97,Permissive,87,21
+openai/improved-diffusion,1998,345,88,Permissive,23,21
+deezer/spleeter,4956,625,97,Permissive,65,29
+yangjianxin1/Firefly,3013,265,163,no license file was found,43,16
+jazzband/pip-tools,1458,121,173,Permissive,78,47
+openai/consistency_models,5331,343,35,Permissive,29,22
+dgtlmoon/changedetection.io,8935,595,582,Permissive,186,103
+alufers/mitmproxy2swagger,4424,196,24,Permissive,22,10
+kingoflolz/mesh-transformer-jax,2223,403,41,Permissive,44,25
+yihong0618/running_page,1274,687,131,Permissive,98,39
+kuafuai/DevOpsGPT,5122,572,51,Permissive,184,90
+pyecharts/pyecharts,2157,284,220,Permissive,151,121
+microsoft/DeepSpeed-MII,1156,115,161,Permissive,138,114
+FlagAlpha/Llama2-Chinese,6892,624,228,no license file was found,44,18
+biancangming/wtv,4006,463,34,no license file was found,18,5
+ungoogled-software/ungoogled-chromium,3842,202,400,Permissive,65,30
+jdb78/pytorch-forecasting,1516,261,253,Permissive,81,50
+ranaroussi/yfinance,4005,622,388,Permissive,37,22
+impira/docquery,1560,106,40,Permissive,26,20
+aimacode/aima-python,1251,636,18,Permissive,71,63
+pharmapsychotic/clip-interrogator,2095,396,86,Permissive,15,6
+msiemens/tinydb,1382,106,20,Permissive,45,20
+sjvasquez/handwriting-synthesis,2275,188,21,no license file was found,14,10
+khast3x/h8mail,1340,123,11,Permissive,30,21
+TingsongYu/PyTorch_Tutorial,3450,583,5,no license file was found,28,25
+mit-han-lab/streaming-llm,5200,278,59,Permissive,10,9
+Rikorose/DeepFilterNet,1365,130,177,Permissive,125,59
+QwenLM/Qwen,2118,170,293,Permissive,87,36
+redis/redis-py,1895,405,410,Permissive,188,139
+VideoCrafter/VideoCrafter,1897,138,26,Permissive,32,22
+psf/requests,4424,1015,272,Permissive,78,34
+trekhleb/homemade-machine-learning,3265,521,4,Permissive,35,18
+trekhleb/learn-python,3399,662,7,Permissive,71,58
+microsoft/generative-ai-for-beginners,17109,7858,31,Permissive,103,14
+NewFuture/DDNS,1253,160,53,Permissive,35,13
+ageitgey/face_recognition,7495,1569,88,Permissive,63,30
+coleifer/peewee,1604,126,202,Permissive,151,86
+public-apis-dev/public-apis,2084,256,97,Permissive,20,6
+acheong08/EdgeGPT,7862,919,342,Permissive,37,14
+WeNeedHome/SummaryOfLoanSuspension,20821,2442,129,no license file was found,128,13
+MaartenGr/BERTopic,2684,341,826,Permissive,169,76
+canonical/microk8s,1534,166,510,Permissive,168,63
+yitter/IdGenerator,1153,141,41,Permissive,133,6
+serengil/deepface,4808,886,360,Permissive,63,50
+apernet/hysteria,6630,765,225,Permissive,157,5
+pjialin/py12306,1009,225,21,Permissive,47,35
+dennybritz/reinforcement-learning,2198,469,4,Permissive,26,16
+luosiallen/latent-consistency-model,2991,149,45,Permissive,13,7
+Miraclelucy/dive_into_deep_learning,1261,215,5,no license file was found,28,26
+NVlabs/neuralangelo,3734,313,140,no license file was found,64,45
+xmu-xiaoma666/External-Attention-pytorch,5444,912,30,Permissive,102,85
+blue-yonder/tsfresh,1569,227,37,Permissive,107,61
+geerlingguy/ansible-for-devops,2146,937,67,Permissive,174,5
+Janspiry/Image-Super-Resolution-via-Iterative-Refinement,1429,218,66,Permissive,27,19
+Sanster/lama-cleaner,13226,1382,282,Permissive,192,67
+linyiLYi/snake-ai,1263,318,21,Permissive,16,12
+budtmo/docker-android,2127,260,50,Permissive,54,18
+jakevdp/PythonDataScienceHandbook,6956,2615,29,Permissive,31,10
+h2oai/h2ogpt,8336,1012,664,Permissive,198,107
+Kozea/WeasyPrint,1322,109,305,Permissive,156,129
+Stability-AI/StableSwarmUI,1347,126,151,Permissive,195,20
+mouredev/Hello-Python,17274,1219,15,Permissive,39,35
+srbhr/Resume-Matcher,3143,828,40,Permissive,91,32
+deforum-art/deforum-for-automatic1111-webui,1158,166,265,Permissive,173,148
+OpenTalker/SadTalker,5028,967,376,Permissive,131,105
+weiaicunzai/pytorch-cifar100,1218,332,10,no license file was found,28,27
+649453932/Chinese-Text-Classification-Pytorch,1465,291,22,Permissive,15,11
+Gioman101/FlipperAmiibo,2190,342,25,no license file was found,7,6
+eriklindernoren/ML-From-Scratch,2058,426,3,Permissive,83,80
+google/diff-match-patch,1555,192,19,Permissive,63,8
+soimort/you-get,5945,935,0,Permissive,136,125
+jdepoix/youtube-transcript-api,1087,103,63,Permissive,22,13
+divamgupta/stable-diffusion-tensorflow,1543,194,43,Permissive,14,11
+Stability-AI/stablediffusion,30723,4107,240,Permissive,75,56
+XPixelGroup/DiffBIR,2456,195,78,Permissive,71,57
+Physton/sd-webui-prompt-all-in-one,1839,158,228,Permissive,130,44
+Asabeneh/30-Days-Of-Python,18555,3798,95,no license file was found,86,16
+sweetice/Deep-reinforcement-learning-with-pytorch,1212,215,2,Permissive,40,30
+pythonstock/stock,1358,516,18,Permissive,114,28
+facebook/prophet,3100,530,274,Permissive,134,25
+liangliangyy/DjangoBlog,1655,668,53,Permissive,160,91
+Megvii-BaseDetection/YOLOX,2836,849,402,Permissive,138,88
+kuprel/min-dalle,3158,242,58,Permissive,14,10
+Nixtla/neuralforecast,1505,200,284,no license file was found,66,41
+deepseek-ai/DeepSeek-Coder,2814,186,42,Permissive,51,29
+ashemery/exploitation-course,1473,190,1,no license file was found,54,24
+Stability-AI/generative-models,14527,1585,115,Permissive,82,55
+abetlen/llama-cpp-python,4136,528,559,Permissive,66,34
+sczhou/ProPainter,3757,422,57,Permissive,96,89
+CHNZYX/Auto_Simulated_Universe,3591,171,162,Permissive,36,20
+littlefs-project/littlefs,1127,203,153,Permissive,66,21
+google-deepmind/graphcast,3123,253,17,Permissive,28,26
+PWhiddy/PokemonRedExperiments,5558,441,73,Permissive,25,16
+changkun/modern-cpp-tutorial,5752,800,17,Permissive,139,5
+emilwallner/Screenshot-to-code,2233,176,4,Permissive,16,6
+facefusion/facefusion,8755,944,143,no license file was found,77,70
+caesarHQ/textSQL,1388,150,35,Permissive,116,44
+wjakob/nanobind,1045,101,64,Permissive,149,23
+nlp-with-transformers/notebooks,1892,672,61,Permissive,16,5
+toriato/stable-diffusion-webui-wd14-tagger,1053,133,80,no license file was found,16,10
+megvii-research/NAFNet,1709,215,115,Permissive,107,55
+shengqiangzhang/examples-of-web-crawlers,2337,506,13,Permissive,52,26
+JerBouma/FinanceDatabase,1433,170,17,Permissive,22,9
+assafelovic/gpt-researcher,5409,627,97,Permissive,97,42
+zqzess/rule_for_quantumultX,1324,112,26,no license file was found,96,18
+Dineshkarthik/telegram_media_downloader,1302,205,104,Permissive,30,12
+cvg/LightGlue,2365,199,66,Permissive,14,10
+Kaggle/kaggle-api,1110,188,81,Permissive,38,33
+shibing624/text2vec,2914,243,95,Permissive,81,62
+yoyo-nb/Thin-Plate-Spline-Motion-Model,2893,480,80,Permissive,23,16
+blackboxo/CleanMyWechat,2504,107,18,Permissive,11,6
+abi/screenshot-to-code,21301,2007,75,Permissive,89,21
+PeterL1n/BackgroundMattingV2,1248,191,22,Permissive,25,22
+PanQiWei/AutoGPTQ,2601,249,260,Permissive,131,78
+RayVentura/ShortGPT,4109,481,87,no license file was found,136,63
+gunthercox/ChatterBot,1825,533,67,Permissive,177,122
+Visualize-ML/Book4_Power-of-Matrix,6423,897,87,no license file was found,82,81
+DLLXW/baby-llama2-chinese,1035,135,35,Permissive,13,10
+davidteather/TikTok-Api,1950,378,141,Permissive,77,48
+lucidrains/vector-quantize-pytorch,1048,101,44,Permissive,14,12
+datafold/data-diff,2457,168,249,Permissive,117,70
+theOehrly/Fast-F1,1215,163,118,Permissive,155,71
+openscopeproject/InteractiveHtmlBom,1171,184,95,Permissive,47,27
+MoonInTheRiver/DiffSinger,3504,353,45,Permissive,115,72
+openai/CLIP,12149,1843,134,Permissive,15,7
+je-suis-tm/quant-trading,2084,355,6,Permissive,32,26
+lamini-ai/lamini,2330,138,20,Permissive,20,18
+adobe-research/custom-diffusion,1572,107,70,Permissive,98,17
+pre-commit/pre-commit-hooks,1619,241,119,Permissive,88,72
+google-research/bert,5553,1133,36,Permissive,17,12
+sensity-ai/dot,3208,296,69,Permissive,119,84
+daveshap/OpenAI_Agent_Swarm,2495,286,21,Permissive,82,36
+Vision-CAIR/MiniGPT-4,22427,2681,350,Permissive,124,65
+google/brotli,1867,263,51,Permissive,114,9
+llSourcell/DoctorGPT,3130,313,22,Permissive,196,75
+MingchaoZhu/DeepLearning,1499,258,1,Permissive,14,10
+apprenticeharper/DeDRM_tools,2312,211,182,no license file was found,87,62
+DLR-RM/stable-baselines3,3723,809,631,Permissive,161,93
+open-source-parsers/jsoncpp,1503,394,58,Permissive,137,14
+jessevig/bertviz,2170,158,25,Permissive,32,26
+Python3WebSpider/ProxyPool,1825,553,43,Permissive,51,34
+PyCQA/flake8,1221,130,166,Permissive,194,73
+OptimalScale/LMFlow,7157,998,311,Permissive,165,81
+jina-ai/langchain-serve,1424,114,46,Permissive,106,60
+r0oth3x49/ghauri,1567,177,97,Permissive,27,22
+butaixianran/Stable-Diffusion-Webui-Civitai-Helper,1951,215,203,no license file was found,17,9
+Facico/Chinese-Vicuna,3833,425,215,Permissive,74,32
+AntixK/PyTorch-VAE,2376,389,23,Permissive,80,49
+anmol098/waka-readme-stats,1150,392,98,Permissive,28,9
+codebasics/py,2141,6034,21,no license file was found,188,93
+huggingface/course,1168,497,79,Permissive,45,5
+facebookresearch/ConvNeXt,1900,321,54,Permissive,50,43
+bupticybee/ChineseAiDungeonChatGPT,1284,137,33,no license file was found,11,6
+CarperAI/trlx,3886,428,253,Permissive,139,83
+davinci1012/pinduoduo_backdoor_unpacker,1096,446,25,no license file was found,28,9
+lucidrains/denoising-diffusion-pytorch,5282,757,205,Permissive,18,16
+rom1504/img2dataset,2180,242,120,Permissive,38,22
+Lightning-AI/lit-llama,5020,433,219,Permissive,62,47
+yzhao062/pyod,2190,292,78,Permissive,199,163
+TingFree/NLPer-Arsenal,1081,110,3,Permissive,125,30
+ymcui/Chinese-LLaMA-Alpaca-2,4817,364,259,Permissive,58,40
+encode/starlette,2256,279,90,Permissive,103,65
+spotDL/spotify-downloader,6015,582,294,Permissive,128,82
+thunil/TecoGAN,1269,220,12,Permissive,19,16
+lucidrains/DALLE-pytorch,1496,233,28,Permissive,24,19
+roboflow/supervision,6669,484,188,Permissive,94,63
+hacs/integration,1782,403,418,Permissive,174,133
+firmai/financial-machine-learning,2639,316,3,no license file was found,26,5
+jzhang38/TinyLlama,3219,138,72,Permissive,35,25
+paperswithcode/galai,2468,253,71,Permissive,11,6
+Anjok07/ultimatevocalremovergui,10913,817,667,Permissive,123,38
+donnemartin/interactive-coding-challenges,3508,574,2,Permissive,134,129
+timesler/facenet-pytorch,1195,227,14,Permissive,19,10
+ljpzzz/machinelearning,1690,493,5,Permissive,15,11
+PatrikH0lop/malware_showcase,1537,300,2,Permissive,19,9
+liltom-eth/llama2-webui,1707,169,40,Permissive,21,11
+google-research/text-to-text-transfer-transformer,1561,194,21,Permissive,42,37
+soxoj/maigret,7900,539,589,Permissive,82,37
+rinongal/textual_inversion,2627,290,144,Permissive,77,37
+AntonOsika/gpt-engineer,44662,6693,344,Permissive,128,62
+IDEA-Research/GroundingDINO,3425,353,199,Permissive,45,34
+microsoft/CodeBERT,1110,221,157,Permissive,141,93
+lukas-blecher/LaTeX-OCR,6140,529,137,Permissive,79,35
+THUDM/CogVideo,3113,323,34,Permissive,22,13
+rom1504/clip-retrieval,1519,149,107,Permissive,54,35
+AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin,5394,411,279,Permissive,143,10
+KichangKim/DeepDanbooru,1560,144,36,Permissive,30,26
+addi00000/empyrean,8490,402,319,Permissive,24,14
+flucont/btcloud,1017,477,135,Permissive,78,6
+baichuan-inc/baichuan-7B,4013,416,88,Permissive,13,5
+opendilab/PPOxFamily,2047,190,13,Permissive,53,49
+thewhiteh4t/nexfil,1287,111,20,Permissive,17,12
+BlinkDL/RWKV-LM,9746,613,152,Permissive,64,46
+google/python-fire,3767,212,46,Permissive,71,56
+tebelorg/RPA-Python,1365,200,116,Permissive,8,5
+cvg/Hierarchical-Localization,1055,236,99,Permissive,68,52
+THUDM/P-tuning-v2,1397,134,39,Permissive,172,127
+CompVis/taming-transformers,2304,675,59,Permissive,65,42
+WassimTenachi/PhySO,1555,222,37,Permissive,96,63
+matterport/Mask_RCNN,2691,1084,176,Permissive,11,10
+bitcoin/bips,2224,1490,0,no license file was found,49,12
+obss/sahi,1801,298,78,Permissive,146,120
+utkuozbulak/pytorch-cnn-visualizations,1174,197,13,Permissive,18,17
+k8gege/K8tools,1117,192,5,Permissive,38,19
+DataTalksClub/mlops-zoomcamp,7658,1586,74,no license file was found,176,68
+Beomi/KoAlpaca,1352,220,90,Permissive,26,6
+MrS0m30n3/youtube-dl-gui,1219,144,14,Permissive,30,23
+connorferster/handcalcs,1868,177,65,Permissive,50,32
+mandiant/capa,1260,210,310,Permissive,182,151
+nmslib/hnswlib,1660,192,75,Permissive,60,25
+spotify/basic-pitch,2403,181,52,Permissive,24,15
+cuifengcn/TAICHI-flet,2170,274,51,Permissive,31,23
+lucidrains/audiolm-pytorch,1951,217,140,Permissive,16,14
+agronholm/apscheduler,1317,138,88,Permissive,85,64
+minimaxir/simpleaichat,2945,173,66,Permissive,11,8
+THUDM/GLM-130B,7150,556,179,Permissive,84,25
+lucidrains/vit-pytorch,7034,1167,57,Permissive,57,53
+ymcui/Chinese-LLaMA-Alpaca,14833,1516,659,Permissive,80,18
+psf/requests-html,1198,120,38,Permissive,16,5
+yangwohenmai/LSTM,1112,261,5,no license file was found,99,84
+lutzroeder/netron,6817,572,219,Permissive,176,14
+SysCV/sam-hq,2671,153,87,Permissive,102,87
+thuml/Autoformer,1207,274,145,Permissive,53,19
+jiaaro/pydub,1905,216,67,Permissive,19,12
+karpathy/nanoGPT,25087,3582,218,Permissive,19,15
+Turing-Project/AntiFraudChatBot,2137,419,19,Permissive,155,65
+jina-ai/discoart,3917,257,100,Permissive,45,24
+pdfminer/pdfminer.six,1487,188,122,Permissive,94,57
+wangshub/Douyin-Bot,1288,266,5,Permissive,20,13
+mgeeky/Penetration-Testing-Tools,1113,173,1,Permissive,177,50
+google/yapf,1315,107,80,Permissive,85,66
+Z4nzu/hackingtool,29828,2931,138,Permissive,42,31
+nginx-proxy/nginx-proxy,1960,393,75,Permissive,148,65
+amueller/word_cloud,1154,202,37,Permissive,60,22
+yizhongw/self-instruct,3166,363,12,Permissive,15,7
+circlestarzero/EX-chatGPT,1957,278,64,Permissive,73,7
+albumentations-team/albumentations,3030,351,197,Permissive,74,52
+facebookresearch/demucs,4052,411,202,Permissive,89,41
+LianjiaTech/BELLE,6561,675,376,Permissive,119,46
+jsvine/pdfplumber,2181,188,120,Permissive,49,33
+RosettaCommons/RFdiffusion,1180,196,99,Permissive,92,57
+6dylan6/jdpro,3934,926,695,no license file was found,124,7
+sanchit-gandhi/whisper-jax,3480,306,135,Permissive,18,13
+EleutherAI/gpt-neo,1943,432,0,Permissive,40,19
+Vectorized/solady,1730,232,92,Permissive,183,10
+TachibanaYoshino/AnimeGANv2,1428,245,13,no license file was found,19,17
+huseinzol05/Stock-Prediction-Models,2095,595,19,Permissive,26,8
+phlippe/uvadlc_notebooks,1301,317,63,Permissive,27,8
+THUDM/GLM,2450,246,159,Permissive,150,66
+Kr1s77/awesome-python-login-model,1606,286,15,Permissive,81,72
+guofei9987/scikit-opt,1612,239,32,Permissive,74,42
+skills/secure-code-game,1014,104,10,Permissive,72,19
+lmcinnes/umap,1130,158,129,Permissive,95,43
+sail-sg/EditAnything,2584,136,48,Permissive,80,75
+acantril/learn-cantrill-io-labs,3384,1270,19,Permissive,157,95
+cszn/KAIR,1031,250,36,Permissive,175,112
+langchain-ai/opengpts,3846,346,32,Permissive,85,30
+TheR1D/shell_gpt,6291,505,174,Permissive,35,24
+jaywalnut310/vits,4979,672,116,Permissive,27,17
+huangsam/ultimate-python,1312,188,6,Permissive,51,38
+williamyang1991/Rerender_A_Video,2589,161,83,Permissive,28,17
+danielgatis/rembg,9313,1019,235,Permissive,41,26
+ourownstory/neural_prophet,1263,183,234,Permissive,116,57
+fengdu78/Data-Science-Notes,1630,435,2,no license file was found,79,20
+QwenLM/Qwen-VL,1759,125,151,no license file was found,54,20
+sammchardy/python-binance,1252,476,153,Permissive,41,15
+waditu/tushare,1167,225,77,Permissive,75,56
+yaronzz/Tidal-Media-Downloader,1160,161,143,Permissive,51,38
+MisterBooo/LeetCodeAnimation,6092,1028,5,no license file was found,190,5
+Kanaries/pygwalker,7634,358,106,Permissive,112,53
+THUDM/CodeGeeX,7139,483,174,Permissive,166,119
+robertmartin8/PyPortfolioOpt,1157,213,96,Permissive,66,35
+nadermx/backgroundremover,4167,321,66,Permissive,17,9
+drivendata/cookiecutter-data-science,1649,563,23,Permissive,22,7
+tencent-ailab/IP-Adapter,1834,110,114,Permissive,16,14
+3b1b/manim,12324,1118,139,Permissive,147,87
+pradyunsg/furo,1293,200,31,Permissive,134,7
+graykode/nlp-tutorial,3086,646,6,Permissive,27,22
+JiauZhang/DragGAN,2020,225,9,Permissive,9,8
+google/automl,1224,214,47,Permissive,125,108
+facebookresearch/moco,1226,223,18,Permissive,15,6
+codertimo/BERT-pytorch,1060,215,8,Permissive,31,27

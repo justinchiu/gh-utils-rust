@@ -1,0 +1,1454 @@
+repo_name,stars,forks,issues,license_type,num_files,num_cpp_files
+IntelRealSense/librealsense,1364,858,1190,Permissive,2096,460
+pytorch/audio,673,226,260,Permissive,791,43
+WebAssembly/wabt,1666,164,162,Permissive,1653,76
+lvgl/lvgl,4990,1169,644,Permissive,1445,36
+zoontek/react-native-permissions,719,111,107,Permissive,104,7
+mavlink/qgroundcontrol,599,673,284,Permissive,2072,375
+microsoft/react-native-windows,1468,118,502,Permissive,2781,499
+IntelRealSense/realsense-ros,708,445,428,Permissive,123,15
+plasma-umass/scalene,4747,159,202,Permissive,200,14
+raspberrypi/pico-sdk,1558,471,428,Permissive,511,12
+google/benchmark,1803,384,108,Permissive,167,71
+stm32duino/Arduino_Core_STM32,646,239,160,Permissive,9240,731
+SerenityOS/serenity,8484,1310,816,Permissive,10968,3358
+DataDog/datadog-agent,864,396,315,Permissive,9982,10
+JuliaLang/julia,6261,861,2621,Permissive,1302,49
+gabime/spdlog,6830,1438,362,Permissive,159,37
+apache/iotdb,2391,466,277,Permissive,4964,5
+rui314/mold,5782,266,443,Permissive,2226,410
+facebookresearch/pytorch3d,2135,432,411,Permissive,752,36
+Midway91/HactoberFest2023,192,2336,165,no license file was found,9323,530
+microsoft/DirectXShaderCompiler,616,172,618,Permissive,11783,3761
+InsightSoftwareConsortium/ITK,316,103,188,Permissive,11638,4697
+CollaboraOnline/online,777,344,764,no license file was found,1262,228
+scylladb/seastar,1250,231,228,Permissive,578,471
+flet-dev/flet,7411,304,999,Permissive,628,8
+pimoroni/pimoroni-pico,680,325,204,Permissive,1547,463
+googleforgames/agones,1216,232,265,Permissive,5924,11
+google/mediapipe,7434,1572,1405,Permissive,3082,1099
+SerenityOS/jakt,2623,309,224,Permissive,416,90
+llfbandit/record,121,102,149,no license file was found,194,15
+PointCloudLibrary/pcl,1954,538,335,Permissive,3065,1504
+oliverw/miningcore,151,177,158,Permissive,1030,69
+pybind/pybind11,3201,478,171,Permissive,238,57
+chromiumembedded/cef,1058,129,117,Permissive,1966,821
+oneapi-src/oneTBB,1496,268,178,Permissive,907,343
+Ericsson/codechecker,488,104,132,Permissive,1169,99
+taichi-dev/taichi,5914,477,935,Permissive,1407,356
+scipy/scipy,2779,1026,1393,Permissive,2467,70
+randombit/botan,437,114,192,Permissive,1680,696
+akgmage/data-structures-and-algorithms,104,243,516,Permissive,889,267
+marella/ctransformers,1280,107,161,Permissive,60,15
+monero-project/monero-gui,512,115,190,Permissive,287,40
+OpenAtomFoundation/pika,810,240,356,Permissive,1740,191
+microsoft/msquic,1012,194,184,Permissive,906,70
+openframeworks/openFrameworks,925,162,251,Permissive,1757,605
+ic005k/OCAuxiliaryTools,1811,186,118,Permissive,403,295
+openbmc/openbmc,498,212,108,no license file was found,2216,5
+NVIDIA-AI-IOT/Lidar_AI_Solution,915,141,197,Permissive,182,67
+waymo-research/waymo-open-dataset,740,198,279,Permissive,277,52
+alibaba/tengine,1161,205,122,Permissive,1454,6
+flyteorg/flyte,2088,266,1177,Permissive,4608,122
+ERGO-Code/HiGHS,428,108,271,Permissive,526,227
+oneapi-src/oneDNN,634,202,186,Permissive,3799,2921
+isl-org/Open3D,3431,628,927,Permissive,2067,790
+hybridgroup/gocv,1265,172,103,Permissive,217,33
+conan-io/conan-center-index,317,756,1883,Permissive,13233,1220
+apache/incubator-brpc,1381,373,152,Permissive,1299,545
+PaddlePaddle/PaddleClas,1813,441,389,Permissive,1686,30
+zhongyang219/TrafficMonitor,13556,1139,465,no license file was found,170,75
+hummingbot/hummingbot,2727,1186,483,Permissive,1318,6
+AlexeyAB/darknet,2782,1158,295,no license file was found,264,5
+nikohoffren/fork-commit-merge,248,628,398,Permissive,393,17
+Submitty/Submitty,221,371,362,Permissive,1688,86
+lottie-react-native/lottie-react-native,1565,222,136,Permissive,149,6
+JaidedAI/EasyOCR,6139,985,326,Permissive,253,6
+data61/MP-SPDZ,325,128,628,Permissive,901,371
+microsoft/winget-cli,5316,534,951,Permissive,2608,683
+jgromes/RadioLib,547,145,165,Permissive,247,54
+odin-lang/Odin,2228,285,481,Permissive,414,66
+flutter-webrtc/flutter-webrtc,905,330,341,Permissive,262,25
+DataDog/dd-trace-py,169,136,322,Permissive,4508,18
+Qiskit/qiskit-aer,122,102,209,Permissive,614,160
+hsutter/cppfront,4661,204,506,no license file was found,140,115
+SoftEtherVPN/SoftEtherVPN,2040,409,180,Permissive,454,6
+rafaelsetragni/awesome_notifications,262,161,235,Permissive,374,11
+lowRISC/opentitan,778,241,2332,Permissive,6366,265
+wpilibsuite/allwpilib,310,250,498,Permissive,5080,1771
+thonny/thonny,1186,449,719,Permissive,499,7
+microsoft/vscode-cpptools,852,250,1559,Permissive,1111,66
+google/highway,2269,158,162,Permissive,185,97
+bytecodealliance/wasm-micro-runtime,1519,251,435,Permissive,1209,22
+triple-Mu/YOLOv8-TensorRT,786,137,122,Permissive,67,25
+mmp/pbrt-v4,962,192,106,Permissive,234,114
+Nozbe/WatermelonDB,1563,128,200,Permissive,772,35
+M2Team/NanaZip,4059,102,157,Permissive,2030,722
+BlueWallet/BlueWallet,750,208,221,Permissive,757,5
+Chatterino/chatterino2,638,162,298,Permissive,840,739
+4ian/GDevelop,2078,214,589,Permissive,3088,332
+shimat/opencvsharp,1118,217,161,Permissive,859,23
+codesandbox/codesandbox-client,1501,508,621,no license file was found,3236,7
+deeplearning4j/deeplearning4j,815,130,102,Permissive,6885,1137
+project-chip/connectedhomeip,3170,1077,4157,Permissive,9518,2179
+protocolbuffers/protobuf,9519,2009,959,Permissive,2459,409
+facontidavide/PlotJuggler,1021,167,136,Permissive,850,324
+microsoft/vscode-cmake-tools,453,177,512,Permissive,873,8
+microsoft/WindowsAppSDK,891,110,618,Permissive,1649,483
+lcompilers/lpython,1090,115,760,Permissive,1333,80
+OSGeo/gdal,1157,662,927,Permissive,4863,1379
+adap/flower,2395,478,209,Permissive,1495,18
+NVIDIA/DALI,996,127,349,Permissive,2541,630
+Snapchat/KeyDB,3019,199,215,Permissive,1341,155
+libcpr/cpr,1484,198,142,Permissive,145,63
+alibaba/GraphScope,1545,295,685,Permissive,3314,139
+renode/renode,544,107,212,Permissive,393,13
+microsoft/react-native-code-push,782,225,227,Permissive,278,14
+KhronosGroup/glslang,604,206,181,Permissive,1214,73
+openshwprojects/OpenBK7231T_App,1008,181,606,no license file was found,478,53
+autowarefoundation/autoware.universe,577,381,471,Permissive,3677,2078
+mavlink/mavros,191,172,134,Permissive,203,110
+shaka-project/shaka-packager,418,115,104,Permissive,768,348
+wenet-e2e/wenet,1555,511,538,Permissive,755,62
+alvr-org/ALVR,1857,226,408,Permissive,787,458
+questdb/questdb,5140,618,687,Permissive,3603,22
+AnySoftKeyboard/AnySoftKeyboard,622,169,202,Permissive,4266,9
+swagger-api/swagger-codegen,2063,438,276,Permissive,12847,106
+nuttyartist/notes,2743,145,191,Permissive,147,48
+CesiumGS/cesium-unreal,358,127,252,Permissive,282,121
+34736384/genshin-fps-unlock,1345,108,162,no license file was found,18,6
+opencurve/curve,1152,326,504,Permissive,2244,874
+introlab/rtabmap_ros,222,128,294,Permissive,279,79
+ifzhang/ByteTrack,1804,421,161,Permissive,215,21
+modelscope/modelscope,4686,495,362,Permissive,3156,13
+qinguoyi/TinyWebServer,7632,1819,121,Permissive,38,7
+onnx/onnx-mlir,347,145,303,Permissive,792,511
+mitsuba-renderer/mitsuba3,1613,189,312,Permissive,573,226
+vesoft-inc/nebula,2686,372,725,Permissive,1938,878
+microsoft/playwright,21435,1621,6414,Permissive,2057,11
+google/or-tools,2074,397,355,Permissive,2164,606
+klzgrad/naiveproxy,3848,601,282,Permissive,19919,11587
+numba/numba,1811,240,583,Permissive,964,13
+NVIDIA/TensorRT-LLM,3386,242,374,Permissive,1331,544
+antlr/grammars-v4,2142,796,342,Permissive,5549,39
+nexB/scancode-toolkit,446,111,453,Permissive,18313,169
+axmolengine/axmol,343,104,162,Permissive,5587,1866
+dmlc/xgboost,2925,561,619,Permissive,1104,235
+defold/defold,1351,126,822,Permissive,3558,687
+TeamWin/android_bootable_recovery,488,207,104,no license file was found,1135,264
+microsoft/wslg,2256,121,314,Permissive,57,10
+ossrs/srs,5746,913,514,Permissive,4892,437
+PaddlePaddle/FastDeploy,2410,450,902,Permissive,6360,1994
+microsoft/PowerToys,30650,2290,10338,Permissive,3199,410
+MVIG-SJTU/AlphaPose,1559,312,144,Permissive,277,7
+bytedance/lightseq,975,107,114,Permissive,644,118
+vespa-engine/vespa,1167,101,283,Permissive,18131,3934
+aristocratos/btop,7236,271,200,Permissive,62,25
+Tencent/MMKV,2250,250,209,Permissive,239,48
+SourceFusionHub/program,240,302,987,no license file was found,161,12
+Pyomo/pyomo,513,105,230,Permissive,2470,22
+zxing-cpp/zxing-cpp,345,127,123,Permissive,443,184
+SanderMertens/flecs,2525,242,147,Permissive,1311,268
+flightlessmango/MangoHud,1976,133,307,Permissive,145,51
+giuspen/cherrytree,821,124,324,no license file was found,700,259
+ray-project/ray,9427,1774,5925,Permissive,6385,320
+react-native-video/react-native-video,780,551,469,Permissive,304,17
+nomic-ai/gpt4all-chat,1246,144,209,no license file was found,49,13
+apache/nuttx,827,318,248,Permissive,16924,8
+nwjs/nw.js,1604,133,228,Permissive,1426,110
+google/deepvariant,529,115,183,Permissive,396,87
+hashcat/hashcat,6740,800,309,Permissive,3148,154
+godotengine/godot,32612,9089,12967,Permissive,8261,2112
+iovisor/bpftrace,2315,413,177,Permissive,491,238
+spack/spack,1184,641,1479,Permissive,9084,6
+ptitSeb/box64,1544,152,408,Permissive,1443,5
+bazelbuild/rules_rust,237,160,301,Permissive,839,27
+microsoft/STL,1802,369,573,Permissive,1392,1207
+dbeaver/dbeaver,10229,921,3007,Permissive,5751,9
+pixie-io/pixie,1924,226,330,Permissive,3756,782
+PaddlePaddle/PaddleOCR,15517,3143,3874,Permissive,1362,39
+KhronosGroup/Vulkan-Samples,1349,266,141,Permissive,901,256
+espressif/esp-matter,481,133,665,Permissive,306,70
+SpacehuhnTech/esp8266_deauther,2833,477,106,Permissive,147,37
+triton-inference-server/server,2943,544,1316,Permissive,663,31
+flutter/samples,4953,2914,125,Permissive,2205,175
+jart/cosmopolitan,6025,243,207,Permissive,9271,155
+mixxxdj/mixxx,1109,284,673,Permissive,2842,864
+flutter-form-builder-ecosystem/flutter_form_builder,287,108,136,Permissive,111,8
+Arthur151/ROMP,546,114,265,Permissive,519,7
+Baseflow/flutter_cached_network_image,365,179,137,no license file was found,102,8
+halide/Halide,779,119,399,Permissive,1937,1225
+Baseflow/flutter-permission-handler,436,228,265,Permissive,175,11
+SynoCommunity/spksrc,402,171,231,Permissive,1909,7
+oven-sh/bun,46658,2014,3809,no license file was found,3307,345
+drogonframework/drogon,3449,368,318,Permissive,479,211
+kiwibrowser/src.next,1227,268,402,Permissive,6930,3301
+tensorflow/federated,432,143,102,Permissive,762,59
+Lakhankumawat/LearnCPP,352,188,230,Permissive,328,250
+ros-planning/moveit,433,179,219,Permissive,1184,426
+facebook/flipper,2511,239,327,Permissive,1731,33
+pytorch/text,518,161,129,Permissive,285,13
+open-mmlab/mmdeploy,1570,492,1146,Permissive,1833,332
+firebase/firebase-ios-sdk,1356,388,902,Permissive,2813,365
+PaddlePaddle/PaddleSeg,4088,856,893,Permissive,2259,23
+jiangdongguo/AndroidUSBCamera,649,215,206,Permissive,882,60
+Tencent/rapidjson,1903,489,128,Permissive,235,55
+hoffstadt/DearPyGui,4118,347,289,Permissive,194,53
+PaddlePaddle/PaddleNLP,7722,1842,2366,Permissive,4356,105
+mfem/mfem,527,151,441,Permissive,1016,861
+open-policy-agent/opa,2280,447,555,Permissive,5227,26
+PurpleI2P/i2pd,1082,102,113,Permissive,207,101
+risc0/risc0,1081,180,276,Permissive,874,8
+open-mmlab/mmcv,1725,715,394,Permissive,759,228
+cvxpy/cvxpy,1013,261,204,Permissive,887,10
+mehah/otclient,128,135,176,Permissive,690,157
+wolfpld/tracy,3066,267,168,Permissive,447,247
+greenplum-db/gpdb,1040,312,460,Permissive,8760,1092
+mesonbuild/meson,1207,401,804,Permissive,2787,240
+InternLM/lmdeploy,1434,132,379,Permissive,543,45
+FreeRDP/FreeRDP,3481,8215,439,Permissive,2115,52
+microsoft/DeepSpeed,22370,2781,1261,Permissive,1215,52
+ros-planning/moveit2,479,269,445,Permissive,1379,558
+rerun-io/rerun,3405,171,1166,Permissive,2441,520
+cython/cython,1785,254,556,Permissive,2262,6
+LaurentMazare/tch-rs,1889,154,212,Permissive,165,5
+pytorch/tutorials,1671,882,165,Permissive,351,6
+numpy/numpy,5748,2892,1439,Permissive,1671,45
+Regalis11/Barotrauma,611,143,3405,no license file was found,3969,283
+PaddlePaddle/PaddleSlim,639,171,234,Permissive,808,7
+microsoft/LightGBM,2234,407,525,Permissive,320,125
+electron/electron,12826,2718,2161,Permissive,1959,342
+assimp/assimp,2167,696,394,Permissive,1987,751
+nlohmann/json,9110,1725,170,Permissive,782,438
+tensorflow/models,4597,2312,351,Permissive,3037,47
+NVIDIA/FasterTransformer,4002,638,411,Permissive,1311,342
+Baseflow/flutter-geolocator,227,201,240,Permissive,291,15
+AcademySoftwareFoundation/openexr,316,112,111,Permissive,773,296
+wonday/react-native-pdf,302,117,105,Permissive,121,13
+hpcaitech/ColossalAI,33136,4117,1283,Permissive,1862,9
+alphacep/vosk-api,3119,407,470,Permissive,187,7
+root-project/root,607,227,718,no license file was found,20889,8958
+ziglang/zig,14438,1126,3143,Permissive,13441,227
+eclipse/mosquitto,1937,496,303,no license file was found,921,27
+Kumar-laxmi/Algorithms,328,482,927,Permissive,887,218
+nkallen/plasticity,1270,131,125,no license file was found,474,22
+fastmachinelearning/hls4ml,355,126,103,Permissive,394,8
+ttttupup/wxhelper,901,331,245,Permissive,102,15
+Kushal997-das/Project-Guidance,190,147,216,Permissive,2226,17
+DavBfr/dart_pdf,424,258,446,Permissive,320,13
+RayTracing/raytracing.github.io,2428,312,141,Permissive,125,19
+josStorer/RWKV-Runner,3021,270,206,Permissive,191,9
+capstone-engine/capstone,1259,244,169,Permissive,1504,5
+BitMaker-hub/NerdMiner_v2,646,121,127,Permissive,577,33
+mogol/flutter_secure_storage,275,123,158,Permissive,154,19
+42wim/matterbridge,1341,140,177,Permissive,6009,33
+NVIDIA/cutlass,1824,375,388,Permissive,4261,210
+google/ExoPlayer,2402,643,1020,Permissive,3998,7
+stanford-futuredata/ColBERT,968,143,114,Permissive,142,6
+LibreCAD/LibreCAD,1133,189,131,Permissive,1113,416
+NVlabs/tiny-cuda-nn,1873,313,237,Permissive,101,5
+zcash/zcash,357,167,353,Permissive,1372,387
+alibaba/higress,1862,301,262,Permissive,721,26
+ashawkey/torch-ngp,1535,255,136,Permissive,86,5
+bblanchon/ArduinoJson,826,180,205,Permissive,413,321
+panda3d/panda3d,994,149,187,Permissive,5194,2090
+marcoslucianops/DeepStream-Yolo,710,199,301,Permissive,92,20
+pytorch/vision,3908,1510,738,Permissive,624,58
+mawww/kakoune,1614,149,184,Permissive,155,136
+ScerIO/packages.flutter,128,230,132,Permissive,388,6
+OpenStickCommunity/GP2040-CE,735,197,204,Permissive,850,101
+PaddlePaddle/PaddleDetection,5138,1289,1833,Permissive,1897,67
+microsoft/terminal,12409,1387,2044,Permissive,1804,741
+androidx/media,650,190,624,Permissive,2491,7
+openxla/iree,511,139,4413,Permissive,3189,807
+espressif/esp-idf,3640,2015,3229,Permissive,10939,107
+carla-simulator/carla,2535,1036,891,Permissive,1375,406
+rockchip-linux/mpp,280,103,179,Permissive,795,69
+ocornut/imgui,16288,4119,1335,Permissive,185,45
+ninja-build/ninja,2241,324,107,Permissive,131,66
+milvus-io/milvus,14264,1247,4421,Permissive,2699,187
+filecxx/FileCentipede,5841,387,507,no license file was found,393,49
+mit-cml/appinventor-sources,274,287,126,Permissive,6250,313
+jonataslaw/getx,3386,733,464,Permissive,338,9
+luxonis/depthai-ros,126,127,207,Permissive,189,89
+pschatzmann/ESP32-A2DP,711,110,125,Permissive,238,5
+Wilfred/difftastic,8885,208,264,Permissive,7505,139
+mavlink/MAVSDK,136,138,182,Permissive,727,325
+apache/doris,6123,1544,2290,Permissive,16538,1235
+libjxl/libjxl,883,147,336,Permissive,873,359
+google/fuzzbench,238,124,112,Permissive,401,10
+niuhuan/pikapika,4319,289,116,Permissive,224,9
+cemu-project/Cemu,5797,518,533,Permissive,1091,427
+rhasspy/piper,1738,132,188,Permissive,119,6
+raspberrypi/rpi-imager,510,111,224,Permissive,2047,63
+openai/triton,5329,724,674,Permissive,469,126
+soulsmods/ModEngine2,499,118,101,Permissive,108,30
+trustwallet/wallet-core,1076,537,467,Permissive,2983,926
+cython/cython,1785,254,556,Permissive,2278,6
+IntelRealSense/librealsense,1364,858,1190,Permissive,2385,518
+mesonbuild/meson,1207,401,804,Permissive,2873,241
+grpc/grpc,6523,2133,871,Permissive,8231,1729
+facebookresearch/metaseq,6107,693,248,Permissive,270,7
+pytorch/audio,673,226,260,Permissive,828,43
+openframeworks/openFrameworks,925,162,251,no license file was found,1791,611
+PaddlePaddle/PaddleOCR,15517,3143,3874,Permissive,1377,39
+KhronosGroup/Vulkan-Loader,125,108,106,no license file was found,150,30
+microsoft/unilm,11186,1257,551,Permissive,5046,50
+WebAssembly/wabt,1666,164,162,Permissive,1683,76
+dotnet/wpf,1144,347,406,Permissive,6811,801
+dotnet/docs,868,1181,2448,Permissive,21665,93
+Nozbe/WatermelonDB,1563,128,200,Permissive,2990,35
+lief-project/LIEF,1026,170,196,Permissive,1593,1115
+singerdmx/flutter-quill,1023,465,401,Permissive,383,8
+pichillilorenzo/flutter_inappwebview,980,628,582,Permissive,1555,54
+JFormDesigner/FlatLaf,1388,103,203,Permissive,673,8
+mehah/otclient,128,135,176,no license file was found,700,160
+NVIDIA/TransformerEngine,1024,141,105,Permissive,354,24
+microsoft/vscode,28851,7668,34659,Permissive,6753,6
+NVIDIA-AI-IOT/Lidar_AI_Solution,915,141,197,no license file was found,215,67
+abseil/abseil-cpp,3003,696,191,Permissive,873,448
+crawl/crawl,436,389,411,Permissive,2197,336
+ApolloAuto/apollo,3672,1380,606,Permissive,7910,2118
+VirusTotal/yara,1681,286,146,Permissive,231,11
+sagemath/sage,1095,346,418,no license file was found,8454,68
+google/jax,9039,1022,1560,Permissive,1020,54
+KhronosGroup/Vulkan-Samples,1349,266,141,Permissive,1037,266
+neetcode-gh/leetcode,4156,2217,188,Permissive,3426,340
+facebook/folly,5407,1072,167,Permissive,2402,1027
+me-no-dev/ESPAsyncWebServer,945,318,182,no license file was found,39,8
+PixarAnimationStudios/USD,971,220,284,Permissive,5496,2331
+vesoft-inc/nebula,2686,372,725,Permissive,1951,878
+zeromq/libzmq,1390,303,139,Permissive,660,445
+gazebosim/gz-sim,299,117,206,Permissive,1178,776
+goldendict/goldendict,1258,116,103,no license file was found,698,345
+Zylann/godot_voxel,838,105,151,no license file was found,1102,325
+huggingface/transformers,56329,10084,4186,Permissive,4237,7
+mhammond/pywin32,1039,146,159,no license file was found,1470,523
+lcompilers/lpython,1090,115,760,no license file was found,1460,85
+ggerganov/ggml,7478,674,264,Permissive,327,41
+The-OpenROAD-Project/OpenROAD,542,281,530,Permissive,3115,830
+microsoft/playwright,21435,1621,6414,Permissive,2125,11
+M2Team/NanaZip,4059,102,157,no license file was found,2040,730
+fmtlib/fmt,4790,710,521,no license file was found,113,44
+stakira/OpenUtau,964,157,116,no license file was found,451,19
+zotero/zotero,3285,187,720,no license file was found,1040,77
+falcosecurity/falco,1839,240,288,Permissive,223,85
+waymo-research/waymo-open-dataset,740,198,279,no license file was found,289,52
+software-mansion/react-native-screens,481,145,168,Permissive,558,17
+musescore/MuseScore,3998,741,5008,no license file was found,8571,1960
+files-community/Files,10254,1047,2795,Permissive,1071,11
+pytorch/serve,1288,360,592,Permissive,1370,74
+appinioGmbH/flutter_packages,127,140,118,no license file was found,413,16
+renode/renode,544,107,212,no license file was found,445,14
+justcallmekoko/ESP32Marauder,2847,306,171,no license file was found,61,16
+opencv/opencv_contrib,1595,615,141,Permissive,2633,1966
+openhwgroup/core-v-verif,185,108,173,no license file was found,3053,69
+aws/s2n-tls,304,119,224,Permissive,1810,6
+dragonflydb/dragonfly,20631,834,617,Permissive,585,176
+baaivision/EVA,1578,126,109,Permissive,1770,15
+Project-MONAI/MONAI,2036,422,1143,Permissive,1264,16
+bloomberg/memray,11150,354,131,Permissive,352,18
+dresden-elektronik/deconz-rest-plugin,308,127,708,Permissive,909,113
+valhalla/valhalla,1991,255,375,no license file was found,1179,460
+mlpack/mlpack,752,161,120,no license file was found,1689,1475
+google/oss-fuzz,2018,562,428,Permissive,5597,211
+google/benchmark,1803,384,108,Permissive,166,71
+lvgl/lvgl,4990,1169,644,Permissive,1643,50
+wasmerio/wasmer,5097,257,623,Permissive,1394,21
+espressif/esp-matter,481,133,665,Permissive,402,107
+flutter/devtools,375,115,916,Permissive,1534,13
+bazelbuild/bazel,3690,746,2333,Permissive,8055,227
+emscripten-core/emscripten,2737,524,1286,Permissive,7786,1179
+electron/electron,12826,2718,2161,Permissive,2008,345
+DynamoRIO/dynamorio,537,129,280,no license file was found,1581,168
+microsoft/LightGBM,2234,407,525,Permissive,328,126
+pixie-io/pixie,1924,226,330,Permissive,3769,782
+adap/flower,2395,478,209,Permissive,1637,22
+wonday/react-native-pdf,302,117,105,Permissive,122,13
+microsoft/wslg,2256,121,314,Permissive,57,10
+apache/inlong,653,293,2181,Permissive,6560,45
+facebookresearch/seamless_communication,5535,479,163,Permissive,295,18
+google/fuzzbench,238,124,112,Permissive,403,10
+pytorch/text,518,161,129,Permissive,293,13
+numba/numba,1811,240,583,Permissive,962,13
+facebook/hermes,1764,176,190,Permissive,10468,596
+NVIDIA/nccl,850,186,350,no license file was found,178,44
+lfortran/lfortran,464,105,1372,Permissive,3355,99
+dotnet/machinelearning,910,188,423,Permissive,3872,27
+tensorflow/models,4597,2312,351,no license file was found,3276,47
+aseprite/aseprite,8298,1951,659,Permissive,1758,755
+verilog-to-routing/vtr-verilog-to-routing,267,106,145,no license file was found,5962,1136
+DataDog/datadog-agent,864,396,315,Permissive,11588,10
+facontidavide/PlotJuggler,1021,167,136,Permissive,873,339
+nesbox/TIC-80,1201,182,302,Permissive,274,11
+COVESA/vsomeip,438,244,167,Permissive,759,573
+yhirose/cpp-httplib,4222,777,319,Permissive,46,18
+RobotLocomotion/drake,668,196,787,no license file was found,4194,2056
+Fedoraware/Fedoraware,102,131,362,Permissive,436,217
+sonic-net/sonic-buildimage,211,401,616,no license file was found,6768,12
+tidyverse/dplyr,607,756,405,no license file was found,117,12
+rizonesoft/Notepad3,1946,112,271,no license file was found,1413,424
+oracle/graal,2759,371,855,no license file was found,14781,92
+KhronosGroup/SPIRV-Cross,400,137,157,Permissive,2517,41
+riscv-software-src/riscv-isa-sim,739,239,211,no license file was found,1275,52
+MicrosoftDocs/visualstudio-docs,227,374,881,Permissive,11673,1282
+rapidsai/cudf,2060,213,1251,Permissive,2917,914
+klzgrad/naiveproxy,3848,601,282,Permissive,11626,3251
+openfheorg/openfhe-development,429,124,245,Permissive,596,238
+symforce-org/symforce,1211,135,111,Permissive,1484,431
+bluefireteam/audioplayers,535,279,327,Permissive,238,14
+compiler-explorer/compiler-explorer,3924,483,802,Permissive,1605,32
+flutter/samples,4953,2914,125,no license file was found,2428,199
+mikke89/RmlUi,1073,120,113,Permissive,858,389
+dart-lang/http,229,118,139,Permissive,413,8
+Tencent/puerts,1849,281,564,no license file was found,1173,785
+prestodb/presto,2151,737,976,Permissive,10598,94
+Shopify/react-native-skia,2373,186,361,Permissive,1176,20
+swoole/swoole-src,1123,121,268,Permissive,2260,161
+isl-org/Open3D,3431,628,927,no license file was found,2083,791
+microsoft/onnxruntime,4622,1014,2119,Permissive,6969,2259
+google/or-tools,2074,397,355,Permissive,2468,695
+alexdobin/STAR,424,110,402,Permissive,369,161
+antlr/grammars-v4,2142,796,342,Permissive,5979,42
+Snapchat/KeyDB,3019,199,215,Permissive,1342,155
+doitsujin/dxvk,3600,351,630,Permissive,544,210
+kamailio/kamailio,433,189,269,no license file was found,5154,13
+fastmachinelearning/hls4ml,355,126,103,Permissive,498,11
+google/gvisor,1935,249,198,Permissive,2696,340
+NVIDIA/apex,1579,370,175,Permissive,495,38
+react-native-webview/react-native-webview,1394,752,527,Permissive,150,8
+Alexays/Waybar,2374,376,687,Permissive,293,202
+Baseflow/flutter_cached_network_image,365,179,137,no license file was found,100,8
+widgetbook/widgetbook,443,148,235,no license file was found,525,24
+OpenFlutter/flutter_screenutil,720,124,141,Permissive,81,9
+schemaorg/schemaorg,633,102,188,Permissive,622,15
+horovod/horovod,1577,267,204,no license file was found,480,52
+dnfield/flutter_svg,294,129,246,Permissive,99,9
+finos/perspective,2687,479,175,Permissive,1210,110
+mamba-org/mamba,2491,172,662,Permissive,576,377
+microsoft/react-native-code-push,782,225,227,no license file was found,281,14
+neutralinojs/neutralinojs,1815,142,202,no license file was found,995,896
+colmap/colmap,2230,423,496,Permissive,701,290
+Automattic/node-canvas,1234,168,236,Permissive,125,16
+JuliaLang/julia,6261,861,2621,Permissive,1358,49
+Qiskit/qiskit-aer,122,102,209,Permissive,654,161
+flutter-form-builder-ecosystem/flutter_form_builder,287,108,136,Permissive,112,8
+arvidn/libtorrent,1057,205,277,Permissive,834,702
+bkaradzic/bgfx,2740,391,122,Permissive,1318,551
+Baseflow/flutter-permission-handler,436,228,265,Permissive,176,11
+mrousavy/react-native-vision-camera,3004,654,711,Permissive,372,12
+ETLCPP/etl,689,142,144,Permissive,1109,595
+EleutherAI/gpt-neox,4258,678,210,Permissive,220,5
+tdlib/td,1703,438,640,Permissive,1334,590
+OpenAPITools/openapi-generator,6600,2029,1950,Permissive,38795,234
+cheat-engine/cheat-engine,5105,811,523,no license file was found,1583,43
+apple/swift,7104,1377,1939,Permissive,22847,1287
+libcpr/cpr,1484,198,142,no license file was found,152,67
+cisco/openh264,743,232,103,Permissive,494,147
+ccache/ccache,597,126,125,Permissive,327,189
+google-ar/arcore-android-sdk,442,189,106,no license file was found,1258,441
+apple/coremltools,1136,223,339,Permissive,2835,520
+facebook/react-native,14570,3170,3280,Permissive,5019,444
+dusty-nv/jetson-inference,1542,524,315,Permissive,1630,69
+TencentBlueKing/bk-cmdb,378,142,342,no license file was found,4096,73
+p4lang/p4c,154,108,318,Permissive,1646,469
+zephyrproject-rtos/zephyr,3097,2025,4749,Permissive,21201,59
+zhkl0228/unidbg,1246,293,133,Permissive,1007,5
+facebookresearch/pytorch3d,2135,432,411,Permissive,775,36
+tensorflow/tfjs,1953,329,607,Permissive,3343,170
+Baseflow/flutter-geolocator,227,201,240,Permissive,307,15
+cocotb/cocotb,470,145,230,Permissive,515,19
+google/filament,3037,503,459,Permissive,9555,2283
+autowarefoundation/autoware.universe,577,381,471,Permissive,3915,2209
+Midway91/HactoberFest2023,192,2336,165,no license file was found,9360,532
+ChunelFeng/CGraph,984,175,217,Permissive,311,88
+Submitty/Submitty,221,371,362,Permissive,1742,86
+i18next/react-i18next,1486,188,163,Permissive,508,5
+BehaviorTree/BehaviorTree.CPP,1163,240,199,Permissive,376,246
+dart-lang/sdk,1902,506,4699,Permissive,25259,634
+apache/iotdb,2391,466,277,Permissive,4965,5
+hathach/tinyusb,1625,440,190,Permissive,1789,11
+ClickHouse/ClickHouse,9526,2036,6333,Permissive,20329,3886
+felangel/bloc,2567,1108,391,Permissive,1484,64
+NVlabs/instant-ngp,8843,1294,651,no license file was found,256,16
+AngusJohnson/Clipper2,967,207,274,Permissive,121,36
+llvm/torch-mlir,657,197,352,no license file was found,530,128
+SFML/SFML,1913,436,171,Permissive,670,448
+keybase/client,818,132,302,Permissive,5779,7
+Tencent/MMKV,2250,250,209,no license file was found,294,49
+bosskmk/pluto_grid,317,163,396,Permissive,433,20
+dotnet/aspnetcore,6389,2589,6282,Permissive,14459,96
+microsoft/devhome,2621,212,805,Permissive,1468,46
+pytorch/xla,652,167,525,no license file was found,957,231
+open62541/open62541,563,276,401,Permissive,614,9
+barry-ran/QtScrcpy,6481,791,215,Permissive,72,15
+microsoft/DirectXShaderCompiler,616,172,618,no license file was found,11973,3766
+wangwenx190/framelesshelper,446,125,171,Permissive,187,49
+PostHog/posthog,7029,578,1588,no license file was found,4690,7
+Xilinx/Vitis-AI,496,189,545,Permissive,6408,2247
+python/cpython,14978,8335,6517,no license file was found,4479,7
+jgromes/RadioLib,547,145,165,Permissive,295,59
+hyprwm/Hyprland,11569,588,2523,Permissive,364,308
+alibaba/GraphScope,1545,295,685,Permissive,3749,158
+oneapi-src/oneDNN,634,202,186,Permissive,4015,3055
+syncfusion/flutter-examples,516,288,217,no license file was found,578,9
+OSGeo/gdal,1157,662,927,no license file was found,4979,1408
+facebook/buck2,2500,145,243,Permissive,3570,21
+OpenSees/OpenSees,171,191,104,no license file was found,5394,1783
+firebase/flutterfire,2019,1088,1884,Permissive,1855,36
+deepinsight/insightface,7637,1301,429,Permissive,1236,74
+google/omaha,820,137,147,Permissive,1313,582
+conan-io/conan-center-index,317,756,1883,Permissive,13885,1306
+monero-project/monero,1678,461,296,no license file was found,1209,342
+Project-OSRM/osrm-backend,970,576,332,Permissive,2392,1281
+PCSX2/pcsx2,3551,686,1620,no license file was found,2360,632
+SerenityOS/serenity,8484,1310,816,Permissive,12108,3518
+vespa-engine/vespa,1167,101,283,Permissive,18372,3989
+pybind/pybind11,3201,478,171,no license file was found,240,57
+InsightSoftwareConsortium/ITK,316,103,188,Permissive,11657,4711
+sarbagyastha/youtube_player_flutter,166,312,178,Permissive,159,8
+kcat/openal-soft,492,158,193,no license file was found,308,135
+facebookresearch/faiss,8892,743,451,Permissive,724,189
+SerenityOS/jakt,2623,309,224,Permissive,479,136
+open-telemetry/opentelemetry-cpp,262,157,466,Permissive,945,330
+WasmEdge/WasmEdge,4169,400,564,Permissive,1142,336
+niuhuan/pikapika,4319,289,116,Permissive,235,9
+pimoroni/pimoroni-pico,680,325,204,Permissive,1594,473
+NVIDIA/TensorRT,3198,739,1351,Permissive,1480,138
+KhronosGroup/MoltenVK,1091,109,240,Permissive,132,8
+focus-creative-games/hybridclr,5220,548,104,Permissive,76,34
+strukturag/libheif,470,119,208,no license file was found,213,79
+rdkit/rdkit,693,189,513,Permissive,2507,758
+pytorch/pytorch,19491,6145,12158,no license file was found,9359,1981
+open-goal/jak-project,1866,144,714,Permissive,5972,882
+4paradigm/OpenMLDB,700,205,725,Permissive,2732,384
+google/draco,1170,173,133,Permissive,622,220
+dogecoin/dogecoin,1097,479,132,Permissive,1201,328
+WWBN/AVideo,290,125,1605,no license file was found,47885,81
+oven-sh/bun,46658,2014,3809,no license file was found,3702,358
+esmini/esmini,265,108,170,Permissive,457,163
+Revolutionary-Games/Thrive,1020,233,605,no license file was found,2568,1320
+ByConity/ByConity,1364,198,307,Permissive,12699,3668
+CGAL/cgal,1320,246,507,Permissive,10692,2744
+Tencent/libpag,2898,211,215,no license file was found,1125,391
+AOMediaCodec/libavif,482,109,108,Permissive,265,67
+libgdx/libgdx,3004,516,190,Permissive,3185,254
+libjpeg-turbo/libjpeg-turbo,670,220,102,no license file was found,430,10
+PointCloudLibrary/pcl,1954,538,335,no license file was found,3023,1496
+intel/linux-sgx,321,113,129,no license file was found,4456,910
+snowflakedb/snowflake-connector-python,204,219,244,Permissive,404,45
+alibaba/MNN,1557,297,611,Permissive,4961,2447
+NVIDIA/cutlass,1824,375,388,no license file was found,4369,228
+NVIDIA/open-gpu-kernel-modules,13790,1104,262,no license file was found,3369,34
+zeek/zeek,1294,175,445,no license file was found,1275,461
+zxing-cpp/zxing-cpp,345,127,123,Permissive,541,186
+jiangdongguo/AndroidUSBCamera,649,215,206,Permissive,883,60
+godotengine/godot-cpp,702,239,239,Permissive,144,94
+bulletphysics/bullet3,2393,487,191,Permissive,4494,778
+Tencent/ncnn,4391,772,718,no license file was found,2956,1198
+Pyomo/pyomo,513,105,230,no license file was found,2685,24
+data61/MP-SPDZ,325,128,628,Permissive,905,372
+cemu-project/Cemu,5797,518,533,Permissive,1118,441
+rr-debugger/rr,1597,130,229,no license file was found,1202,87
+ArthurSonzogni/FTXUI,2765,232,152,Permissive,272,235
+veracrypt/VeraCrypt,1733,278,176,no license file was found,1040,140
+nomic-ai/gpt4all,52007,5659,1076,Permissive,208,27
+notepad-plus-plus/notepad-plus-plus,5754,1185,1791,no license file was found,1225,527
+KhronosGroup/glslang,604,206,181,no license file was found,1236,73
+LibreCAD/LibreCAD,1133,189,131,no license file was found,1335,479
+minetest/minetest,2895,555,920,no license file was found,1418,415
+facebookresearch/habitat-sim,572,122,208,Permissive,699,188
+leanprover/lean4,1776,182,709,Permissive,5665,236
+php/php-src,3695,1032,1711,no license file was found,21486,21
+localsend/localsend,22949,1139,472,Permissive,474,8
+Ericsson/codechecker,488,104,132,Permissive,1313,99
+ray-project/ray,9427,1774,5925,Permissive,6834,323
+stanford-futuredata/ColBERT,968,143,114,Permissive,158,6
+AnySoftKeyboard/AnySoftKeyboard,622,169,202,Permissive,4650,9
+rust-lang/rust-bindgen,1188,137,175,Permissive,1353,340
+lightvector/KataGo,1205,178,187,no license file was found,439,127
+SynoCommunity/spksrc,402,171,231,no license file was found,2016,7
+mikebrady/shairport-sync,1249,115,172,no license file was found,137,6
+DataDog/dd-trace-py,169,136,322,Permissive,5352,46
+satijalab/seurat,619,203,1678,no license file was found,40,8
+sewenew/redis-plus-plus,612,131,117,Permissive,120,49
+openxla/xla,1651,227,149,Permissive,4255,2314
+eclipse-iceoryx/iceoryx,636,159,279,Permissive,1517,1203
+shaka-project/shaka-packager,418,115,104,no license file was found,779,351
+olive-editor/olive,1629,131,287,no license file was found,1107,370
+mlcommons/inference,392,134,134,Permissive,545,15
+li-plus/chatglm.cpp,1688,239,125,Permissive,35,5
+facebook/flipper,2511,239,327,Permissive,1739,33
+LWJGL/lwjgl3,892,125,138,Permissive,8385,89
+pybamm-team/PyBaMM,434,217,347,Permissive,870,23
+anchore/syft,2753,312,459,Permissive,1420,6
+transmission/transmission,4265,398,1255,no license file was found,872,226
+hummingbot/hummingbot,2727,1186,483,Permissive,1615,6
+R3nzTheCodeGOD/R3nzSkin,3702,536,716,Permissive,67,52
+apache/tvm,2760,1021,825,Permissive,5900,1191
+hustvl/MapTR,749,121,122,Permissive,873,20
+cfug/dio,757,146,209,Permissive,295,8
+Significant-Gravitas/AutoGPT,5449,5616,106,Permissive,1667,8
+bitcoin/bitcoin,11862,4901,801,Permissive,2348,767
+emscripten-core/emsdk,691,171,128,no license file was found,102,45
+hsutter/cppfront,4661,204,506,no license file was found,167,122
+zhuzichu520/FluentUI,1966,268,253,Permissive,392,47
+akgmage/data-structures-and-algorithms,104,243,516,Permissive,889,267
+CVCUDA/CV-CUDA,1907,183,108,Permissive,1256,772
+google/googletest,6903,2039,268,Permissive,232,106
+microsoft/perfview,784,141,102,Permissive,583,5
+gradle/gradle,2660,782,2424,Permissive,20829,33
+floooh/sokol,1989,202,168,Permissive,102,17
+leanflutter/window_manager,437,124,208,Permissive,66,9
+jrouwe/JoltPhysics,3103,230,114,Permissive,940,390
+E3SM-Project/E3SM,104,108,369,Permissive,3495,928
+firebase/firebase-ios-sdk,1356,388,902,Permissive,2963,365
+microsoft/SEAL,733,200,138,Permissive,325,114
+TKazer/CS2_External,362,107,110,Permissive,45,27
+monero-project/monero-gui,512,115,190,no license file was found,287,40
+Hammerspoon/hammerspoon,2214,113,247,Permissive,1580,26
+alvr-org/ALVR,1857,226,408,Permissive,819,463
+wazuh/wazuh,4152,570,5102,no license file was found,4951,585
+CrowCpp/Crow,1519,211,212,Permissive,137,28
+lfortran/lfortran,464,105,1372,no license file was found,3675,103
+apache/nuttx,827,318,248,Permissive,17572,8
+facebookincubator/velox,2078,582,1251,Permissive,2834,1400
+sogou/workflow,4436,848,273,Permissive,370,98
+carla-simulator/carla,2535,1036,891,Permissive,1408,413
+bytecodealliance/wasm-micro-runtime,1519,251,435,Permissive,1204,60
+rafaelsetragni/awesome_notifications,262,161,235,Permissive,379,11
+marcoslucianops/DeepStream-Yolo,710,199,301,Permissive,92,20
+open-mmlab/mmdeploy,1570,492,1146,Permissive,1835,332
+SimformSolutionsPvtLtd/flutter_calendar_view,215,156,128,Permissive,113,7
+praydog/REFramework,1391,235,439,Permissive,1067,917
+taichi-dev/taichi,5914,477,935,Permissive,1411,358
+xenia-project/xenia,1867,232,107,no license file was found,1114,398
+ros-controls/ros2_control,185,132,130,Permissive,279,123
+pmd/pmd,734,232,397,no license file was found,4631,17
+NVIDIA/DeepLearningExamples,3757,785,183,no license file was found,4503,97
+trustwallet/wallet-core,1076,537,467,Permissive,3027,921
+VROOM-Project/vroom,357,102,226,Permissive,193,85
+wechat-miniprogram/minigame-unity-webgl-transform,1824,286,469,Permissive,2731,5
+open-mmlab/OpenPCDet,1585,524,476,Permissive,343,19
+hashcat/hashcat,6740,800,309,Permissive,3158,154
+nvaccess/nvda,444,118,1167,no license file was found,870,53
+ros2/rclcpp,196,157,141,Permissive,496,450
+apple/foundationdb,2365,264,229,Permissive,2433,627
+ScerIO/packages.flutter,128,230,132,Permissive,389,6
+scipy/scipy,2779,1026,1393,Permissive,2563,75
+microsoft/terminal,12409,1387,2044,Permissive,1815,737
+CesiumGS/cesium-unreal,358,127,252,Permissive,293,123
+microsoft/STL,1802,369,573,no license file was found,1350,1160
+microsoft/DirectML,851,118,173,Permissive,626,141
+PurpleI2P/i2pd,1082,102,113,Permissive,207,101
+love2d/love,1780,154,116,no license file was found,1040,399
+espressif/esp-idf,3640,2015,3229,Permissive,11712,109
+ocornut/imgui,16288,4119,1335,Permissive,186,45
+thonny/thonny,1186,449,719,Permissive,545,7
+soulsmods/ModEngine2,499,118,101,Permissive,109,30
+pawelsalawa/sqlitestudio,1396,129,252,no license file was found,1887,456
+flightlessmango/MangoHud,1976,133,307,Permissive,152,55
+flutter-webrtc/flutter-webrtc,905,330,341,Permissive,287,25
+giuspen/cherrytree,821,124,324,no license file was found,704,260
+trezor/trezor-firmware,387,164,494,no license file was found,2792,6
+Open-Shell/Open-Shell-Menu,1814,122,496,Permissive,421,71
+wang-xinyu/tensorrtx,2348,582,366,Permissive,492,115
+wxWidgets/wxWidgets,1384,361,836,no license file was found,3932,1467
+microsoft/vscode-cpptools,852,250,1559,no license file was found,1125,67
+Tencent/wcdb,659,115,158,no license file was found,2499,672
+Chimoney/chimoney-community-projects,120,161,190,Permissive,429,5
+juicycleff/flutter-unity-view-widget,549,167,256,Permissive,139,9
+matplotlib/matplotlib,3607,1361,1336,no license file was found,1622,60
+espruino/Espruino,291,104,128,no license file was found,2874,64
+ekasetiawans/flutter_background_service,124,116,213,no license file was found,104,5
+sorbet/sorbet,538,137,376,Permissive,4977,276
+ImageMagick/ImageMagick,3439,327,479,no license file was found,1411,54
+swagger-api/swagger-codegen,2063,438,276,Permissive,12874,106
+erlang/otp,1304,390,628,Permissive,7388,118
+ZLMediaKit/ZLMediaKit,5309,1235,1085,no license file was found,459,196
+KhronosGroup/SPIRV-Tools,229,145,138,Permissive,1468,882
+nuttyartist/notes,2743,145,191,Permissive,148,48
+vllm-project/vllm,9813,1160,1008,Permissive,738,13
+mapeditor/tiled,1728,229,342,no license file was found,1041,362
+harfbuzz/harfbuzz,960,152,315,no license file was found,664,396
+OpenTTD/OpenTTD,1539,267,407,no license file was found,1524,668
+MicrosoftDocs/cpp-docs,433,282,451,Permissive,12502,2242
+pqrs-org/Karabiner-Elements,3086,111,516,Permissive,3792,2005
+OI-wiki/OI-wiki,6653,1574,267,no license file was found,1095,210
+libjxl/libjxl,883,147,336,Permissive,887,361
+open-policy-agent/opa,2280,447,555,Permissive,5590,26
+osquery/osquery,2152,269,272,no license file was found,2105,927
+lowRISC/opentitan,778,241,2332,Permissive,6844,277
+ptitSeb/box64,1544,152,408,Permissive,1582,5
+ninja-build/ninja,2241,324,107,Permissive,134,67
+oceanbase/oceanbase,2800,574,523,no license file was found,10950,5137
+mfem/mfem,527,151,441,Permissive,1065,904
+invoiceninja/admin-portal,343,125,156,no license file was found,1065,8
+googleapis/google-cloud-cpp,170,106,656,Permissive,18014,7909
+mgba-emu/mgba,1420,216,501,Permissive,1270,121
+lovyan03/LovyanGFX,455,113,157,no license file was found,415,224
+alibaba/GaiaX,1055,119,141,Permissive,3111,16
+MaterializeInc/materialize,1665,191,3366,no license file was found,3137,17
+open-mmlab/mmcv,1725,715,394,Permissive,771,237
+opencv/opencv,13525,8330,1278,Permissive,6053,2804
+rerun-io/rerun,3405,171,1166,Permissive,2851,550
+bdlukaa/fluent_ui,1355,298,390,Permissive,229,5
+google/highway,2269,158,162,Permissive,206,112
+rh-hideout/pokeemerald-expansion,142,683,460,no license file was found,1965,23
+turboderp/exllamav2,1691,103,121,Permissive,212,18
+opencurve/curve,1152,326,504,Permissive,2251,874
+apple/swift-package-manager,850,219,1299,Permissive,1452,5
+cefsharp/CefSharp,1080,216,202,Permissive,880,44
+zju3dv/EasyMocap,1922,230,198,no license file was found,970,49
+mavlink/MAVSDK,136,138,182,Permissive,769,345
+rapid7/metasploit-framework,5548,2037,712,no license file was found,11861,190
+dotnet/sdk,739,308,1615,Permissive,6875,10
+larryaasen/upgrader,208,154,118,Permissive,128,8
+questdb/questdb,5140,618,687,Permissive,3933,23
+FlaxEngine/FlaxEngine,1967,271,626,no license file was found,3991,684
+wpilibsuite/allwpilib,310,250,498,no license file was found,5185,1835
+ton-blockchain/ton,765,206,102,no license file was found,2043,646
+stellar/stellar-core,244,105,232,no license file was found,972,436
+Blackymas/NSPanel_HA_Blueprint,844,212,696,no license file was found,297,10
+lumapu/ahoy,722,166,693,no license file was found,167,22
+citizenfx/fivem,863,849,488,no license file was found,8893,2468
+yugabyte/yugabyte-db,2150,295,5882,no license file was found,20649,1607
+Wilfred/difftastic,8885,208,264,Permissive,4513,73
+CMU-Perceptual-Computing-Lab/openpose,5297,938,141,Permissive,496,350
+realm/realm-swift,1376,201,443,Permissive,690,45
+pschatzmann/ESP32-A2DP,711,110,125,Permissive,282,6
+Haivision/srt,739,184,215,Permissive,267,97
+SVF-tools/SVF,460,191,172,no license file was found,301,119
+mit-cml/appinventor-sources,274,287,126,Permissive,6261,313
+tensorflow/tflite-micro,771,408,342,Permissive,1093,491
+KRTirtho/spotube,5296,264,484,no license file was found,523,8
+FreeRDP/FreeRDP,3481,8215,439,Permissive,2234,100
+microsoft/msquic,1012,194,184,Permissive,927,70
+microsoft/pxt-microbit,103,101,551,no license file was found,1117,21
+MixinNetwork/flutter-plugins,243,118,137,Permissive,1012,126
+olikraus/u8g2,1473,280,309,no license file was found,3132,64
+qutip/qutip,331,116,122,Permissive,369,6
+yunionio/cloudpods,1039,199,855,Permissive,14923,6
+lballabio/QuantLib,1359,403,111,no license file was found,2670,2537
+UniversalRobots/Universal_Robots_ROS_Driver,237,123,103,Permissive,82,13
+Xinyuan-LilyGO/T-Display-S3,522,118,181,Permissive,2290,174
+python/mypy,4289,816,2150,no license file was found,559,11
+openbmc/openbmc,498,212,108,no license file was found,2335,5
+realm/realm-js,743,108,747,Permissive,1058,8
+introlab/rtabmap,608,134,230,no license file was found,1076,513
+AFLplusplus/LibAFL,818,185,198,Permissive,891,32
+triple-Mu/YOLOv8-TensorRT,786,137,122,Permissive,74,28
+Bodmer/TFT_eSPI,1258,363,435,Permissive,526,12
+uNetworking/uWebSockets,2806,287,109,Permissive,98,35
+confluentinc/librdkafka,777,309,111,Permissive,541,57
+qinguoyi/TinyWebServer,7632,1819,121,Permissive,38,7
+onnx/onnx-mlir,347,145,303,Permissive,820,526
+openvinotoolkit/openvino,1948,580,796,Permissive,14798,9348
+chriskohlhoff/asio,1134,257,257,no license file was found,1280,1248
+BlinkDL/RWKV-LM,9746,613,152,Permissive,75,9
+Z3Prover/z3,2091,309,585,Permissive,2396,944
+microsoft/DeepSpeed,22370,2781,1261,Permissive,1270,57
+XRPLF/rippled,306,146,197,Permissive,1581,644
+apache/doris,6123,1544,2290,Permissive,16779,1292
+fleetdm/fleet,978,215,3494,Permissive,5924,6
+Tencent/mars,1106,265,104,Permissive,4426,2769
+pocoproject/poco,1645,348,379,Permissive,3938,1296
+ic005k/OCAuxiliaryTools,1811,186,118,Permissive,403,295
+trevorwang/retrofit.dart,250,101,112,Permissive,366,8
+mitsuba-renderer/mitsuba3,1613,189,312,Permissive,671,297
+FastLED/FastLED,936,230,127,Permissive,184,12
+mpv-android/mpv-android,725,106,227,Permissive,178,7
+jart/cosmopolitan,6025,243,207,Permissive,11115,247
+react-native-datetimepicker/datetimepicker,619,133,147,Permissive,107,8
+PJLab-ADG/SensorsCalibration,1692,403,115,Permissive,18981,9813
+openMVG/openMVG,1120,220,158,Permissive,2254,865
+pytorch/tutorials,1671,882,165,Permissive,368,6
+mit-han-lab/bevfusion,1657,328,499,Permissive,247,19
+imaNNeo/fl_chart,870,253,146,Permissive,253,8
+ztxz16/fastllm,2439,267,277,Permissive,229,43
+AcademySoftwareFoundation/openexr,316,112,111,Permissive,887,298
+ValveSoftware/openvr,751,149,133,Permissive,408,49
+LaurentMazare/tch-rs,1889,154,212,Permissive,165,5
+fleaflet/flutter_map,605,261,253,Permissive,216,5
+RikkaApps/Shizuku,3963,191,121,Permissive,255,7
+awsdocs/aws-doc-sdk-examples,3374,2151,1058,Permissive,10262,522
+numpy/numpy,5748,2892,1439,Permissive,1696,46
+turanszkij/WickedEngine,1710,224,121,Permissive,1577,361
+shimat/opencvsharp,1118,217,161,Permissive,871,34
+project-chip/connectedhomeip,3170,1077,4157,Permissive,10083,2349
+onnx/onnx,3791,1272,648,Permissive,831,66
+stm32duino/Arduino_Core_STM32,646,239,160,Permissive,9513,745
+microsoft/DiskANN,431,117,122,Permissive,356,74
+assimp/assimp,2167,696,394,Permissive,2015,755
+skypjack/entt,2547,319,145,Permissive,231,170
+WebAssembly/binaryen,1375,158,291,Permissive,1133,308
+dmlc/xgboost,2925,561,619,Permissive,1110,233
+triton-inference-server/server,2943,544,1316,Permissive,708,30
+kokkos/kokkos,631,129,404,Permissive,1374,1166
+eugenp/tutorials,6129,8624,125,Permissive,27776,6
+juce-framework/JUCE,1713,466,139,Permissive,3564,1359
+Tencent/UnLua,579,184,199,Permissive,640,213
+microsoft/react-native-windows,1468,118,502,Permissive,2888,515
+plasma-umass/scalene,4747,159,202,Permissive,327,16
+mavlink/qgroundcontrol,599,673,284,Permissive,2256,417
+microsoft/WindowsAppSDK,891,110,618,Permissive,1483,418
+zoontek/react-native-permissions,719,111,107,Permissive,107,7
+xmake-io/xmake,3617,284,977,Permissive,3068,222
+oatpp/oatpp,2007,272,217,Permissive,465,444
+lovell/sharp,5003,241,578,Permissive,146,7
+alibaba/tengine,1161,205,122,Permissive,1454,6
+alphacep/vosk-api,3119,407,470,Permissive,194,8
+OpenFAST/openfast,223,116,375,Permissive,705,8
+deeplearning4j/deeplearning4j,815,130,102,Permissive,6894,1137
+codesandbox/codesandbox-client,1501,508,621,no license file was found,3364,7
+odin-lang/Odin,2228,285,481,Permissive,411,67
+danielkrupinski/Osiris,1229,493,412,Permissive,390,19
+Rubberduckycooly/RSDKv5-Decompilation,338,162,166,no license file was found,313,207
+ziglang/zig,14438,1126,3143,Permissive,14137,236
+root-project/root,607,227,718,no license file was found,20831,8924
+hpcaitech/ColossalAI,33136,4117,1283,Permissive,2036,10
+o3de/o3de,2737,887,3664,Permissive,21199,7481
+copy/v86,5028,419,164,Permissive,471,11
+duckdb/duckdb,8479,831,2099,Permissive,6111,3537
+microsoft/vscode-cmake-tools,453,177,512,Permissive,1005,12
+protocolbuffers/protobuf,9519,2009,959,Permissive,2621,433
+princeton-vl/infinigen,4623,463,140,Permissive,948,46
+software-mansion/react-native-svg,738,181,139,Permissive,547,54
+mixxxdj/mixxx,1109,284,673,Permissive,2921,891
+yerfor/GeneFace,1725,210,224,Permissive,425,8
+scikit-learn/scikit-learn,8167,3049,1157,Permissive,1162,5
+Kumar-laxmi/Algorithms,328,482,927,Permissive,978,218
+Aircoookie/WLED,4211,1017,600,Permissive,341,86
+NVIDIA/DALI,996,127,349,Permissive,2547,616
+rui314/mold,5782,266,443,Permissive,2284,415
+open-mmlab/mmpose,2547,785,708,Permissive,1815,9
+defold/defold,1351,126,822,Permissive,3728,710
+ithewei/libhv,2418,465,212,Permissive,349,73
+pytorch/TensorRT,784,136,671,Permissive,4428,235
+KhronosGroup/Vulkan-ValidationLayers,238,133,642,Permissive,625,347
+GetStream/stream-chat-flutter,278,142,324,no license file was found,925,21
+aristocratos/btop,7236,271,200,Permissive,64,25
+Chatterino/chatterino2,638,162,298,Permissive,886,776
+ompl/ompl,432,127,141,Permissive,806,323
+tdlib/telegram-bot-api,1045,232,207,Permissive,23,9
+OpenGVLab/InternImage,2019,197,195,Permissive,672,13
+KhronosGroup/Vulkan-Hpp,637,101,112,Permissive,328,189
+tesseract-ocr/tesseract,10828,1157,254,Permissive,645,335
+microsoft/PowerToys,30650,2290,10338,Permissive,3427,424
+libsdl-org/SDL,4534,1027,1559,Permissive,1530,56
+DavBfr/dart_pdf,424,258,446,Permissive,321,13
+miguelpruivo/flutter_file_picker,398,253,305,Permissive,98,8
+dealii/dealii,320,120,375,Permissive,18417,16824
+SuperMonster003/AutoJs6,1288,435,149,Permissive,1908,11
+doublesymmetry/react-native-track-player,727,217,397,Permissive,490,15
+ttttupup/wxhelper,901,331,245,Permissive,102,15
+getsentry/sentry-cocoa,218,108,491,Permissive,1060,17
+FISCO-BCOS/FISCO-BCOS,647,157,202,Permissive,1488,525
+fzyzcjy/flutter_rust_bridge,2061,180,376,Permissive,3433,56
+apache/brpc,1356,317,182,Permissive,1356,572
+stride3d/stride,2267,340,235,Permissive,7610,39
+halide/Halide,779,119,399,Permissive,1932,1226
+OSGeo/PROJ,313,168,203,Permissive,815,279
+ampproject/amphtml,454,233,483,Permissive,6442,70
+rhasspy/piper,1738,132,188,Permissive,129,6
+software-mansion/react-native-reanimated,2104,478,714,Permissive,1210,37
+LibreHardwareMonitor/LibreHardwareMonitor,2053,251,269,Permissive,313,5
+Kushal997-das/Project-Guidance,190,147,216,Permissive,2338,17
+flet-dev/flet,7411,304,999,Permissive,776,8
+microsoft/winget-cli,5316,534,951,Permissive,2601,658
+scylladb/seastar,1250,231,228,Permissive,583,472
+keras-team/keras-cv,672,267,694,Permissive,667,7
+lowRISC/ibex,441,141,204,Permissive,2109,33
+expo/expo,8752,1644,3182,Permissive,11230,58
+superlistapp/super_editor,973,158,466,Permissive,792,26
+madler/zlib,1487,602,116,Permissive,167,5
+AlexeyAB/darknet,2782,1158,295,no license file was found,265,5
+fluent/fluent-bit,1524,434,1179,Permissive,5769,193
+googleforgames/agones,1216,232,265,Permissive,6004,11
+josStorer/RWKV-Runner,3021,270,206,Permissive,331,11
+taskflow/taskflow,2582,341,104,Permissive,3357,1451
+romkatv/powerlevel10k,13671,857,571,Permissive,67,16
+BitMaker-hub/NerdMiner_v2,646,121,127,Permissive,614,37
+warmcat/libwebsockets,659,210,344,Permissive,1535,27
+mavlink/mavros,191,172,134,Permissive,205,111
+CollaboraOnline/online,777,344,764,no license file was found,1335,255
+SanderMertens/flecs,2525,242,147,Permissive,1346,273
+google/perfetto,1096,134,333,Permissive,3568,916
+facebookresearch/fairseq,10902,1975,630,Permissive,1575,12
+llfbandit/record,121,102,149,no license file was found,206,15
+drogonframework/drogon,3449,368,318,Permissive,501,224
+lottie-react-native/lottie-react-native,1565,222,136,Permissive,145,6
+boostorg/beast,773,134,207,Permissive,765,488
+NationalSecurityAgency/ghidra,12781,1358,1134,Permissive,17720,257
+mozilla/sccache,2029,155,190,Permissive,120,5
+github/codeql,2163,618,679,Permissive,23830,1089
+deepjavalibrary/djl,1234,206,316,Permissive,1842,22
+OpenStickCommunity/GP2040-CE,735,197,204,Permissive,977,124
+openshwprojects/OpenBK7231T_App,1008,181,606,no license file was found,528,54
+davisking/dlib,1593,318,143,Permissive,1906,402
+42wim/matterbridge,1341,140,177,Permissive,6154,34
+paullouisageneau/libdatachannel,683,177,187,Permissive,253,163
+zcash/zcash,357,167,353,Permissive,1447,387
+NVlabs/tiny-cuda-nn,1873,313,237,Permissive,101,5
+alibaba/ilogtail,871,185,250,Permissive,1859,273
+alibaba/higress,1862,301,262,Permissive,843,26
+alibaba/havenask,1312,265,134,Permissive,18628,6278
+include-what-you-use/include-what-you-use,887,105,125,no license file was found,641,195
+winsiderss/systeminformer,2421,327,369,Permissive,1068,29
+homuler/MediaPipeUnityPlugin,821,229,388,Permissive,435,32
+rapidsai/cuml,1013,135,320,Permissive,1110,137
+pytorch/vision,3908,1510,738,Permissive,632,59
+AcademySoftwareFoundation/MaterialX,629,119,183,Permissive,803,272
+panda3d/panda3d,994,149,187,Permissive,5231,2092
+UniversalRobots/Universal_Robots_ROS2_Driver,207,109,208,Permissive,160,23
+mawww/kakoune,1614,149,184,Permissive,154,136
+apache/arrow,3566,1046,3173,Permissive,6495,1129
+iovisor/bcc,4435,880,319,Permissive,929,68
+firebase/firebase-android-sdk,420,146,504,Permissive,3204,10
+openssl/openssl,5590,2434,1937,Permissive,3024,12
+PRBonn/kiss-icp,1076,246,141,Permissive,89,18
+dotnet/wpf,1144,347,406,Permissive,6894,801
+UberGuidoZ/Flipper,10129,2568,118,Permissive,13440,30
+envoyproxy/envoy,4114,1074,2920,Permissive,8336,3028
+ros-controls/ros2_controllers,147,151,108,Permissive,354,125
+mpromonet/webrtc-streamer,833,136,126,Permissive,74,9
+oneapi-src/oneTBB,1496,268,178,Permissive,912,341
+chromiumembedded/cef,1058,129,117,Permissive,1986,828
+OpenNMT/CTranslate2,1861,162,347,Permissive,434,137
+nillerusr/source-engine,772,207,150,no license file was found,9342,4235
+PX4/PX4-Autopilot,1868,2101,744,Permissive,4794,2111
+microsoft/calculator,4944,1146,101,Permissive,393,101
+ERGO-Code/HiGHS,428,108,271,Permissive,589,229
+Azure-Samples/cognitive-services-speech-sdk,1131,538,457,Permissive,1229,42
+mumble-voip/mumble,1106,199,269,Permissive,960,299
+ceres-solver/ceres-solver,1078,186,219,Permissive,670,379
+openhwgroup/cva6,524,174,296,Permissive,997,7
+neuvector/neuvector,556,115,195,Permissive,9354,292
+daquexian/onnx-simplifier,1298,126,110,Permissive,21,5
+magma/magma,394,138,861,Permissive,8157,1148
+commaai/openpilot,11365,2447,887,Permissive,1415,210
+StarRocks/starrocks,4122,985,4389,Permissive,10386,1700
+wenet-e2e/wenet,1555,511,538,Permissive,798,62
+google/flatbuffers,3991,608,374,Permissive,1531,87
+SoftEtherVPN/SoftEtherVPN,2040,409,180,Permissive,450,6
+Tencent/rapidjson,1903,489,128,Permissive,267,55
+hoffstadt/DearPyGui,4118,347,289,Permissive,195,53
+secretflow/spu,164,106,165,Permissive,842,295
+cyberbotics/webots,1062,564,439,Permissive,5495,1430
+godotengine/godot,32612,9089,12967,Permissive,8762,2191
+jomjol/AI-on-the-edge-device,2183,284,740,no license file was found,348,54
+eProsima/Fast-DDS,762,263,213,Permissive,3062,2344
+llvm/circt,540,152,774,Permissive,1305,490
+nvim-treesitter/nvim-treesitter,4858,549,802,Permissive,1303,9
+Dao-AILab/flash-attention,3744,324,284,Permissive,389,8
+androidx/media,650,190,624,Permissive,2570,7
+rust-lang/rust,24835,3380,7057,Permissive,32760,14
+ApolloAuto/apollo,3672,1380,606,Permissive,8261,2126
+su2code/SU2,283,187,113,Permissive,1893,800
+jonataslaw/getx,3386,733,464,Permissive,339,9
+SeldonIO/seldon-core,1003,201,369,Permissive,2162,11
+facebookresearch/detectron2,7257,1920,465,Permissive,818,7
+openthread/openthread,563,205,240,Permissive,2617,656
+mockk/mockk,856,114,201,Permissive,405,15
+Alluxio/alluxio,1028,337,526,Permissive,3187,6
+openucx/ucx,326,122,193,Permissive,984,179
+NixOS/nixpkgs,4872,5075,8173,Permissive,37464,8
+dmlc/dgl,3447,1006,980,Permissive,2115,169
+risc0/risc0,1081,180,276,Permissive,1054,12
+randombit/botan,437,114,192,Permissive,1767,735
+organicmaps/organicmaps,4487,636,2054,Permissive,7197,3041
+ethz-asl/kalibr,1202,276,116,Permissive,1563,1253
+pingcap/tiflash,897,321,1204,Permissive,3374,1404
+pygments/pygments,547,215,152,Permissive,1499,5
+opentrack/opentrack,923,101,176,Permissive,813,301
+isar/isar,1933,237,467,Permissive,563,10
+milvus-io/milvus,14264,1247,4421,Permissive,3135,205
+filecxx/FileCentipede,5841,387,507,no license file was found,432,49
+tensorflow/tensorflow,19904,5434,3804,Permissive,19736,9087
+facebookincubator/AITemplate,4174,350,215,Permissive,1263,9
+ggerganov/whisper.cpp,24549,2404,770,Permissive,555,60
+Oneflow-Inc/oneflow,2365,283,357,Permissive,4380,1617
+aws-amplify/amplify-flutter,324,117,701,Permissive,8059,90
+google/sentencepiece,2779,290,155,Permissive,215,83
+chaitin/SafeLine,3375,197,192,no license file was found,211,27
+flyerhq/flutter_chat_ui,890,424,168,Permissive,123,8
+introlab/rtabmap_ros,222,128,294,Permissive,283,79
+bazelbuild/rules_rust,237,160,301,Permissive,966,35
+flutter/flutter,27055,8601,20857,Permissive,6412,73
+InternLM/lmdeploy,1434,132,379,Permissive,758,46
+mmp/pbrt-v4,962,192,106,Permissive,234,114
+4ian/GDevelop,2078,214,589,Permissive,3396,339
+ggerganov/llama.cpp,43588,5026,1582,Permissive,632,102
+YosysHQ/yosys,761,221,237,Permissive,814,321
+finalburnneo/FBNeo,280,378,207,no license file was found,2008,1145
+cvxpy/cvxpy,1013,261,204,Permissive,915,10
+wolfpld/tracy,3066,267,168,Permissive,423,259
+fluttercommunity/plus_plugins,604,521,606,Permissive,636,47
+void-linux/void-packages,673,978,1010,Permissive,420,9
+meganz/MEGAcmd,478,133,241,Permissive,183,33
+apache/rocketmq-clients,194,141,154,Permissive,1756,797
+dotnet/winforms,758,339,780,Permissive,5047,9
+openppl-public/ppq,1062,249,163,Permissive,287,5
+modelscope/modelscope,4686,495,362,Permissive,3451,13
+FastLED/FastLED,936,230,127,Permissive,184,12
+fmtlib/fmt,4790,710,521,Permissive,121,44
+onnx/onnx,3791,1272,648,Permissive,816,67
+mlc-ai/mlc-llm,13351,967,601,Permissive,565,45
+OFA-Sys/OFA,1821,246,301,Permissive,1155,10
+lovell/sharp,5003,241,578,Permissive,144,7
+NVIDIA-AI-IOT/torch2trt,1036,120,132,Permissive,131,6
+open-mmlab/mmdetection3d,2220,839,682,Permissive,1068,5
+FedML-AI/FedML,2231,453,191,Permissive,3508,24
+lucinhu/bili_you,2533,112,162,Permissive,285,8
+mrpond/BlockTheSpot,4566,359,105,Permissive,37,11
+falcosecurity/falco,1839,240,288,Permissive,217,82
+Tencent/ncnn,4391,772,718,Permissive,2866,1149
+awsdocs/aws-doc-sdk-examples,3374,2151,1058,Permissive,9445,426
+Aircoookie/WLED,4211,1017,600,Permissive,339,86
+doublesymmetry/react-native-track-player,727,217,397,Permissive,427,15
+4paradigm/OpenMLDB,700,205,725,Permissive,2540,372
+deepinsight/insightface,7637,1301,429,Permissive,1025,5
+cloudflare/workerd,4895,210,203,Permissive,789,195
+esmini/esmini,265,108,170,Permissive,401,157
+google-research/google-research,9451,2717,359,Permissive,14110,404
+Slicer/Slicer,637,219,298,no license file was found,3554,1267
+PostHog/posthog,7029,578,1588,Permissive,4026,7
+ros-planning/navigation2,932,547,451,no license file was found,1137,724
+li-plus/chatglm.cpp,1688,239,125,Permissive,35,5
+jemalloc/jemalloc,1790,231,150,Permissive,454,7
+mikke89/RmlUi,1073,120,113,Permissive,789,376
+OpenNMT/CTranslate2,1861,162,347,Permissive,368,128
+R3nzTheCodeGOD/R3nzSkin,3702,536,716,Permissive,69,53
+DynamoRIO/dynamorio,537,129,280,Permissive,1560,168
+hustvl/MapTR,749,121,122,Permissive,850,20
+alibaba/GaiaX,1055,119,141,Permissive,2914,10
+schemaorg/schemaorg,633,102,188,Permissive,608,15
+juicycleff/flutter-unity-view-widget,549,167,256,Permissive,133,9
+OpenSees/OpenSees,171,191,104,no license file was found,5247,1740
+BehaviorTree/BehaviorTree.CPP,1163,240,199,Permissive,366,241
+wangwenx190/framelesshelper,446,125,171,Permissive,187,49
+software-mansion/react-native-reanimated,2104,478,714,Permissive,1115,39
+PaddlePaddle/Paddle-Lite,816,255,534,Permissive,4932,2323
+michal-z/zig-gamedev,982,119,116,Permissive,3726,407
+wang-xinyu/tensorrtx,2348,582,366,Permissive,440,105
+wxWidgets/wxWidgets,1384,361,836,no license file was found,3924,1468
+copy/v86,5028,419,164,Permissive,472,11
+google/jax,9039,1022,1560,Permissive,911,46
+uNetworking/uWebSockets,2806,287,109,Permissive,108,35
+HarbourMasters/Shipwright,1630,382,1117,no license file was found,6131,211
+ValveSoftware/Proton,5264,254,1413,Permissive,2599,438
+ByConity/ByConity,1364,198,307,Permissive,12049,3526
+Project-OSRM/osrm-backend,970,576,332,Permissive,2395,1310
+gem5/gem5,525,450,113,Permissive,8234,4218
+flutter/flutter,27055,8601,20857,Permissive,5793,73
+bosskmk/pluto_grid,317,163,396,Permissive,433,20
+warmcat/libwebsockets,659,210,344,Permissive,1527,27
+react-native-datetimepicker/datetimepicker,619,133,147,Permissive,103,8
+crawl/crawl,436,389,411,Permissive,1564,336
+AaronFeng753/Waifu2x-Extension-GUI,5019,289,180,no license file was found,53,32
+localsend/localsend,22949,1139,472,Permissive,440,8
+AFLplusplus/AFLplusplus,1533,396,178,Permissive,596,45
+matplotlib/matplotlib,3607,1361,1336,Permissive,1624,60
+iovisor/bcc,4435,880,319,Permissive,910,68
+PX4/PX4-Autopilot,1868,2101,744,Permissive,4640,2052
+mit-han-lab/bevfusion,1657,328,499,Permissive,244,19
+mpromonet/webrtc-streamer,833,136,126,Permissive,73,9
+aws-amplify/amplify-flutter,324,117,701,Permissive,7382,90
+open-mmlab/mmdetection3d,2220,839,682,Permissive,1067,5
+dotnet/winforms,758,339,780,Permissive,4781,9
+google/sentencepiece,2779,290,155,Permissive,213,83
+satijalab/seurat,619,203,1678,Permissive,37,8
+ggerganov/ggml,7478,674,264,Permissive,164,40
+ekasetiawans/flutter_background_service,124,116,213,no license file was found,101,5
+mlcommons/inference,392,134,134,Permissive,417,15
+GetStream/stream-chat-flutter,278,142,324,no license file was found,909,21
+ethz-asl/kalibr,1202,276,116,Permissive,1557,1249
+WebAssembly/binaryen,1375,158,291,Permissive,1114,293
+apache/arrow,3566,1046,3173,Permissive,6332,1097
+trevorwang/retrofit.dart,250,101,112,Permissive,362,8
+apache/tvm,2760,1021,825,Permissive,5779,1168
+skypjack/entt,2547,319,145,Permissive,230,168
+NVIDIA/nccl,850,186,350,Permissive,160,42
+Alluxio/alluxio,1028,337,526,Permissive,3184,6
+pybamm-team/PyBaMM,434,217,347,Permissive,804,20
+ange-yaghi/engine-sim,8341,821,377,Permissive,206,81
+SuperMonster003/AutoJs6,1288,435,149,Permissive,1903,11
+ZLMediaKit/ZLMediaKit,5309,1235,1085,Permissive,475,196
+justcallmekoko/ESP32Marauder,2847,306,171,Permissive,56,15
+ampproject/amphtml,454,233,483,Permissive,6422,70
+versatica/mediasoup,1326,264,136,Permissive,635,381
+ithewei/libhv,2418,465,212,Permissive,342,70
+alipay/fury,2020,122,202,Permissive,620,22
+cisco/openh264,743,232,103,Permissive,494,147
+YosysHQ/yosys,761,221,237,Permissive,778,317
+keras-team/keras-cv,672,267,694,Permissive,592,7
+daquexian/onnx-simplifier,1298,126,110,Permissive,21,5
+github/codeql,2163,618,679,Permissive,22281,1042
+KhronosGroup/MoltenVK,1091,109,240,Permissive,130,8
+mlc-ai/mlc-llm,13351,967,601,Permissive,425,31
+mrpond/BlockTheSpot,4566,359,105,Permissive,33,9
+ceres-solver/ceres-solver,1078,186,219,Permissive,670,379
+rapidsai/cuml,1013,135,320,Permissive,1089,137
+google/flatbuffers,3991,608,374,Permissive,1491,85
+CVCUDA/CV-CUDA,1907,183,108,Permissive,1190,762
+Tencent/mars,1106,265,104,Permissive,4423,2768
+firebase/firebase-android-sdk,420,146,504,Permissive,3153,10
+Azure-Samples/cognitive-services-speech-sdk,1131,538,457,Permissive,1174,42
+codinasion/program,370,778,4204,Permissive,3118,199
+barry-ran/QtScrcpy,6481,791,215,Permissive,118,15
+symforce-org/symforce,1211,135,111,Permissive,1454,428
+quic/aimet,823,163,543,Permissive,886,83
+dart-lang/http,229,118,139,Permissive,348,16
+pytorch/TensorRT,784,136,671,Permissive,3893,234
+mamba-org/mamba,2491,172,662,Permissive,533,345
+google-ar/arcore-android-sdk,442,189,106,Permissive,1254,437
+apple/swift-package-manager,850,219,1299,Permissive,1334,5
+p4lang/p4c,154,108,318,Permissive,1475,425
+include-what-you-use/include-what-you-use,887,105,125,no license file was found,618,192
+ClickHouse/ClickHouse,9526,2036,6333,Permissive,18723,3773
+duckdb/duckdb,8479,831,2099,Permissive,5880,3490
+taskflow/taskflow,2582,341,104,Permissive,3345,1448
+rapid7/metasploit-framework,5548,2037,712,Permissive,11569,190
+firebase/flutterfire,2019,1088,1884,Permissive,1694,36
+abseil/abseil-cpp,3003,696,191,Permissive,859,441
+COVESA/vsomeip,438,244,167,Permissive,759,573
+microsoft/unilm,11186,1257,551,Permissive,6083,62
+opencv/opencv_contrib,1595,615,141,Permissive,2639,1972
+google/googletest,6903,2039,268,Permissive,232,106
+cfug/dio,757,146,209,Permissive,250,8
+facebookincubator/velox,2078,582,1251,Permissive,2710,1336
+oap-project/gluten,768,244,1082,Permissive,2712,273
+software-mansion/react-native-screens,481,145,168,Permissive,650,16
+ztxz16/fastllm,2439,267,277,Permissive,161,28
+files-community/Files,10254,1047,2795,Permissive,983,6
+TKazer/CS2_External,362,107,110,Permissive,45,27
+hyperledger/iroha,107,116,1063,Permissive,1718,1337
+olikraus/u8g2,1473,280,309,Permissive,3129,64
+ros2/rclcpp,196,157,141,Permissive,484,438
+princeton-vl/infinigen,4623,463,140,Permissive,630,46
+microsoft/onnxruntime,4622,1014,2119,Permissive,6722,2202
+KhronosGroup/SPIRV-Tools,229,145,138,Permissive,1470,883
+pygments/pygments,547,215,152,Permissive,1473,5
+Shopify/react-native-skia,2373,186,361,Permissive,1130,17
+lllyasviel/ControlNet-v1-1-nightly,3569,277,102,no license file was found,867,8
+openMVG/openMVG,1120,220,158,Permissive,2250,863
+open-telemetry/opentelemetry-cpp,262,157,466,Permissive,915,310
+UniversalRobots/Universal_Robots_ROS_Driver,237,123,103,Permissive,80,13
+Rubberduckycooly/RSDKv5-Decompilation,338,162,166,no license file was found,297,192
+FlaxEngine/FlaxEngine,1967,271,626,no license file was found,3960,681
+NVIDIA-AI-IOT/torch2trt,1036,120,132,Permissive,186,6
+zeek/zeek,1294,175,445,Permissive,1260,452
+rapidsai/cudf,2060,213,1251,Permissive,2545,876
+Hammerspoon/hammerspoon,2214,113,247,Permissive,932,17
+homuler/MediaPipeUnityPlugin,821,229,388,Permissive,434,32
+lovyan03/LovyanGFX,455,113,157,Permissive,465,277
+sogou/workflow,4436,848,273,Permissive,285,91
+snowflakedb/snowflake-connector-python,204,219,244,Permissive,385,45
+SeleniumHQ/selenium,5978,1423,1539,Permissive,4490,124
+MixinNetwork/flutter-plugins,243,118,137,Permissive,988,125
+pytorch/xla,652,167,525,no license file was found,785,222
+ThePhD/sol2,829,130,183,Permissive,614,466
+eProsima/Fast-DDS,762,263,213,Permissive,3359,2160
+facebook/hermes,1764,176,190,Permissive,9250,578
+verilog-to-routing/vtr-verilog-to-routing,267,106,145,Permissive,5858,1098
+OpenFAST/openfast,223,116,375,Permissive,698,7
+openthread/openthread,563,205,240,Permissive,2336,626
+colmap/colmap,2230,423,496,Permissive,677,245
+OpenGVLab/InternImage,2019,197,195,Permissive,654,13
+compiler-explorer/compiler-explorer,3924,483,802,Permissive,1579,32
+SeldonIO/seldon-core,1003,201,369,Permissive,2127,11
+alibaba/MNN,1557,297,611,Permissive,4125,2203
+platformio/platform-espressif32,299,205,371,Permissive,887,18
+Open-Shell/Open-Shell-Menu,1814,122,496,Permissive,421,71
+flyerhq/flutter_chat_ui,890,424,168,Permissive,123,8
+ChunelFeng/CGraph,984,175,217,Permissive,308,87
+chriskohlhoff/asio,1134,257,257,no license file was found,1267,1235
+carbon-language/carbon-lang,32178,1762,360,Permissive,708,218
+void-linux/void-packages,673,978,1010,Permissive,387,9
+bigtreetech/BIGTREETECH-SKR-mini-E3,537,388,107,no license file was found,5700,2142
+rizonesoft/Notepad3,1946,112,271,Permissive,1385,417
+swoole/swoole-src,1123,121,268,Permissive,2295,157
+llvm/torch-mlir,657,197,352,Permissive,496,123
+microsoft/devhome,2621,212,805,Permissive,666,10
+fleaflet/flutter_map,605,261,253,Permissive,203,5
+microsoft/DiskANN,431,117,122,Permissive,349,74
+tesseract-ocr/tesseract,10828,1157,254,Permissive,649,335
+aws/s2n-tls,304,119,224,Permissive,1753,6
+mlpack/mlpack,752,161,120,Permissive,1679,1486
+apache/rocketmq-clients,194,141,154,Permissive,1735,791
+shouxieai/tensorRT_Pro,1422,297,121,Permissive,770,204
+nesbox/TIC-80,1201,182,302,Permissive,255,10
+microsoft/Azure-Kinect-Sensor-SDK,322,134,182,Permissive,591,109
+rdkit/rdkit,693,189,513,Permissive,2527,753
+Project-MONAI/MONAI,2036,422,1143,Permissive,1224,16
+prestodb/presto,2151,737,976,Permissive,10400,89
+PaddlePaddle/PaddleVideo,597,156,141,Permissive,920,5
+JFormDesigner/FlatLaf,1388,103,203,Permissive,664,6
+finos/perspective,2687,479,175,Permissive,1113,108
+VROOM-Project/vroom,357,102,226,Permissive,194,86
+open-goal/jak-project,1866,144,714,Permissive,5657,790
+ccache/ccache,597,126,125,Permissive,330,191
+llvm/circt,540,152,774,Permissive,1224,451
+realm/realm-swift,1376,201,443,Permissive,605,45
+monero-project/monero,1678,461,296,Permissive,1209,343
+godotengine/godot-cpp,702,239,239,Permissive,141,94
+PaddlePaddle/PARL,694,201,164,Permissive,878,17
+dotnet/sdk,739,308,1615,Permissive,6036,9
+openhwgroup/cva6,524,174,296,Permissive,850,7
+alibaba/havenask,1312,265,134,Permissive,18445,6259
+alibaba/ilogtail,871,185,250,Permissive,1773,237
+Jigsaw-Code/outline-client,1222,220,216,Permissive,393,7
+bitcoin/bitcoin,11862,4901,801,Permissive,2257,751
+open-mmlab/OpenPCDet,1585,524,476,Permissive,317,19
+appinioGmbH/flutter_packages,127,140,118,no license file was found,410,16
+bloomberg/memray,11150,354,131,Permissive,312,18
+NationalSecurityAgency/ghidra,12781,1358,1134,Permissive,17355,249
+wasmerio/wasmer,5097,257,623,Permissive,1185,21
+simolus3/drift,697,155,482,Permissive,1134,24
+mockk/mockk,856,114,201,Permissive,402,15
+neutrinolabs/xrdp,1323,717,275,Permissive,404,9
+dresden-elektronik/deconz-rest-plugin,308,127,708,Permissive,866,111
+bkaradzic/bgfx,2740,391,122,Permissive,1315,552
+deepmind/mujoco,2712,338,531,Permissive,763,115
+Tencent/UnLua,579,184,199,Permissive,639,213
+zhuzichu520/FluentUI,1966,268,253,Permissive,435,38
+openppl-public/ppq,1062,249,163,Permissive,277,5
+bazelbuild/bazel,3690,746,2333,Permissive,7974,211
+ggerganov/whisper.cpp,24549,2404,770,Permissive,325,34
+antlr/antlr4,3955,764,294,Permissive,2116,140
+me-no-dev/ESPAsyncWebServer,945,318,182,no license file was found,37,8
+dragonflydb/dragonfly,20631,834,617,Permissive,526,156
+RikkaApps/Shizuku,3963,191,121,Permissive,252,7
+facebookresearch/habitat-sim,572,122,208,Permissive,699,187
+NixOS/nixpkgs,4872,5075,8173,Permissive,35024,7
+RobotLocomotion/drake,668,196,787,Permissive,4125,1980
+PaddlePaddle/Paddle3D,511,140,161,Permissive,754,68
+Automattic/node-canvas,1234,168,236,Permissive,136,16
+oatpp/oatpp,2007,272,217,Permissive,435,414
+rr-debugger/rr,1597,130,229,Permissive,1186,85
+mikebrady/shairport-sync,1249,115,172,Permissive,137,6
+chaitin/SafeLine,3375,197,192,no license file was found,152,27
+ljc545w/ComWeChatRobot,1340,381,173,no license file was found,205,76
+google/gvisor,1935,249,198,Permissive,2631,335
+harmonoid/harmonoid,1757,117,168,no license file was found,122,8
+skyline-emu/skyline,10354,1021,604,Permissive,808,247
+turanszkij/WickedEngine,1710,224,121,Permissive,1449,342
+mrousavy/react-native-vision-camera,3004,654,711,Permissive,315,17
+danielkrupinski/Osiris,1229,493,412,Permissive,314,19
+Replicable-MARL/MARLlib,618,107,101,Permissive,663,10
+google/oss-fuzz,2018,562,428,Permissive,5519,202
+valhalla/valhalla,1991,255,375,Permissive,1173,461
+NVIDIA/TensorRT,3198,739,1351,Permissive,1450,156
+Alexays/Waybar,2374,376,687,Permissive,278,193
+KhronosGroup/Vulkan-Loader,125,108,106,Permissive,148,28
+mumble-voip/mumble,1106,199,269,Permissive,956,295
+ompl/ompl,432,127,141,Permissive,806,323
+felangel/bloc,2567,1108,391,Permissive,1860,64
+borglab/gtsam,862,228,166,Permissive,4148,1763
+widgetbook/widgetbook,443,148,235,no license file was found,521,24
+apple/foundationdb,2365,264,229,Permissive,2413,629
+openvinotoolkit/openvino,1948,580,796,Permissive,14201,9180
+bdlukaa/fluent_ui,1355,298,390,Permissive,224,5
+mapeditor/tiled,1728,229,342,Permissive,1034,362
+leanprover/lean4,1776,182,709,Permissive,4286,236
+osquery/osquery,2152,269,272,Permissive,2109,920
+citizenfx/fivem,863,849,488,no license file was found,8696,2433
+openucx/ucx,326,122,193,Permissive,973,182
+jomjol/AI-on-the-edge-device,2183,284,740,no license file was found,330,50
+leanflutter/window_manager,437,124,208,Permissive,70,9
+baldurk/renderdoc,1791,310,347,Permissive,3477,855
+CrowCpp/Crow,1519,211,212,Permissive,123,25
+Bodmer/TFT_eSPI,1258,363,435,Permissive,526,12
+Megvii-BaseDetection/YOLOX,2836,849,402,Permissive,138,6
+getsentry/sentry-cocoa,218,108,491,Permissive,950,17
+microsoft/DirectML,851,118,173,Permissive,634,138
+qutip/qutip,331,116,122,Permissive,351,6
+open-mmlab/mmpose,2547,785,708,Permissive,1811,9
+NVIDIA/apex,1579,370,175,Permissive,462,36
+LWJGL/lwjgl3,892,125,138,Permissive,8149,81
+Xinyuan-LilyGO/T-Display-S3,522,118,181,Permissive,2136,143
+pmd/pmd,734,232,397,Permissive,4718,17
+PanQiWei/AutoGPTQ,2601,249,260,Permissive,131,6
+CGAL/cgal,1320,246,507,Permissive,10441,2658
+tensorflow/tflite-micro,771,408,342,Permissive,1086,488
+microsoft/calculator,4944,1146,101,Permissive,392,101
+react-native-webview/react-native-webview,1394,752,527,Permissive,143,8
+AcademySoftwareFoundation/MaterialX,629,119,183,Permissive,810,274
+WasmEdge/WasmEdge,4169,400,564,Permissive,1023,273
+zhkl0228/unidbg,1246,293,133,Permissive,904,5
+Z3Prover/z3,2091,309,585,Permissive,2398,936
+cefsharp/CefSharp,1080,216,202,Permissive,871,44
+cloudflare/workerd,4895,210,203,Permissive,672,184
+pingcap/tiflash,897,321,1204,Permissive,3385,1436
+Oneflow-Inc/oneflow,2365,283,357,Permissive,4363,1615
+HazyResearch/flash-attention,4074,334,251,Permissive,380,8
+finalburnneo/FBNeo,280,378,207,no license file was found,1998,1138
+flutter/devtools,375,115,916,Permissive,1397,13
+MultiMC/Launcher,1242,204,591,Permissive,784,296
+aseprite/aseprite,8298,1951,659,Permissive,1759,756
+Haivision/srt,739,184,215,Permissive,263,97
+dnfield/flutter_svg,294,129,246,Permissive,101,9
+eclipse-iceoryx/iceoryx,636,159,279,Permissive,1482,1178
+sorbet/sorbet,538,137,376,Permissive,5445,292
+libgdx/libgdx,3004,516,190,Permissive,3161,254
+AOMediaCodec/libavif,482,109,108,Permissive,248,61
+envoyproxy/envoy,4114,1074,2920,Permissive,8143,2940
+KhronosGroup/SPIRV-Cross,400,137,157,Permissive,2483,41
+romkatv/powerlevel10k,13671,857,571,Permissive,67,16
+yunionio/cloudpods,1039,199,855,Permissive,13752,6
+zju3dv/EasyMocap,1922,230,198,no license file was found,964,49
+mpv-android/mpv-android,725,106,227,Permissive,177,7
+PJLab-ADG/SensorsCalibration,1692,403,115,Permissive,18964,9813
+Tencent/wcdb,659,115,158,Permissive,1961,609
+Zylann/godot_voxel,838,105,151,Permissive,944,314
+anhkgg/SuperRDP,1320,191,163,Permissive,17,6
+commaai/openpilot,11365,2447,887,Permissive,1337,234
+alexdobin/STAR,424,110,402,Permissive,368,161
+isar/isar,1933,237,467,Permissive,559,10
+nillerusr/source-engine,772,207,150,no license file was found,9334,4233
+fluent/fluent-bit,1524,434,1179,Permissive,5278,113
+openfoodfacts/smooth-app,464,218,1379,Permissive,556,7
+fluttercommunity/plus_plugins,604,521,606,Permissive,663,47
+lief-project/LIEF,1026,170,196,Permissive,1329,958
+FedML-AI/FedML,2231,453,191,Permissive,3016,24
+realm/realm-js,743,108,747,Permissive,975,11
+secretflow/spu,164,106,165,Permissive,746,265
+kcat/openal-soft,492,158,193,Permissive,304,132
+ros-controls/ros2_controllers,147,151,108,Permissive,340,124
+baaivision/EVA,1578,126,109,Permissive,1737,15
+facebook/react-native,14570,3170,3280,Permissive,4823,399
+AaronFeng753/Waifu2x-Extension-GUI,5019,289,180,no license file was found,53,32
+rust-lang/rust-bindgen,1188,137,175,Permissive,1315,338
+google/omaha,820,137,147,Permissive,1314,581
+E3SM-Project/E3SM,104,108,369,Permissive,3457,966
+kokkos/kokkos,631,129,404,Permissive,1359,1160
+facebookresearch/seamless_communication,5535,479,163,Permissive,262,18
+facebookresearch/faiss,8892,743,451,Permissive,690,180
+Tencent/TNN,805,152,179,no license file was found,4409,1891
+open62541/open62541,563,276,401,Permissive,599,9
+hathach/tinyusb,1625,440,190,Permissive,1571,11
+VirusTotal/yara,1681,286,146,Permissive,229,11
+magma/magma,394,138,861,Permissive,8027,1144
+python/mypy,4289,816,2150,Permissive,511,11
+Const-me/Whisper,5535,505,174,Permissive,465,121
+dmlc/dgl,3447,1006,980,Permissive,2063,168
+Tencent/bk-cmdb,554,132,145,Permissive,3601,73
+googleapis/google-cloud-cpp,170,106,656,Permissive,16259,6868
+LibreHardwareMonitor/LibreHardwareMonitor,2053,251,269,Permissive,310,5
+google-research/google-research,9451,2717,359,Permissive,13078,384
+OSGeo/PROJ,313,168,203,Permissive,796,279
+neetcode-gh/leetcode,4156,2217,188,Permissive,3334,338
+rh-hideout/pokeemerald-expansion,142,683,460,no license file was found,1818,23
+ArthurSonzogni/FTXUI,2765,232,152,Permissive,266,229
+yhirose/cpp-httplib,4222,777,319,Permissive,42,17
+redpanda-data/redpanda,4364,305,4172,no license file was found,3229,886
+OpenAPITools/openapi-generator,6600,2029,1950,Permissive,25828,206
+SimformSolutionsPvtLtd/flutter_calendar_view,215,156,128,Permissive,109,7
+openmc-dev/openmc,258,127,241,Permissive,935,114
+facebookresearch/detectron2,7257,1920,465,Permissive,796,7
+openfheorg/openfhe-development,429,124,245,Permissive,588,234
+scikit-learn/scikit-learn,8167,3049,1157,Permissive,1281,5
+dart-lang/sdk,1902,506,4699,Permissive,24886,646
+nasa/fprime,1033,224,361,Permissive,2103,1022
+UniversalRobots/Universal_Robots_ROS2_Driver,207,109,208,Permissive,147,24
+o3de/o3de,2737,887,3664,Permissive,21013,7532
+cheat-engine/cheat-engine,5105,811,523,no license file was found,1578,40
+PaddlePaddle/Paddle,3598,1362,3001,Permissive,13618,4038
+lightvector/KataGo,1205,178,187,Permissive,429,126
+fzyzcjy/flutter_rust_bridge,2061,180,376,Permissive,2606,24
+wechat-miniprogram/minigame-unity-webgl-transform,1824,286,469,Permissive,2629,5
+FISCO-BCOS/FISCO-BCOS,647,157,202,Permissive,1482,518
+strukturag/libheif,470,119,208,Permissive,212,78
+nvim-treesitter/nvim-treesitter,4858,549,802,Permissive,1154,9
+dotnet/machinelearning,910,188,423,Permissive,3788,27
+miguelpruivo/flutter_file_picker,398,253,305,Permissive,105,8
+paullouisageneau/libdatachannel,683,177,187,Permissive,240,154
+Perfare/AssetStudio,4047,770,136,Permissive,229,14
+BlinkDL/RWKV-LM,9746,613,152,Permissive,64,7
+xmake-io/xmake,3617,284,977,Permissive,2906,188
+StarRocks/starrocks,4122,985,4389,Permissive,9554,1586
+expo/expo,8752,1644,3182,Permissive,12466,142
+ggerganov/llama.cpp,43588,5026,1582,Permissive,344,69
+yugabyte/yugabyte-db,2150,295,5882,Permissive,18456,1561
+fleetdm/fleet,978,215,3494,Permissive,5135,6
+praydog/REFramework,1391,235,439,Permissive,947,799
+microsoft/pxt-microbit,103,101,551,Permissive,1077,21
+introlab/rtabmap,608,134,230,Permissive,1043,499
+ros-controls/ros2_control,185,132,130,Permissive,258,122
+bluefireteam/audioplayers,535,279,327,Permissive,238,14
+sewenew/redis-plus-plus,612,131,117,Permissive,119,49
+organicmaps/organicmaps,4487,636,2054,Permissive,7093,3060
+jrouwe/JoltPhysics,3103,230,114,Permissive,911,376
+i18next/react-i18next,1486,188,163,Permissive,474,5
+userver-framework/userver,2032,210,149,Permissive,3466,2753
+opentrack/opentrack,923,101,176,Permissive,815,299
+google/perfetto,1096,134,333,Permissive,3151,824
+KhronosGroup/Vulkan-Hpp,637,101,112,Permissive,327,189
+erlang/otp,1304,390,628,Permissive,7040,118
+momentum-mod/game,116,104,345,no license file was found,3798,1718
+xenia-project/xenia,1867,232,107,Permissive,1113,397
+microsoft/SEAL,733,200,138,Permissive,325,114
+nomic-ai/gpt4all,52007,5659,1076,Permissive,254,28
+microsoft/perfview,784,141,102,Permissive,566,5
+pranjay-poddar/Dev-Geeks,674,1155,2463,Permissive,8013,125
+Xilinx/Vitis-AI,496,189,545,Permissive,6306,2246
+ryanheise/just_audio,330,303,366,no license file was found,154,8
+openssl/openssl,5590,2434,1937,Permissive,2984,12
+emscripten-core/emscripten,2737,524,1286,Permissive,7721,1200
+love2d/love,1780,154,116,Permissive,1034,398
+KhronosGroup/Vulkan-ValidationLayers,238,133,642,Permissive,561,313
+microsoft/AirSim,2720,782,195,Permissive,889,340
+dotnet/aspnetcore,6389,2589,6282,Permissive,14065,96
+ValveSoftware/openvr,751,149,133,Permissive,407,49
+deepjavalibrary/djl,1234,206,316,Permissive,1844,24
+UberGuidoZ/Flipper,10129,2568,118,Permissive,13229,30
+mgba-emu/mgba,1420,216,501,Permissive,1269,121
+apple/swift,7104,1377,1939,Permissive,22066,1272
+F-Stack/f-stack,542,130,105,Permissive,19264,21
+The-OpenROAD-Project/OpenROAD,542,281,530,Permissive,2798,799
+CMU-Perceptual-Computing-Lab/openpose,5297,938,141,Permissive,496,350
+PaddlePaddle/PaddleSpeech,6294,993,945,Permissive,3059,115
+grpc/grpc,6523,2133,871,Permissive,7257,1711
+cocotb/cocotb,470,145,230,Permissive,454,16
+calamares/calamares,371,161,176,Permissive,933,273
+eugenp/tutorials,6129,8624,125,Permissive,25720,6
+apple/coremltools,1136,223,339,Permissive,2714,514
+ValveSoftware/halflife,508,101,328,Permissive,835,359
+stride3d/stride,2267,340,235,Permissive,7596,43
+microsoft/vscode,28851,7668,34659,Permissive,6382,6
+horovod/horovod,1577,267,204,Permissive,465,52
+lballabio/QuantLib,1359,403,111,Permissive,2664,2537
+dusty-nv/jetson-inference,1542,524,315,Permissive,1626,69
+Tencent/puerts,1849,281,564,Permissive,1165,783
+doctest/doctest,1575,229,112,Permissive,233,52
+tensorflow/tfjs,1953,329,607,Permissive,3322,170
+dogecoin/dogecoin,1097,479,132,Permissive,1150,328
+opencv/opencv,13525,8330,1278,Permissive,5832,2763
+SpiderLabs/ModSecurity,1788,242,157,Permissive,744,208
+NVIDIA/DeepLearningExamples,3757,785,183,no license file was found,4240,97
+cyberbotics/webots,1062,564,439,Permissive,5493,1430
+NVIDIA/TransformerEngine,1024,141,105,Permissive,288,16
+ETLCPP/etl,689,142,144,Permissive,1091,587
+larryaasen/upgrader,208,154,118,Permissive,124,8
+google/filament,3037,503,459,Permissive,9525,2267
+facebook/folly,5407,1072,167,Permissive,2139,1028
+keybase/client,818,132,302,Permissive,5137,7
+Slicer/Slicer,637,219,298,no license file was found,3550,1267
+kingToolbox/WindTerm,13902,1082,1150,Permissive,408,14
+zeromq/libzmq,1390,303,139,Permissive,659,445
+gradle/gradle,2660,782,2424,Permissive,20059,33
+superlistapp/super_editor,973,158,466,Permissive,649,21
+meganz/MEGAcmd,478,133,241,Permissive,155,20
+lowRISC/ibex,441,141,204,Permissive,2077,33
+alibaba/AliOS-Things,413,243,241,Permissive,21108,891
+singerdmx/flutter-quill,1023,465,401,Permissive,372,8
+zephyrproject-rtos/zephyr,3097,2025,4749,Permissive,18832,59
+PaddlePaddle/PaddleX,976,200,264,Permissive,1303,70
+huggingface/transformers,56329,10084,4186,Permissive,3732,5
+AFLplusplus/LibAFL,818,185,198,Permissive,780,29
+yerfor/GeneFace,1725,210,224,Permissive,393,8
+redis/redis,9398,2789,888,Permissive,1497,8
+neuvector/neuvector,556,115,195,Permissive,5423,292
+pqrs-org/Karabiner-Elements,3086,111,516,Permissive,2796,1141
+tensorflow/tensorflow,19904,5434,3804,Permissive,19006,8658
+facebookincubator/AITemplate,4174,350,215,Permissive,1254,9
