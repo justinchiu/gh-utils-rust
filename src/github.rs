@@ -33,20 +33,13 @@ pub async fn get_pull_requests_with_issues(
         let (owner, repo_name) = repo
             .split_once('/')
             .expect("Repository must be in format owner/repo");
-        let start_time = Instant::now();
         let all_pulls = fetch_all_pull_requests(octocrab, owner, repo_name).await;
-        let duration = start_time.elapsed();
-        println!(
-            "Time taken to fetch pull requests for {}: {:?}",
-            repo, duration
-        );
 
         if all_pulls.is_empty() {
             eprintln!("Failed to fetch pull requests for {}", repo);
             continue;
         }
 
-        println!("Retrieved {} pulls from API for {}", all_pulls.len(), repo);
         let mut prs_with_issues = Vec::new();
         for pull in all_pulls {
             let issues = extract_issues_from_pr(&pull, &keyword_issue_regex, &url_issue_regex);
@@ -152,15 +145,7 @@ pub async fn get_commits_with_issues(
             .split_once('/')
             .expect("Repository must be in format owner/repo");
         // Fetch all commits and apply issue URLs
-        let start_time = Instant::now();
         let all_commits = fetch_all_commits(octocrab, owner, repo_name).await;
-        let duration = start_time.elapsed();
-        println!("Time taken to fetch commits for {}: {:?}", repo, duration);
-        println!(
-            "Retrieved {} commits from API for {}",
-            all_commits.len(),
-            repo
-        );
 
         let mut commits_with_issues = Vec::new();
         // Process commits for issues
