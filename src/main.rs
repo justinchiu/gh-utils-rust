@@ -3,7 +3,9 @@ mod github;
 use csv::Reader;
 use github::{get_commits_with_issues, get_pull_requests_with_issues};
 use octocrab::Octocrab;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
+use std::fs::File;
+use std::io::Write;
 use std::error::Error;
 use std::fs::File;
 use std::time::Instant;
@@ -61,43 +63,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         return Ok(());
     }
 
-    // Print pull requests
-    for (repo, prs) in repo_prs.iter() {
-        println!("\nRepository: {}", repo);
-        if prs.is_empty() {
-            println!("No pull requests found.");
-        } else {
-            println!("Found {} pull requests", prs.len());
-            for (pr, issues) in prs {
-                println!(
-                    "\nPR #{}: {}",
-                    pr.number,
-                    pr.title.as_deref().unwrap_or("No title")
-                );
-                if !issues.is_empty() {
-                    println!("Related issues: {:?}", issues);
-                }
-            }
-        }
-    }
+    // Save pull requests to JSON file
+    let prs_json = serde_json::to_string_pretty(&repo_prs)?;
+    let mut prs_file = File::create("pull_requests.json")?;
+    prs_file.write_all(prs_json.as_bytes())?;
+    println!("Saved pull requests data to pull_requests.json");
 
-    // Print commits
-    for (repo, commits) in repo_commits.iter() {
-        println!("\nRepository: {} (Commits)", repo);
-        if commits.is_empty() {
-            println!("No commits found with issue references.");
-        } else {
-            println!("Found {} commits with issue references", commits.len());
-            for (commit, issues) in commits {
-                println!(
-                    "\nCommit {}: {}",
-                    &commit.sha[..7],
-                    commit.commit.message.lines().next().unwrap_or("No message")
-                );
-                println!("Related issues: {:?}", issues);
-            }
-        }
-    }
+    // Save commits to JSON file
+    let commits_json = serde_json::to_string_pretty(&repo_commits)?;
+    let mut commits_file = File::create("commits.json")?;
+    commits_file.write_all(commits_json.as_bytes())?;
+    println!("Saved commits data to commits.json");
 
     Ok(())
 }
