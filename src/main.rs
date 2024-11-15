@@ -32,6 +32,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     println!("Processing {} repos", repos.len());
+    
+    // Clone repositories
+    println!("Cloning repositories...");
+    if let Err(e) = github::clone_repositories(&repos) {
+        eprintln!("Error cloning repositories: {}", e);
+    }
 
     // Check if token exists and print status
     let token = match std::env::var("GITHUB_TOKEN") {

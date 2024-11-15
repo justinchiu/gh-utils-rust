@@ -5,6 +5,8 @@ use octocrab::{
 };
 use std::string::String;
 use std::time::Instant;
+use std::path::Path;
+use git2::Repository;
 
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
 use regex::Regex;
@@ -214,4 +216,37 @@ async fn fetch_all_commits(octocrab: &Octocrab, owner: &str, repo_name: &str) ->
         }
     }
     all_commits
+}
+pub fn clone_repositories(repos: &Vec<String>) -> Result<(), git2::Error> {
+    let base_path = Path::new("repos");
+    if !base_path.exists() {
+        std::fs::create_dir(base_path).expect("Failed to create repos directory");
+    }
+
+    let pb = ProgressBar::new(repos.len() as u64);
+    pb.set_style(ProgressStyle::default_bar()
+        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
+        .unwrap()
+        .progress_chars("##-"));
+
+    for repo in pb.wrap_iter(repos.iter()) {
+        pb.set_message(format!("Cloning {}", repo));
+        let (owner, repo_name) = repo
+            .split_once('/')
+            .expect("Repository must be in format owner/repo");
+        
+        let repo_path = base_path.join(format!("{}__{}", owner, repo_name));
+        if !repo_path.exists() {
+            match Repository::clone(
+                &format!("https://github.com/{}/{}.git", owner, repo_name),
+                &repo_path
+            ) {
+                Ok(_) => (),
+                Err(e) => eprintln!("Failed to clone {}: {}", repo, e),
+            }
+        }
+    }
+    
+    pb.finish_with_message("Completed cloning repositories");
+    Ok(())
 }
