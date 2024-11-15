@@ -3,12 +3,9 @@ mod github;
 use csv::Reader;
 use github::{get_commits_with_issues, get_pull_requests_with_issues};
 use octocrab::Octocrab;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use std::fs::File;
 use std::io::Write;
-use std::error::Error;
-use std::fs::File;
-use std::time::Instant;
 
 #[derive(Debug, Deserialize)]
 struct RepoData {
