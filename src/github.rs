@@ -22,21 +22,14 @@ pub async fn get_pull_requests_with_issues(
     // Match GitHub issue URLs
     let url_issue_regex = Regex::new(r"https?://github\.com/[^/]+/[^/]+/issues/(\d+)").unwrap();
 
-    let progress_bar = ProgressBar::new(repos.len() as u64);
-    progress_bar.set_style(ProgressStyle::default_bar()
+    let pb = ProgressBar::new(repos.len() as u64);
+    pb.set_style(ProgressStyle::default_bar()
         .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
         .unwrap()
         .progress_chars("##-"));
     
-    let progress_bar = ProgressBar::new(repos.len() as u64);
-    progress_bar.set_style(ProgressStyle::default_bar()
-        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
-        .unwrap()
-        .progress_chars("##-"));
-    
-    for repo in repos {
-        progress_bar.set_message(format!("Processing {}", repo));
-        progress_bar.set_message(format!("Processing {}", repo));
+    for repo in pb.wrap_iter(repos.iter()) {
+        pb.set_message(format!("Processing {}", repo));
         let (owner, repo_name) = repo
             .split_once('/')
             .expect("Repository must be in format owner/repo");
@@ -62,7 +55,7 @@ pub async fn get_pull_requests_with_issues(
 
         repo_prs.insert(repo.to_string(), prs_with_issues);
     }
-    progress_bar.finish_with_message("Completed fetching pull requests");
+    pb.finish_with_message("Completed fetching pull requests");
     repo_prs
 }
 
@@ -147,7 +140,14 @@ pub async fn get_commits_with_issues(
     // Match GitHub issue URLs
     let url_issue_regex = Regex::new(r"https?://github\.com/[^/]+/[^/]+/issues/(\d+)").unwrap();
 
-    for repo in repos {
+    let pb = ProgressBar::new(repos.len() as u64);
+    pb.set_style(ProgressStyle::default_bar()
+        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
+        .unwrap()
+        .progress_chars("##-"));
+
+    for repo in pb.wrap_iter(repos.iter()) {
+        pb.set_message(format!("Processing {}", repo));
         let (owner, repo_name) = repo
             .split_once('/')
             .expect("Repository must be in format owner/repo");
@@ -175,7 +175,7 @@ pub async fn get_commits_with_issues(
 
         repo_commits.insert(repo.to_string(), commits_with_issues);
     }
-    progress_bar.finish_with_message("Completed fetching commits");
+    pb.finish_with_message("Completed fetching commits");
     repo_commits
 }
 

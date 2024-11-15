@@ -22,7 +22,7 @@ struct RepoData {
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Get repos
-    let file = File::open("mydata/repos.csv")?;
+    let file = File::open("mydata/python.csv")?;
     let mut rdr = Reader::from_reader(file);
 
     let mut repos = Vec::new();
@@ -31,6 +31,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("{:?}", &record.repo_name);
         repos.push(record.repo_name);
     }
+
+    println!("Processing {} repos", repos.len());
 
     // Check if token exists and print status
     let token = match std::env::var("GITHUB_TOKEN") {
