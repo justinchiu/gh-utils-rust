@@ -1,5 +1,5 @@
 use octocrab::{
-    models::{pulls::PullRequest, repos::RepoCommit},
+    models::{pulls::PullRequest, repos::RepoCommit, issues::Issue},
     params::State,
     Octocrab,
 };
@@ -217,6 +217,62 @@ async fn fetch_all_commits(octocrab: &Octocrab, owner: &str, repo_name: &str) ->
     }
     all_commits
 }
+pub async fn get_all_issues(
+    octocrab: &Octocrab,
+    repos: &Vec<String>,
+) -> HashMap<String, Vec<Issue>> {
+    let mut repo_issues = HashMap::new();
+
+    let pb = ProgressBar::new(repos.len() as u64);
+    pb.set_style(ProgressStyle::default_bar()
+        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
+        .unwrap()
+        .progress_chars("##-"));
+
+    for repo in pb.wrap_iter(repos.iter()) {
+        pb.set_message(format!("Processing {}", repo));
+        let (owner, repo_name) = repo
+            .split_once('/')
+            .expect("Repository must be in format owner/repo");
+
+        let mut all_issues = Vec::new();
+        let result_page = octocrab
+            .issues(owner, repo_name)
+            .list()
+            .state(State::All)
+            .per_page(100)
+            .send()
+            .await;
+
+        let mut page = match result_page {
+            Ok(x) => x,
+            Err(e) => {
+                eprintln!("Error fetching issues for {}: {}", repo, e);
+                continue;
+            }
+        };
+
+        loop {
+            all_issues.extend(page.take_items());
+            match octocrab.get_page(&page.next).await {
+                Ok(Some(next_page)) => page = next_page,
+                Ok(None) => break,
+                Err(e) => {
+                    eprintln!("Error fetching next page: {}", e);
+                    break;
+                }
+            }
+        }
+
+        if !all_issues.is_empty() {
+            repo_issues.insert(repo.to_string(), all_issues);
+        }
+    }
+
+    pb.finish_with_message("Completed fetching issues");
+    repo_issues
+}
+
 pub fn clone_repositories(repos: &Vec<String>) -> Result<(), git2::Error> {
     let base_path = Path::new("repos");
     if !base_path.exists() {

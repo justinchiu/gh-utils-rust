@@ -60,9 +60,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let repo_prs = get_pull_requests_with_issues(&octocrab, &repos).await;
     let repo_commits = get_commits_with_issues(&octocrab, &repos).await;
+    let repo_issues = get_all_issues(&octocrab, &repos).await;
 
-    if repo_prs.is_empty() && repo_commits.is_empty() {
-        println!("No repositories found with pull requests or commits.");
+    if repo_prs.is_empty() && repo_commits.is_empty() && repo_issues.is_empty() {
+        println!("No repositories found with pull requests, commits, or issues.");
         return Ok(());
     }
 
@@ -77,6 +78,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut commits_file = File::create("commits.json")?;
     commits_file.write_all(commits_json.as_bytes())?;
     println!("Saved commits data to commits.json");
+
+    // Save issues to JSON file
+    let issues_json = serde_json::to_string_pretty(&repo_issues)?;
+    let mut issues_file = File::create("issues.json")?;
+    issues_file.write_all(issues_json.as_bytes())?;
+    println!("Saved issues data to issues.json");
 
     Ok(())
 }
