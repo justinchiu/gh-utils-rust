@@ -32,7 +32,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     println!("Processing {} repos", repos.len());
-    
+
     // Clone repositories
     println!("Cloning repositories...");
     if let Err(e) = github::clone_repositories(&repos) {

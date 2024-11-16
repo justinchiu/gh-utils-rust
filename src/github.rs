@@ -1,17 +1,17 @@
+use git2::Repository;
 use octocrab::{
-    models::{pulls::PullRequest, repos::RepoCommit, issues::Issue},
+    models::{issues::Issue, pulls::PullRequest, repos::RepoCommit},
     params::State,
     Octocrab,
 };
+use std::path::Path;
 use std::string::String;
 use std::time::Instant;
-use std::path::Path;
-use git2::Repository;
 
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
+use indicatif::{ProgressBar, ProgressStyle};
 use regex::Regex;
 use std::collections::HashMap;
-use indicatif::{ProgressBar, ProgressStyle};
 
 pub async fn get_pull_requests_with_issues(
     octocrab: &Octocrab,
@@ -25,11 +25,13 @@ pub async fn get_pull_requests_with_issues(
     let url_issue_regex = Regex::new(r"https?://github\.com/[^/]+/[^/]+/issues/(\d+)").unwrap();
 
     let pb = ProgressBar::new(repos.len() as u64);
-    pb.set_style(ProgressStyle::default_bar()
-        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
-        .unwrap()
-        .progress_chars("##-"));
-    
+    pb.set_style(
+        ProgressStyle::default_bar()
+            .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
+            .unwrap()
+            .progress_chars("##-"),
+    );
+
     for repo in pb.wrap_iter(repos.iter()) {
         pb.set_message(format!("Processing {}", repo));
         let (owner, repo_name) = repo
@@ -136,10 +138,12 @@ pub async fn get_commits_with_issues(
     let url_issue_regex = Regex::new(r"https?://github\.com/[^/]+/[^/]+/issues/(\d+)").unwrap();
 
     let pb = ProgressBar::new(repos.len() as u64);
-    pb.set_style(ProgressStyle::default_bar()
-        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
-        .unwrap()
-        .progress_chars("##-"));
+    pb.set_style(
+        ProgressStyle::default_bar()
+            .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
+            .unwrap()
+            .progress_chars("##-"),
+    );
 
     for repo in pb.wrap_iter(repos.iter()) {
         pb.set_message(format!("Processing {}", repo));
@@ -217,6 +221,7 @@ async fn fetch_all_commits(octocrab: &Octocrab, owner: &str, repo_name: &str) ->
     }
     all_commits
 }
+
 pub async fn get_all_issues(
     octocrab: &Octocrab,
     repos: &Vec<String>,
@@ -224,10 +229,12 @@ pub async fn get_all_issues(
     let mut repo_issues = HashMap::new();
 
     let pb = ProgressBar::new(repos.len() as u64);
-    pb.set_style(ProgressStyle::default_bar()
-        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
-        .unwrap()
-        .progress_chars("##-"));
+    pb.set_style(
+        ProgressStyle::default_bar()
+            .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
+            .unwrap()
+            .progress_chars("##-"),
+    );
 
     for repo in pb.wrap_iter(repos.iter()) {
         pb.set_message(format!("Processing {}", repo));
@@ -280,29 +287,31 @@ pub fn clone_repositories(repos: &Vec<String>) -> Result<(), git2::Error> {
     }
 
     let pb = ProgressBar::new(repos.len() as u64);
-    pb.set_style(ProgressStyle::default_bar()
-        .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
-        .unwrap()
-        .progress_chars("##-"));
+    pb.set_style(
+        ProgressStyle::default_bar()
+            .template("[{elapsed_precise}] {bar:40.cyan/blue} {pos}/{len} {msg}")
+            .unwrap()
+            .progress_chars("##-"),
+    );
 
     for repo in pb.wrap_iter(repos.iter()) {
         pb.set_message(format!("Cloning {}", repo));
         let (owner, repo_name) = repo
             .split_once('/')
             .expect("Repository must be in format owner/repo");
-        
+
         let repo_path = base_path.join(format!("{}__{}", owner, repo_name));
         if !repo_path.exists() {
             match Repository::clone(
                 &format!("https://github.com/{}/{}.git", owner, repo_name),
-                &repo_path
+                &repo_path,
             ) {
                 Ok(_) => (),
                 Err(e) => eprintln!("Failed to clone {}: {}", repo, e),
             }
         }
     }
-    
+
     pb.finish_with_message("Completed cloning repositories");
     Ok(())
 }
