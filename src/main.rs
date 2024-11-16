@@ -1,7 +1,7 @@
 mod github;
 
 use csv::Reader;
-use github::{get_commits_with_issues, get_pull_requests_with_issues};
+use github::{get_all_issues, get_commits_with_issues, get_pull_requests_with_issues};
 use octocrab::Octocrab;
 use serde::Deserialize;
 use std::fs::File;

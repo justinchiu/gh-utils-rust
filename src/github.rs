@@ -6,7 +6,6 @@ use octocrab::{
 };
 use std::path::Path;
 use std::string::String;
-use std::time::Instant;
 
 // Documentation for PullRequestHandler: https://docs.rs/octocrab/latest/octocrab/pulls/struct.PullRequestHandler.html
 use indicatif::{ProgressBar, ProgressStyle};
