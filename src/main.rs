@@ -1,4 +1,5 @@
 mod github;
+mod join;
 
 use csv::Reader;
 use github::{get_all_issues, get_commits_with_issues, get_pull_requests_with_issues};
@@ -84,6 +85,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut commits_file = File::create("commits.json")?;
     commits_file.write_all(commits_json.as_bytes())?;
     println!("Saved commits data to commits.json");
+
+    // Analyze relationships between issues, PRs, and commits
+    let analyses = join::align_repo_data(&repos, &repo_issues, &repo_prs, &repo_commits);
+    
+    // Print summary of findings
+    join::print_analysis_summary(&analyses);
 
     Ok(())
 }
