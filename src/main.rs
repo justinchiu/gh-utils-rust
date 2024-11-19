@@ -1,7 +1,7 @@
 mod github;
 mod join;
 
-use clap::{arg, command, value_parser, ArgAction, Command};
+use clap::{command, Command};
 use csv::Reader;
 use github::{get_all_issues, get_commits_with_issues, get_pull_requests_with_issues};
 use octocrab::{models::{issues::Issue, pulls::PullRequest, repos::RepoCommit}, Octocrab};

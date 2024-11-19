@@ -86,7 +86,7 @@ pub fn print_analysis_summary(analyses: &[RepoAnalysis]) {
             if !linked_issues.is_empty() {
                 println!(
                     "PR #{} links to issues: {:?}",
-                    pr.number.unwrap_or_default(),
+                    pr.number.unwrap_or(0),
                     linked_issues
                 );
             }
