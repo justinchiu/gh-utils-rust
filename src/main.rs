@@ -100,12 +100,6 @@ async fn fetch_and_analyze() -> Result<(), Box<dyn std::error::Error>> {
     commits_file.write_all(commits_json.as_bytes())?;
     println!("Saved commits data to commits.json");
 
-    // Analyze relationships between issues, PRs, and commits
-    let analyses = join::align_repo_data(&repos, &repo_issues, &repo_prs, &repo_commits);
-    
-    // Print summary of findings
-    join::print_analysis_summary(&analyses);
-
     Ok(())
 }
 
