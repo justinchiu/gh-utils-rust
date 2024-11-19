@@ -133,8 +133,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .get_matches();
 
     match matches.subcommand() {
-        Some(("fetch", _)) => fetch_and_analyze().await?,
-        Some(("analyze", _)) => analyze_existing_files().await?,
+        Some(("fetch", _)) => {
+            println!("Running fetch");
+            fetch_and_analyze().await?;
+        },
+        Some(("analyze", _)) => {
+            println!("Running analyze");
+            analyze_existing_files().await?;
+        },
         _ => unreachable!("Unknown subcommand"),
     }
 
