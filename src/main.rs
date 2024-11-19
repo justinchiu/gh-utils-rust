@@ -1,12 +1,28 @@
 mod github;
 mod join;
 
+use clap::{Parser, Subcommand};
 use csv::Reader;
 use github::{get_all_issues, get_commits_with_issues, get_pull_requests_with_issues};
 use octocrab::Octocrab;
 use serde::Deserialize;
 use std::fs::File;
-use std::io::Write;
+use std::io::{Read, Write};
+
+#[derive(Parser)]
+#[command(author, version, about, long_about = None)]
+struct Cli {
+    #[command(subcommand)]
+    command: Option<Commands>,
+}
+
+#[derive(Subcommand)]
+enum Commands {
+    /// Fetch new data from GitHub and perform analysis
+    Fetch,
+    /// Analyze existing JSON files without fetching new data
+    Analyze,
+}
 
 #[derive(Debug, Deserialize)]
 struct RepoData {
@@ -19,9 +35,7 @@ struct RepoData {
     num_python_files: i32,
 }
 
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // Get repos
+async fn fetch_and_analyze() -> Result<(), Box<dyn std::error::Error>> {
     let file = File::open("mydata/python.csv")?;
     let mut rdr = Reader::from_reader(file);
 
@@ -91,6 +105,47 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     
     // Print summary of findings
     join::print_analysis_summary(&analyses);
+
+    Ok(())
+}
+
+async fn analyze_existing_files() -> Result<(), Box<dyn std::error::Error>> {
+    // Read existing JSON files
+    let mut issues_file = File::open("issues.json")?;
+    let mut issues_content = String::new();
+    issues_file.read_to_string(&mut issues_content)?;
+    let repo_issues: HashMap<String, Vec<Issue>> = serde_json::from_str(&issues_content)?;
+
+    let mut prs_file = File::open("pull_requests.json")?;
+    let mut prs_content = String::new();
+    prs_file.read_to_string(&mut prs_content)?;
+    let repo_prs: HashMap<String, Vec<(PullRequest, Vec<String>)>> = serde_json::from_str(&prs_content)?;
+
+    let mut commits_file = File::open("commits.json")?;
+    let mut commits_content = String::new();
+    commits_file.read_to_string(&mut commits_content)?;
+    let repo_commits: HashMap<String, Vec<(RepoCommit, Vec<String>)>> = serde_json::from_str(&commits_content)?;
+
+    // Get repos list from issues map
+    let repos: Vec<String> = repo_issues.keys().cloned().collect();
+
+    // Analyze relationships
+    let analyses = join::align_repo_data(&repos, &repo_issues, &repo_prs, &repo_commits);
+    
+    // Print summary
+    join::print_analysis_summary(&analyses);
+
+    Ok(())
+}
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let cli = Cli::parse();
+
+    match cli.command.unwrap_or(Commands::Fetch) {
+        Commands::Fetch => fetch_and_analyze().await?,
+        Commands::Analyze => analyze_existing_files().await?,
+    }
 
     Ok(())
 }
