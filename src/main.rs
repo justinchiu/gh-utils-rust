@@ -1,7 +1,7 @@
 mod github;
 mod join;
 
-use clap::{Parser, Subcommand};
+use clap::{arg, command, value_parser, ArgAction, Command};
 use csv::Reader;
 use github::{get_all_issues, get_commits_with_issues, get_pull_requests_with_issues};
 use octocrab::{models::{issues::Issue, pulls::PullRequest, repos::RepoCommit}, Octocrab};
@@ -9,21 +9,6 @@ use std::collections::HashMap;
 use serde::Deserialize;
 use std::fs::File;
 use std::io::{Read, Write};
-
-#[derive(Parser)]
-#[clap(author, version, about, long_about = None)]
-struct Cli {
-    #[clap(subcommand)]
-    command: Option<Commands>,
-}
-
-#[derive(clap::Subcommand)]
-enum Commands {
-    /// Fetch new data from GitHub and perform analysis
-    Fetch,
-    /// Analyze existing JSON files without fetching new data
-    Analyze,
-}
 
 #[derive(Debug, Deserialize)]
 struct RepoData {
@@ -135,11 +120,22 @@ async fn analyze_existing_files() -> Result<(), Box<dyn std::error::Error>> {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let cli = Cli::parse();
+    let matches = command!()
+        .subcommand_required(true)
+        .subcommand(
+            Command::new("fetch")
+                .about("Fetches information from Github (API)")
+        )
+        .subcommand(
+            Command::new("analyze")
+                .about("Joins fetched data and saves analysis")
+        )
+        .get_matches();
 
-    match cli.command.unwrap_or(Commands::Fetch) {
-        Commands::Fetch => fetch_and_analyze().await?,
-        Commands::Analyze => analyze_existing_files().await?,
+    match matches.subcommand() {
+        Some(("fetch", _)) => fetch_and_analyze().await?,
+        Some(("analyze", _)) => analyze_existing_files().await?,
+        _ => unreachable!("Unknown subcommand"),
     }
 
     Ok(())
