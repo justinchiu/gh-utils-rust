@@ -1,7 +1,7 @@
 mod github;
 mod join;
 
-use clap::{Parser, Subcommand, command};
+use clap::{Parser, Subcommand};
 use csv::Reader;
 use github::{get_all_issues, get_commits_with_issues, get_pull_requests_with_issues};
 use octocrab::{models::{issues::Issue, pulls::PullRequest, repos::RepoCommit}, Octocrab};
@@ -11,13 +11,13 @@ use std::fs::File;
 use std::io::{Read, Write};
 
 #[derive(Parser)]
-#[command(author, version, about, long_about = None)]
+#[clap(author, version, about, long_about = None)]
 struct Cli {
-    #[command(subcommand)]
+    #[clap(subcommand)]
     command: Option<Commands>,
 }
 
-#[derive(Subcommand)]
+#[derive(clap::Subcommand)]
 enum Commands {
     /// Fetch new data from GitHub and perform analysis
     Fetch,
